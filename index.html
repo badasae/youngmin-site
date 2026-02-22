@@ -284,7 +284,6 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
 
-    /* language blocks */
     [data-lang="en"]{ display:none; }
   </style>
 </head>
@@ -296,12 +295,8 @@
         <div class="brand">
           <div class="kicker"><span class="dot"></span> PORTFOLIO</div>
 
-          <div data-lang="kr">
-            <h1>문영민</h1>
-          </div>
-          <div data-lang="en">
-            <h1>Youngmin Moon</h1>
-          </div>
+          <div data-lang="kr"><h1>문영민</h1></div>
+          <div data-lang="en"><h1>Youngmin Moon</h1></div>
 
           <p class="subtitle">Embedded Systems Developer</p>
         </div>
@@ -331,8 +326,8 @@
 
           <div data-lang="en">
             <p class="lead">
-              I have experience designing STM32-based embedded firmware and resolving power/control issues in real hardware environments.
-              I implemented a Timer/PWM/Interrupt-driven control architecture and have hands-on experience in AC/DC power separation and power system redesign.
+              I have hands-on experience designing STM32-based embedded firmware and resolving power and control issues in real hardware environments.
+              I implemented a Timer/PWM/Interrupt-driven control architecture and have practical experience in AC/DC power separation and power-system redesign.
             </p>
           </div>
 
@@ -352,20 +347,16 @@
           <h2>One-line Principle</h2>
 
           <div data-lang="kr">
-            <p class="lead">
-              저는 시스템이 실제로 안정적으로 동작하는지를 기준으로 판단하는 임베디드 개발자입니다.
-            </p>
+            <p class="lead">저는 시스템이 실제로 안정적으로 동작하는지를 기준으로 판단하는 임베디드 개발자입니다.</p>
             <p class="muted" style="margin-top:10px;">
               코드의 완성도보다 현장의 신뢰성을 우선하며, 문제 발생 시 장비 교체보다 구조 분석을 먼저 선택해 왔습니다.
             </p>
           </div>
 
           <div data-lang="en">
-            <p class="lead">
-              I prioritize real-world system reliability as the first principle of embedded development.
-            </p>
+            <p class="lead">I am an embedded developer who evaluates decisions by whether the system operates reliably in real conditions.</p>
             <p class="muted" style="margin-top:10px;">
-              I value field stability over code “perfection,” and when issues occur, I start with root-cause and system-structure analysis before replacing equipment.
+              I prioritize field reliability over code “perfection,” and when issues occur, I start with system-structure analysis before replacing equipment.
             </p>
           </div>
 
@@ -404,19 +395,17 @@
           <div class="proj-head">
             <div>
               <h3 class="proj-title">PROJECT 01 — AI-Based Smart Recycling Using 3-axis Orthogonal Coordinate Robot System Development</h3>
-
               <p class="proj-sub" data-lang="kr">개요: STM32 기반 자동 분류 및 초음파 세척 시스템 구현</p>
-              <p class="proj-sub" data-lang="en">Overview: Implemented STM32-based automatic sorting and ultrasonic cleaning system.</p>
+              <p class="proj-sub" data-lang="en">Overview: Built an STM32-based automatic sorting and ultrasonic cleaning system.</p>
             </div>
-
             <div class="small" data-lang="kr">역할: 모터 제어 · 전력 분리 설계 · 펌웨어 구현 · 하드웨어 설계</div>
-            <div class="small" data-lang="en">Role: Motor control, power separation design, firmware implementation, hardware design.</div>
+            <div class="small" data-lang="en">Role: Motor control, AC/DC power separation design, firmware implementation, hardware design.</div>
           </div>
 
           <div class="grid2">
             <div class="kv">
               <h3 data-lang="kr">기술 요소</h3>
-              <h3 data-lang="en">Tech Stack</h3>
+              <h3 data-lang="en">Technical Elements</h3>
 
               <ul data-lang="kr">
                 <li>STM32, C, Fusion 360</li>
@@ -437,7 +426,7 @@
 
             <div class="kv">
               <h3 data-lang="kr">성과</h3>
-              <h3 data-lang="en">Achievements</h3>
+              <h3 data-lang="en">Outcomes</h3>
 
               <ul data-lang="kr">
                 <li>[교내] 창업지적재산권 페스티벌 장려상</li>
@@ -455,25 +444,25 @@
 
               <p class="small" style="margin-top:8px;">
                 <span data-lang="kr">(수상/성과는 사실 기반으로만 기재)</span>
-                <span data-lang="en">(All achievements are listed based on verified facts.)</span>
+                <span data-lang="en">(All awards/outcomes are listed based on verified facts.)</span>
               </p>
             </div>
           </div>
 
           <div class="problem">
             <h4 data-lang="kr">문제 1 — 전력 사양 불일치</h4>
-            <h4 data-lang="en">Issue 1 — Power Spec Mismatch</h4>
+            <h4 data-lang="en">Issue 1 — Power Specification Mismatch</h4>
 
             <div class="rows">
               <div class="row">
                 <b data-lang="kr">상황</b><b data-lang="en">Situation</b>
                 <span data-lang="kr">  파워서플라이 실제 출력이 고지 사양보다 낮아 전압 강하 및 구동 불안정 문제가 발생</span>
-                <span data-lang="en">  Actual PSU output was lower than the stated spec, causing voltage drop and unstable operation.</span>
+                <span data-lang="en">  The PSU delivered lower output than the stated spec, causing voltage drops and unstable operation.</span>
               </div>
               <div class="row">
                 <b data-lang="kr">판단</b><b data-lang="en">Decision</b>
                 <span data-lang="kr">  신규 장비 구매 대신 기존 장비 활용을 선택</span>
-                <span data-lang="en">  Chose to stabilize using existing equipment rather than purchasing a new PSU.</span>
+                <span data-lang="en">  Chose to stabilize the system using existing equipment rather than purchasing a new PSU.</span>
               </div>
               <div class="row">
                 <b data-lang="kr">해결</b><b data-lang="en">Solution</b>
@@ -483,7 +472,7 @@
               <div class="row">
                 <b data-lang="kr">결과</b><b data-lang="en">Result</b>
                 <span data-lang="kr">  전력 안정성 확보</span>
-                <span data-lang="en">  Achieved stable power delivery and reliable operation.</span>
+                <span data-lang="en">  Achieved stable power delivery and reliable system operation.</span>
               </div>
             </div>
           </div>
@@ -496,17 +485,17 @@
               <div class="row">
                 <b data-lang="kr">현상</b><b data-lang="en">Symptom</b>
                 <span data-lang="kr">  속도 계산 오차 발생</span>
-                <span data-lang="en">  Speed calculation errors occurred.</span>
+                <span data-lang="en">  Speed measurement contained errors due to unstable encoder signals.</span>
               </div>
               <div class="row">
                 <b data-lang="kr">판단</b><b data-lang="en">Decision</b>
                 <span data-lang="kr">  시스템 신뢰성 우선</span>
-                <span data-lang="en">  Prioritized system reliability.</span>
+                <span data-lang="en">  Prioritized system reliability and predictable behavior.</span>
               </div>
               <div class="row">
                 <b data-lang="kr">해결</b><b data-lang="en">Solution</b>
                 <span data-lang="kr">  폐루프 제어 대신 개방루프 PWM 구조로 전환</span>
-                <span data-lang="en">  Switched from closed-loop control to a stable open-loop PWM approach.</span>
+                <span data-lang="en">  Switched from closed-loop control to a stable open-loop PWM control approach.</span>
               </div>
               <div class="row">
                 <b data-lang="kr">결과</b><b data-lang="en">Result</b>
@@ -522,19 +511,17 @@
           <div class="proj-head">
             <div>
               <h3 class="proj-title">PROJECT 02 — Towing AMR Embedded Control System</h3>
-
               <p class="proj-sub" data-lang="kr">개요: STM32 기반 견인 로봇 제어 시스템 구현</p>
-              <p class="proj-sub" data-lang="en">Overview: Implemented STM32-based towing AMR control system.</p>
+              <p class="proj-sub" data-lang="en">Overview: Implemented an STM32-based towing AMR control system.</p>
             </div>
-
             <div class="small" data-lang="kr">역할: 모터 제어 및 액추에이터 제어 로직 구현</div>
-            <div class="small" data-lang="en">Role: Motor control and actuator control logic implementation.</div>
+            <div class="small" data-lang="en">Role: Implemented motor and actuator control logic on STM32.</div>
           </div>
 
           <div class="grid2">
             <div class="kv">
               <h3 data-lang="kr">기술 요소</h3>
-              <h3 data-lang="en">Tech Stack</h3>
+              <h3 data-lang="en">Technical Elements</h3>
 
               <ul data-lang="kr">
                 <li>STM32, C</li>
@@ -547,7 +534,7 @@
                 <li>STM32, C</li>
                 <li>PWM motor control</li>
                 <li>Linear actuator control</li>
-                <li>Mechanical design in Fusion 360</li>
+                <li>Mechanical design using Fusion 360</li>
               </ul>
             </div>
 
@@ -556,7 +543,7 @@
               <h3 data-lang="en">Key Point</h3>
 
               <p data-lang="kr">“구조적 원인 정의 → 재설계 → 반복 부하 테스트” 및 전반적인 하드웨어 설계</p>
-              <p data-lang="en">Focused on “root-cause definition → redesign → repetitive load testing” and overall hardware design.</p>
+              <p data-lang="en">Focused on “root cause identification → redesign → repetitive load testing,” including overall hardware design.</p>
             </div>
           </div>
 
@@ -583,7 +570,7 @@
               <div class="row">
                 <b data-lang="kr">결과</b><b data-lang="en">Result</b>
                 <span data-lang="kr">  구조 안정성 확보</span>
-                <span data-lang="en">  Achieved stable and durable structure.</span>
+                <span data-lang="en">  Achieved a stable and durable structure.</span>
               </div>
             </div>
           </div>
@@ -594,13 +581,14 @@
     <section id="skills">
       <div class="section-title">
         <h2>Technical Summary</h2>
-        <div class="hint"></div>
+        <div class="hint">
+          <span data-lang="kr"></span><span data-lang="en"></span>
+        </div>
       </div>
 
       <div class="skills">
         <div class="card">
-          <h2 data-lang="kr">Firmware</h2>
-          <h2 data-lang="en">Firmware</h2>
+          <h2>Firmware</h2>
 
           <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="kr">
             <li>STM32 펌웨어 설계</li>
@@ -611,13 +599,12 @@
           <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en">
             <li>STM32 firmware design</li>
             <li>Timer/PWM/Interrupt-driven control architecture</li>
-            <li>Encoder-based speed measurement</li>
+            <li>Encoder-based speed measurement implementation</li>
           </ul>
         </div>
 
         <div class="card">
-          <h2 data-lang="kr">Power & Hardware</h2>
-          <h2 data-lang="en">Power & Hardware</h2>
+          <h2>Power & Hardware</h2>
 
           <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="kr">
             <li>AC/DC 전력 분리 설계 경험</li>
@@ -626,8 +613,8 @@
           </ul>
 
           <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en">
-            <li>AC/DC power separation design</li>
-            <li>Power spec analysis and redesign</li>
+            <li>AC/DC power separation design experience</li>
+            <li>Power specification analysis and redesign</li>
             <li>Hardware-based debugging experience</li>
           </ul>
         </div>
@@ -660,7 +647,7 @@
 
         <p class="small" style="margin-top:10px;">
           <span data-lang="kr">파일명이 다르면 링크의 파일명도 같이 바꾸면 됩니다.</span>
-          <span data-lang="en">If your filenames differ, update the links accordingly.</span>
+          <span data-lang="en">If your filenames differ, update the link filenames as well.</span>
         </p>
       </div>
     </section>
@@ -672,9 +659,7 @@
       </div>
 
       <div class="card">
-        <p style="margin:0 0 6px;">
-          <b>Email</b> <span class="muted">: ansdudals61@naver.com</span>
-        </p>
+        <p style="margin:0 0 6px;"><b>Email</b> <span class="muted">: ansdudals61@naver.com</span></p>
       </div>
     </section>
 
@@ -687,7 +672,6 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Language toggle (KR <-> EN)
     const langBtn = document.getElementById('langBtn');
     let current = 'kr';
 
@@ -703,13 +687,12 @@
       langBtn.textContent = (lang === 'kr') ? 'EN' : 'KR';
       document.documentElement.lang = (lang === 'kr') ? 'ko' : 'en';
 
-      // keep choice in browser
       try { localStorage.setItem('site_lang', lang); } catch(e) {}
     }
 
-    // restore (optional)
     let saved = null;
     try { saved = localStorage.getItem('site_lang'); } catch(e) {}
+
     const params = new URLSearchParams(window.location.search);
     const forced = params.get('lang');
 
@@ -717,6 +700,10 @@
     else if(forced === 'kr') setLang('kr');
     else if(saved === 'en' || saved === 'kr') setLang(saved);
     else setLang('kr');
+
+    langBtn.addEventListener('click', () => {
+      setLang(current === 'kr' ? 'en' : 'kr');
+    });
   </script>
 </body>
 </html>
