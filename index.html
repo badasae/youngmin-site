@@ -320,6 +320,7 @@
             <span class="tag">Encoder</span>
             <span class="tag">AC/DC Power Split</span>
             <span class="tag">Hardware Debugging</span>
+            <span class="tag">3D Modeling</span>
           </div>
         </div>
 
@@ -347,7 +348,7 @@
     <section id="projects">
       <div class="section-title">
         <h2>Projects</h2>
-        <div class="hint">문제 → 판단 → 해결 → 결과 구조로 요약</div>
+        <div class="hint">문제 → 판단 → 해결 → 결과</div>
       </div>
 
       <div class="proj">
@@ -358,14 +359,14 @@
               <h3 class="proj-title">PROJECT 01 — AI-Based Smart Recycling Using 3-axis Orthogonal Coordinate Robot System Development</h3>
               <p class="proj-sub">개요: STM32 기반 자동 분류 및 초음파 세척 시스템 구현</p>
             </div>
-            <div class="small">역할: 모터 제어 · 전력 분리 설계 · 펌웨어 구현</div>
+            <div class="small">역할: 모터 제어 · 전력 분리 설계 · 펌웨어 구현 · 하드웨어 설계</div>
           </div>
 
           <div class="grid2">
             <div class="kv">
               <h3>기술 요소</h3>
               <ul>
-                <li>STM32, C</li>
+                <li>STM32, C, Fusion 360</li>
                 <li>Timer 기반 PWM 제어</li>
                 <li>Encoder Interrupt 속도 측정</li>
                 <li>Relay 기반 AC 220V 분리 제어</li>
@@ -375,8 +376,10 @@
             <div class="kv">
               <h3>성과</h3>
               <ul>
-                <li>캡스톤 디자인 특별상</li>
-                <li>교외 논문대회 동상</li>
+                <li>[교내] 창업지적재산권 페스티벌 장려상</li>
+                <li>특허 출원</li>
+                <li>[교외] 한국정보기술학회 추계종합학술대회 동상</li>
+                <li>[교내] 캡스톤디자인 경진대회 특별상</li>
               </ul>
               <p class="small" style="margin-top:8px;">
                 (수상/성과는 사실 기반으로만 기재)
@@ -387,20 +390,20 @@
           <div class="problem">
             <h4>문제 1 — 전력 사양 불일치</h4>
             <div class="rows">
-              <div class="row"><b>상황</b> <span>파워서플라이 실제 출력이 고지 사양보다 낮아 전압 강하 및 구동 불안정 문제가 발생</span></div>
-              <div class="row"><b>판단</b> <span>신규 장비 구매 대신 기존 장비 활용을 선택</span></div>
-              <div class="row"><b>해결</b> <span>부하 분배 재설계, 전력 구조 재구성, 전압 강하 회로 재정비</span></div>
-              <div class="row"><b>결과</b> <span>전력 안정성 확보</span></div>
+              <div class="row"><b>상황</b> <span>  파워서플라이 실제 출력이 고지 사양보다 낮아 전압 강하 및 구동 불안정 문제가 발생</span></div>
+              <div class="row"><b>판단</b> <span>  신규 장비 구매 대신 기존 장비 활용을 선택</span></div>
+              <div class="row"><b>해결</b> <span>  부하 분배 재설계, 전력 구조 재구성, 전압 강하 회로 재정비</span></div>
+              <div class="row"><b>결과</b> <span>  전력 안정성 확보</span></div>
             </div>
           </div>
 
           <div class="problem">
             <h4>문제 2 — 엔코더 신호 불안정</h4>
             <div class="rows">
-              <div class="row"><b>현상</b> <span>속도 계산 오차 발생</span></div>
-              <div class="row"><b>판단</b> <span>시스템 신뢰성 우선</span></div>
-              <div class="row"><b>해결</b> <span>폐루프 제어 대신 개방루프 PWM 구조로 전환</span></div>
-              <div class="row"><b>결과</b> <span>실동작 안정성 확보 방향으로 제어 구조 개선</span></div>
+              <div class="row"><b>현상</b> <span>  속도 계산 오차 발생</span></div>
+              <div class="row"><b>판단</b> <span>  시스템 신뢰성 우선</span></div>
+              <div class="row"><b>해결</b> <span>  폐루프 제어 대신 개방루프 PWM 구조로 전환</span></div>
+              <div class="row"><b>결과</b> <span>  실동작 안정성 확보 방향으로 제어 구조 개선</span></div>
             </div>
           </div>
         </article>
@@ -428,7 +431,7 @@
             <div class="kv">
               <h3>핵심 포인트</h3>
               <p>
-                “구조적 원인 정의 → 재설계 → 반복 부하 테스트”로 신뢰성을 확보한 경험을 강조했습니다.
+                “구조적 원인 정의 → 재설계 → 반복 부하 테스트” 및 전반적인 하드웨어 설계
               </p>
             </div>
           </div>
@@ -436,10 +439,10 @@
           <div class="problem">
             <h4>문제 — 구조 강성 부족</h4>
             <div class="rows">
-              <div class="row"><b>상황</b> <span>3D 프린팅 필라멘트 부품이 반복 부하에서 변형 발생</span></div>
-              <div class="row"><b>판단</b> <span>구조 보강 필요</span></div>
-              <div class="row"><b>해결</b> <span>기구 재설계, 반복 부하 테스트 수행</span></div>
-              <div class="row"><b>결과</b> <span>구조 안정성 확보</span></div>
+              <div class="row"><b>상황</b> <span>  3D 프린팅 필라멘트 부품이 반복 부하에서 변형 발생</span></div>
+              <div class="row"><b>판단</b> <span>  구조 보강 필요</span></div>
+              <div class="row"><b>해결</b> <span>  기구 재설계, 반복 부하 테스트 수행</span></div>
+              <div class="row"><b>결과</b> <span>  구조 안정성 확보</span></div>
             </div>
           </div>
         </article>
@@ -449,7 +452,7 @@
     <section id="skills">
       <div class="section-title">
         <h2>Technical Summary</h2>
-        <div class="hint">바로 질문 받을 만한 키워드 중심</div>
+        <div class="hint"></div>
       </div>
 
       <div class="skills">
@@ -475,7 +478,7 @@
     <section id="docs">
       <div class="section-title">
         <h2>Documents</h2>
-        <div class="hint">필요한 파일만 저장소에 업로드하면 자동 연결</div>
+        <div class="hint"></div>
       </div>
 
       <div class="card">
@@ -487,22 +490,21 @@
           <a class="btn secondary" href="portfolio.pdf" target="_blank" rel="noopener">포트폴리오(PDF)</a>
         </div>
         <p class="small" style="margin-top:10px;">
-          파일명이 다르면 버튼 링크의 파일명도 같이 바꾸시면 됩니다.
-        </p>
+                 </p>
       </div>
     </section>
 
     <section id="contact">
       <div class="section-title">
         <h2>Contact</h2>
-        <div class="hint">이메일/깃허브만으로도 충분합니다</div>
+        <div class="hint"></div>
       </div>
 
       <div class="card">
         <p style="margin:0 0 6px;"><b>Email</b> <span class="muted">: (여기에 이메일 입력)</span></p>
         <p style="margin:0 0 6px;"><b>GitHub</b> <span class="muted">: </span><a href="https://github.com/badasae" target="_blank" rel="noopener">github.com/badasae</a></p>
         <p class="small" style="margin-top:12px;">
-          필요하시면 연락처/링크드인/노션 링크를 추가하셔도 됩니다.
+          
         </p>
       </div>
     </section>
