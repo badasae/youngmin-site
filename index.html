@@ -35,9 +35,8 @@
     a:hover{ text-decoration:underline; }
 
     .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 64px; }
-    header{
-      padding:28px 0 10px;
-    }
+    header{ padding:28px 0 10px; }
+
     .topbar{
       display:flex;
       align-items:center;
@@ -90,6 +89,7 @@
       border-radius:999px;
       color:var(--text);
       font-size:13px;
+      cursor:pointer;
     }
     .pill:hover{ border-color: rgba(77,163,255,.6); text-decoration:none; }
 
@@ -283,6 +283,9 @@
     .mono{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
+
+    /* language blocks */
+    [data-lang="en"]{ display:none; }
   </style>
 </head>
 
@@ -292,25 +295,46 @@
       <div class="topbar">
         <div class="brand">
           <div class="kicker"><span class="dot"></span> PORTFOLIO</div>
-          <h1>문영민</h1>
+
+          <div data-lang="kr">
+            <h1>문영민</h1>
+          </div>
+          <div data-lang="en">
+            <h1>Youngmin Moon</h1>
+          </div>
+
           <p class="subtitle">Embedded Systems Developer</p>
         </div>
 
-        <nav class="nav" aria-label="sections">
-          <a class="pill" href="#projects">Projects</a>
-          <a class="pill" href="#skills">Skills</a>
-          <a class="pill" href="#docs">Docs</a>
-          <a class="pill" href="#contact">Contact</a>
-        </nav>
+        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+          <nav class="nav" aria-label="sections">
+            <a class="pill" href="#projects">Projects</a>
+            <a class="pill" href="#skills">Skills</a>
+            <a class="pill" href="#docs">Docs</a>
+            <a class="pill" href="#contact">Contact</a>
+          </nav>
+
+          <button class="pill" id="langBtn" type="button" aria-label="toggle language">EN</button>
+        </div>
       </div>
 
       <div class="hero">
         <div class="card">
           <h2>Summary</h2>
-          <p class="lead">
-            STM32 기반 임베디드 펌웨어를 설계하고 실제 하드웨어 환경에서 발생한 전력 및 제어 문제를 해결한 경험이 있습니다.
-            Timer, PWM, Interrupt 기반 제어 구조를 구현했으며 AC/DC 전원 분리 설계와 전력 재구성 경험을 보유하고 있습니다.
-          </p>
+
+          <div data-lang="kr">
+            <p class="lead">
+              STM32 기반 임베디드 펌웨어를 설계하고 실제 하드웨어 환경에서 발생한 전력 및 제어 문제를 해결한 경험이 있습니다.
+              Timer, PWM, Interrupt 기반 제어 구조를 구현했으며 AC/DC 전원 분리 설계와 전력 재구성 경험을 보유하고 있습니다.
+            </p>
+          </div>
+
+          <div data-lang="en">
+            <p class="lead">
+              I have experience designing STM32-based embedded firmware and resolving power/control issues in real hardware environments.
+              I implemented a Timer/PWM/Interrupt-driven control architecture and have hands-on experience in AC/DC power separation and power system redesign.
+            </p>
+          </div>
 
           <div class="tags" aria-label="core tags">
             <span class="tag">STM32</span>
@@ -326,20 +350,40 @@
 
         <div class="card">
           <h2>One-line Principle</h2>
-          <p class="lead">
-            저는 시스템이 실제로 안정적으로 동작하는지를 기준으로 판단하는 임베디드 개발자입니다.
-          </p>
-          <p class="muted" style="margin-top:10px;">
-            코드의 완성도보다 현장의 신뢰성을 우선하며, 문제 발생 시 장비 교체보다 구조 분석을 먼저 선택해 왔습니다.
-          </p>
+
+          <div data-lang="kr">
+            <p class="lead">
+              저는 시스템이 실제로 안정적으로 동작하는지를 기준으로 판단하는 임베디드 개발자입니다.
+            </p>
+            <p class="muted" style="margin-top:10px;">
+              코드의 완성도보다 현장의 신뢰성을 우선하며, 문제 발생 시 장비 교체보다 구조 분석을 먼저 선택해 왔습니다.
+            </p>
+          </div>
+
+          <div data-lang="en">
+            <p class="lead">
+              I prioritize real-world system reliability as the first principle of embedded development.
+            </p>
+            <p class="muted" style="margin-top:10px;">
+              I value field stability over code “perfection,” and when issues occur, I start with root-cause and system-structure analysis before replacing equipment.
+            </p>
+          </div>
 
           <div class="btns">
-            <!-- 아래 파일명은 저장소에 업로드한 파일명과 일치해야 합니다 -->
-            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">이력서(PDF) 다운로드</a>
-            <a class="btn secondary" href="#projects">프로젝트 보기</a>
+            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">
+              <span data-lang="kr">이력서(PDF) 다운로드</span>
+              <span data-lang="en">Download Resume (PDF)</span>
+            </a>
+            <a class="btn secondary" href="#projects">
+              <span data-lang="kr">프로젝트 보기</span>
+              <span data-lang="en">View Projects</span>
+            </a>
           </div>
+
           <p class="small" style="margin-top:10px;">
-            참고: <span class="mono">resume.pdf</span> 파일을 저장소 루트에 업로드하면 버튼이 동작합니다.
+            <span data-lang="kr">참고: </span><span class="mono">resume.pdf</span>
+            <span data-lang="kr"> 파일을 저장소 루트에 업로드하면 버튼이 동작합니다.</span>
+            <span data-lang="en">Upload </span><span class="mono">resume.pdf</span><span data-lang="en"> to the repository root to enable the button.</span>
           </p>
         </div>
       </div>
@@ -348,7 +392,10 @@
     <section id="projects">
       <div class="section-title">
         <h2>Projects</h2>
-        <div class="hint">문제 → 판단 → 해결 → 결과</div>
+        <div class="hint">
+          <span data-lang="kr">문제 → 판단 → 해결 → 결과</span>
+          <span data-lang="en">Problem → Decision → Solution → Result</span>
+        </div>
       </div>
 
       <div class="proj">
@@ -357,53 +404,115 @@
           <div class="proj-head">
             <div>
               <h3 class="proj-title">PROJECT 01 — AI-Based Smart Recycling Using 3-axis Orthogonal Coordinate Robot System Development</h3>
-              <p class="proj-sub">개요: STM32 기반 자동 분류 및 초음파 세척 시스템 구현</p>
+
+              <p class="proj-sub" data-lang="kr">개요: STM32 기반 자동 분류 및 초음파 세척 시스템 구현</p>
+              <p class="proj-sub" data-lang="en">Overview: Implemented STM32-based automatic sorting and ultrasonic cleaning system.</p>
             </div>
-            <div class="small">역할: 모터 제어 · 전력 분리 설계 · 펌웨어 구현 · 하드웨어 설계</div>
+
+            <div class="small" data-lang="kr">역할: 모터 제어 · 전력 분리 설계 · 펌웨어 구현 · 하드웨어 설계</div>
+            <div class="small" data-lang="en">Role: Motor control, power separation design, firmware implementation, hardware design.</div>
           </div>
 
           <div class="grid2">
             <div class="kv">
-              <h3>기술 요소</h3>
-              <ul>
+              <h3 data-lang="kr">기술 요소</h3>
+              <h3 data-lang="en">Tech Stack</h3>
+
+              <ul data-lang="kr">
                 <li>STM32, C, Fusion 360</li>
                 <li>Timer 기반 PWM 제어</li>
                 <li>Encoder Interrupt 속도 측정</li>
                 <li>Relay 기반 AC 220V 분리 제어</li>
                 <li>DC 24V → DC 12V 전압 강하 회로 직접 제작</li>
               </ul>
+
+              <ul data-lang="en">
+                <li>STM32, C, Fusion 360</li>
+                <li>Timer-based PWM motor control</li>
+                <li>Encoder interrupt for speed measurement</li>
+                <li>Relay-based AC 220V isolation control</li>
+                <li>Custom DC 24V → DC 12V step-down circuit</li>
+              </ul>
             </div>
+
             <div class="kv">
-              <h3>성과</h3>
-              <ul>
+              <h3 data-lang="kr">성과</h3>
+              <h3 data-lang="en">Achievements</h3>
+
+              <ul data-lang="kr">
                 <li>[교내] 창업지적재산권 페스티벌 장려상</li>
                 <li>특허 출원</li>
                 <li>[교외] 한국정보기술학회 추계종합학술대회 동상</li>
                 <li>[교내] 캡스톤디자인 경진대회 특별상</li>
               </ul>
+
+              <ul data-lang="en">
+                <li>[Campus] Entrepreneurship/IP Festival — Encouragement Award</li>
+                <li>Patent application filed</li>
+                <li>[External] KIIT Fall Conference — Bronze Award</li>
+                <li>[Campus] Capstone Design Competition — Special Award</li>
+              </ul>
+
               <p class="small" style="margin-top:8px;">
-                (수상/성과는 사실 기반으로만 기재)
+                <span data-lang="kr">(수상/성과는 사실 기반으로만 기재)</span>
+                <span data-lang="en">(All achievements are listed based on verified facts.)</span>
               </p>
             </div>
           </div>
 
           <div class="problem">
-            <h4>문제 1 — 전력 사양 불일치</h4>
+            <h4 data-lang="kr">문제 1 — 전력 사양 불일치</h4>
+            <h4 data-lang="en">Issue 1 — Power Spec Mismatch</h4>
+
             <div class="rows">
-              <div class="row"><b>상황</b> <span>  파워서플라이 실제 출력이 고지 사양보다 낮아 전압 강하 및 구동 불안정 문제가 발생</span></div>
-              <div class="row"><b>판단</b> <span>  신규 장비 구매 대신 기존 장비 활용을 선택</span></div>
-              <div class="row"><b>해결</b> <span>  부하 분배 재설계, 전력 구조 재구성, 전압 강하 회로 재정비</span></div>
-              <div class="row"><b>결과</b> <span>  전력 안정성 확보</span></div>
+              <div class="row">
+                <b data-lang="kr">상황</b><b data-lang="en">Situation</b>
+                <span data-lang="kr">  파워서플라이 실제 출력이 고지 사양보다 낮아 전압 강하 및 구동 불안정 문제가 발생</span>
+                <span data-lang="en">  Actual PSU output was lower than the stated spec, causing voltage drop and unstable operation.</span>
+              </div>
+              <div class="row">
+                <b data-lang="kr">판단</b><b data-lang="en">Decision</b>
+                <span data-lang="kr">  신규 장비 구매 대신 기존 장비 활용을 선택</span>
+                <span data-lang="en">  Chose to stabilize using existing equipment rather than purchasing a new PSU.</span>
+              </div>
+              <div class="row">
+                <b data-lang="kr">해결</b><b data-lang="en">Solution</b>
+                <span data-lang="kr">  부하 분배 재설계, 전력 구조 재구성, 전압 강하 회로 재정비</span>
+                <span data-lang="en">  Redesigned load distribution, restructured power paths, and refined the step-down circuit.</span>
+              </div>
+              <div class="row">
+                <b data-lang="kr">결과</b><b data-lang="en">Result</b>
+                <span data-lang="kr">  전력 안정성 확보</span>
+                <span data-lang="en">  Achieved stable power delivery and reliable operation.</span>
+              </div>
             </div>
           </div>
 
           <div class="problem">
-            <h4>문제 2 — 엔코더 신호 불안정</h4>
+            <h4 data-lang="kr">문제 2 — 엔코더 신호 불안정</h4>
+            <h4 data-lang="en">Issue 2 — Unstable Encoder Signal</h4>
+
             <div class="rows">
-              <div class="row"><b>현상</b> <span>  속도 계산 오차 발생</span></div>
-              <div class="row"><b>판단</b> <span>  시스템 신뢰성 우선</span></div>
-              <div class="row"><b>해결</b> <span>  폐루프 제어 대신 개방루프 PWM 구조로 전환</span></div>
-              <div class="row"><b>결과</b> <span>  실동작 안정성 확보 방향으로 제어 구조 개선</span></div>
+              <div class="row">
+                <b data-lang="kr">현상</b><b data-lang="en">Symptom</b>
+                <span data-lang="kr">  속도 계산 오차 발생</span>
+                <span data-lang="en">  Speed calculation errors occurred.</span>
+              </div>
+              <div class="row">
+                <b data-lang="kr">판단</b><b data-lang="en">Decision</b>
+                <span data-lang="kr">  시스템 신뢰성 우선</span>
+                <span data-lang="en">  Prioritized system reliability.</span>
+              </div>
+              <div class="row">
+                <b data-lang="kr">해결</b><b data-lang="en">Solution</b>
+                <span data-lang="kr">  폐루프 제어 대신 개방루프 PWM 구조로 전환</span>
+                <span data-lang="en">  Switched from closed-loop control to a stable open-loop PWM approach.</span>
+              </div>
+              <div class="row">
+                <b data-lang="kr">결과</b><b data-lang="en">Result</b>
+                <span data-lang="kr">  실동작 안정성 확보 방향으로 제어 구조 개선</span>
+                <span data-lang="en">  Improved control structure for robust real-world operation.</span>
+              </div>
             </div>
           </div>
         </article>
@@ -413,36 +522,69 @@
           <div class="proj-head">
             <div>
               <h3 class="proj-title">PROJECT 02 — Towing AMR Embedded Control System</h3>
-              <p class="proj-sub">개요: STM32 기반 견인 로봇 제어 시스템 구현</p>
+
+              <p class="proj-sub" data-lang="kr">개요: STM32 기반 견인 로봇 제어 시스템 구현</p>
+              <p class="proj-sub" data-lang="en">Overview: Implemented STM32-based towing AMR control system.</p>
             </div>
-            <div class="small">역할: 모터 제어 및 액추에이터 제어 로직 구현</div>
+
+            <div class="small" data-lang="kr">역할: 모터 제어 및 액추에이터 제어 로직 구현</div>
+            <div class="small" data-lang="en">Role: Motor control and actuator control logic implementation.</div>
           </div>
 
           <div class="grid2">
             <div class="kv">
-              <h3>기술 요소</h3>
-              <ul>
+              <h3 data-lang="kr">기술 요소</h3>
+              <h3 data-lang="en">Tech Stack</h3>
+
+              <ul data-lang="kr">
                 <li>STM32, C</li>
                 <li>PWM 모터 제어</li>
                 <li>리니어 액추에이터 제어</li>
                 <li>Fusion 360 기반 기구 설계</li>
               </ul>
+
+              <ul data-lang="en">
+                <li>STM32, C</li>
+                <li>PWM motor control</li>
+                <li>Linear actuator control</li>
+                <li>Mechanical design in Fusion 360</li>
+              </ul>
             </div>
+
             <div class="kv">
-              <h3>핵심 포인트</h3>
-              <p>
-                “구조적 원인 정의 → 재설계 → 반복 부하 테스트” 및 전반적인 하드웨어 설계
-              </p>
+              <h3 data-lang="kr">핵심 포인트</h3>
+              <h3 data-lang="en">Key Point</h3>
+
+              <p data-lang="kr">“구조적 원인 정의 → 재설계 → 반복 부하 테스트” 및 전반적인 하드웨어 설계</p>
+              <p data-lang="en">Focused on “root-cause definition → redesign → repetitive load testing” and overall hardware design.</p>
             </div>
           </div>
 
           <div class="problem">
-            <h4>문제 — 구조 강성 부족</h4>
+            <h4 data-lang="kr">문제 — 구조 강성 부족</h4>
+            <h4 data-lang="en">Issue — Insufficient Structural Stiffness</h4>
+
             <div class="rows">
-              <div class="row"><b>상황</b> <span>  3D 프린팅 필라멘트 부품이 반복 부하에서 변형 발생</span></div>
-              <div class="row"><b>판단</b> <span>  구조 보강 필요</span></div>
-              <div class="row"><b>해결</b> <span>  기구 재설계, 반복 부하 테스트 수행</span></div>
-              <div class="row"><b>결과</b> <span>  구조 안정성 확보</span></div>
+              <div class="row">
+                <b data-lang="kr">상황</b><b data-lang="en">Situation</b>
+                <span data-lang="kr">  3D 프린팅 필라멘트 부품이 반복 부하에서 변형 발생</span>
+                <span data-lang="en">  3D-printed filament parts deformed under repetitive loads.</span>
+              </div>
+              <div class="row">
+                <b data-lang="kr">판단</b><b data-lang="en">Decision</b>
+                <span data-lang="kr">  구조 보강 필요</span>
+                <span data-lang="en">  Determined structural reinforcement/redesign was necessary.</span>
+              </div>
+              <div class="row">
+                <b data-lang="kr">해결</b><b data-lang="en">Solution</b>
+                <span data-lang="kr">  기구 재설계, 반복 부하 테스트 수행</span>
+                <span data-lang="en">  Redesigned the structure and conducted repetitive load testing.</span>
+              </div>
+              <div class="row">
+                <b data-lang="kr">결과</b><b data-lang="en">Result</b>
+                <span data-lang="kr">  구조 안정성 확보</span>
+                <span data-lang="en">  Achieved stable and durable structure.</span>
+              </div>
             </div>
           </div>
         </article>
@@ -457,19 +599,36 @@
 
       <div class="skills">
         <div class="card">
-          <h2>Firmware</h2>
-          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;">
+          <h2 data-lang="kr">Firmware</h2>
+          <h2 data-lang="en">Firmware</h2>
+
+          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="kr">
             <li>STM32 펌웨어 설계</li>
             <li>Timer, PWM, Interrupt 기반 제어 구조</li>
             <li>Encoder 속도 측정 구현 경험</li>
           </ul>
+
+          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en">
+            <li>STM32 firmware design</li>
+            <li>Timer/PWM/Interrupt-driven control architecture</li>
+            <li>Encoder-based speed measurement</li>
+          </ul>
         </div>
+
         <div class="card">
-          <h2>Power & Hardware</h2>
-          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;">
+          <h2 data-lang="kr">Power & Hardware</h2>
+          <h2 data-lang="en">Power & Hardware</h2>
+
+          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="kr">
             <li>AC/DC 전력 분리 설계 경험</li>
             <li>전력 사양 분석 및 재설계 경험</li>
             <li>하드웨어 기반 디버깅 경험</li>
+          </ul>
+
+          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en">
+            <li>AC/DC power separation design</li>
+            <li>Power spec analysis and redesign</li>
+            <li>Hardware-based debugging experience</li>
           </ul>
         </div>
       </div>
@@ -483,14 +642,26 @@
 
       <div class="card">
         <p class="muted" style="margin:0;">
-          아래 버튼은 파일이 저장소 루트에 있을 때 동작합니다. (예: <span class="mono">resume.pdf</span>, <span class="mono">portfolio.pdf</span>)
+          <span data-lang="kr">아래 버튼은 파일이 저장소 루트에 있을 때 동작합니다. (예: </span>
+          <span data-lang="en">Buttons work when the files exist in the repository root (e.g., </span>
+          <span class="mono">resume.pdf</span>, <span class="mono">portfolio.pdf</span><span data-lang="kr">)</span><span data-lang="en">).</span>
         </p>
+
         <div class="btns">
-          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">이력서(PDF)</a>
-          <a class="btn secondary" href="portfolio.pdf" target="_blank" rel="noopener">포트폴리오(PDF)</a>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">
+            <span data-lang="kr">이력서(PDF)</span>
+            <span data-lang="en">Resume (PDF)</span>
+          </a>
+          <a class="btn secondary" href="portfolio.pdf" target="_blank" rel="noopener">
+            <span data-lang="kr">포트폴리오(PDF)</span>
+            <span data-lang="en">Portfolio (PDF)</span>
+          </a>
         </div>
+
         <p class="small" style="margin-top:10px;">
-                 </p>
+          <span data-lang="kr">파일명이 다르면 링크의 파일명도 같이 바꾸면 됩니다.</span>
+          <span data-lang="en">If your filenames differ, update the links accordingly.</span>
+        </p>
       </div>
     </section>
 
@@ -501,21 +672,51 @@
       </div>
 
       <div class="card">
-        <p style="margin:0 0 6px;"><b>Email</b> <span class="muted">: ansdudals61@naver.com </span></p>
-        <p class="small" style="margin-top:12px;">
-          
+        <p style="margin:0 0 6px;">
+          <b>Email</b> <span class="muted">: ansdudals61@naver.com</span>
         </p>
       </div>
     </section>
 
     <footer>
-      <div>© <span id="y"></span> 문영민. Hosted on GitHub Pages.</div>
+      <div>© <span id="y"></span> <span data-lang="kr">문영민</span><span data-lang="en">Youngmin Moon</span>. Hosted on GitHub Pages.</div>
       <div class="small" style="margin-top:6px;">Custom domain: youngmin-moon.com</div>
     </footer>
   </div>
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Language toggle (KR <-> EN)
+    const langBtn = document.getElementById('langBtn');
+    let current = 'kr';
+
+    function setLang(lang){
+      current = lang;
+
+      const krBlocks = document.querySelectorAll('[data-lang="kr"]');
+      const enBlocks = document.querySelectorAll('[data-lang="en"]');
+
+      krBlocks.forEach(el => el.style.display = (lang === 'kr') ? '' : 'none');
+      enBlocks.forEach(el => el.style.display = (lang === 'en') ? '' : 'none');
+
+      langBtn.textContent = (lang === 'kr') ? 'EN' : 'KR';
+      document.documentElement.lang = (lang === 'kr') ? 'ko' : 'en';
+
+      // keep choice in browser
+      try { localStorage.setItem('site_lang', lang); } catch(e) {}
+    }
+
+    // restore (optional)
+    let saved = null;
+    try { saved = localStorage.getItem('site_lang'); } catch(e) {}
+    const params = new URLSearchParams(window.location.search);
+    const forced = params.get('lang');
+
+    if(forced === 'en') setLang('en');
+    else if(forced === 'kr') setLang('kr');
+    else if(saved === 'en' || saved === 'kr') setLang(saved);
+    else setLang('kr');
   </script>
 </body>
 </html>
