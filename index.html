@@ -1,27 +1,520 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Youngmin Moon</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>문영민 | Embedded Portfolio</title>
+  <meta name="description" content="STM32 기반 임베디드 펌웨어 설계 및 하드웨어 환경 문제 해결 경험을 정리한 포트폴리오" />
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
-      background-color: #f4f4f4;
+    :root{
+      --bg:#0b1220;
+      --card:#111b2e;
+      --line:#22314f;
+      --text:#e6edf7;
+      --muted:#a9b6cf;
+      --accent:#4da3ff;
+      --accent2:#7cf0d7;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 14px;
+      --max: 980px;
     }
-    h1 {
-      font-size: 36px;
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% -10%, rgba(77,163,255,.15), transparent 55%),
+                  radial-gradient(1000px 600px at 90% 10%, rgba(124,240,215,.10), transparent 50%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
     }
-    p {
-      font-size: 18px;
-      color: #555;
+
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 64px; }
+    header{
+      padding:28px 0 10px;
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(77,163,255,.10);
+    }
+    h1{
+      margin:0;
+      font-size:40px;
+      letter-spacing:-.02em;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .nav{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      background: rgba(17,27,46,.55);
+      border-radius:999px;
+      color:var(--text);
+      font-size:13px;
+    }
+    .pill:hover{ border-color: rgba(77,163,255,.6); text-decoration:none; }
+
+    .hero{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
+    }
+    @media (max-width: 860px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: rgba(17,27,46,.72);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .card h2{
+      margin:0 0 12px;
+      font-size:18px;
+      letter-spacing:-.01em;
+    }
+    .lead{
+      margin:0;
+      color:var(--text);
+      font-size:15px;
+    }
+    .muted{ color:var(--muted); }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+    .tag{
+      font-size:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(15,23,42,.55);
+      color:var(--muted);
+    }
+
+    section{ margin-top:18px; }
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:10px;
+      margin:22px 0 10px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-.01em;
+    }
+    .section-title .hint{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .proj{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+    }
+
+    .proj-head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+    .proj-title{
+      margin:0;
+      font-size:18px;
+    }
+    .proj-sub{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 860px){
+      .grid2{ grid-template-columns: 1fr; }
+    }
+
+    .kv{
+      border:1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(15,23,42,.55);
+      padding:14px;
+    }
+    .kv h3{
+      margin:0 0 8px;
+      font-size:14px;
+      color:var(--text);
+    }
+    .kv ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .kv p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .problem{
+      border-left:3px solid rgba(77,163,255,.7);
+      padding-left:12px;
+      margin-top:12px;
+    }
+    .problem h4{
+      margin:0 0 8px;
+      font-size:14px;
+    }
+    .rows{
+      display:grid;
+      gap:8px;
+      margin-top:6px;
+    }
+    .row{
+      border:1px solid var(--line);
+      background: rgba(15,23,42,.40);
+      border-radius: 12px;
+      padding:12px;
+    }
+    .row b{ color:var(--text); }
+    .row span{ color:var(--muted); }
+
+    .btns{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:11px 14px;
+      border-radius: 12px;
+      border:1px solid rgba(77,163,255,.45);
+      background: rgba(77,163,255,.12);
+      color:var(--text);
+      font-size:13px;
+    }
+    .btn:hover{ text-decoration:none; border-color: rgba(77,163,255,.9); }
+    .btn.secondary{
+      border-color: var(--line);
+      background: rgba(15,23,42,.40);
+      color: var(--muted);
+    }
+
+    .skills{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 860px){
+      .skills{ grid-template-columns: 1fr; }
+    }
+
+    footer{
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .small{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
   </style>
 </head>
+
 <body>
-  <h1>Youngmin Moon</h1>
-  <p>Embedded Systems Developer</p>
-  <p>This site is under construction.</p>
+  <div class="wrap">
+    <header>
+      <div class="topbar">
+        <div class="brand">
+          <div class="kicker"><span class="dot"></span> PORTFOLIO</div>
+          <h1>문영민</h1>
+          <p class="subtitle">Embedded Systems Developer</p>
+        </div>
+
+        <nav class="nav" aria-label="sections">
+          <a class="pill" href="#projects">Projects</a>
+          <a class="pill" href="#skills">Skills</a>
+          <a class="pill" href="#docs">Docs</a>
+          <a class="pill" href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="hero">
+        <div class="card">
+          <h2>Summary</h2>
+          <p class="lead">
+            STM32 기반 임베디드 펌웨어를 설계하고 실제 하드웨어 환경에서 발생한 전력 및 제어 문제를 해결한 경험이 있습니다.
+            Timer, PWM, Interrupt 기반 제어 구조를 구현했으며 AC/DC 전원 분리 설계와 전력 재구성 경험을 보유하고 있습니다.
+          </p>
+
+          <div class="tags" aria-label="core tags">
+            <span class="tag">STM32</span>
+            <span class="tag">C</span>
+            <span class="tag">Timer / PWM</span>
+            <span class="tag">Interrupt</span>
+            <span class="tag">Encoder</span>
+            <span class="tag">AC/DC Power Split</span>
+            <span class="tag">Hardware Debugging</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>One-line Principle</h2>
+          <p class="lead">
+            저는 시스템이 실제로 안정적으로 동작하는지를 기준으로 판단하는 임베디드 개발자입니다.
+          </p>
+          <p class="muted" style="margin-top:10px;">
+            코드의 완성도보다 현장의 신뢰성을 우선하며, 문제 발생 시 장비 교체보다 구조 분석을 먼저 선택해 왔습니다.
+          </p>
+
+          <div class="btns">
+            <!-- 아래 파일명은 저장소에 업로드한 파일명과 일치해야 합니다 -->
+            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">이력서(PDF) 다운로드</a>
+            <a class="btn secondary" href="#projects">프로젝트 보기</a>
+          </div>
+          <p class="small" style="margin-top:10px;">
+            참고: <span class="mono">resume.pdf</span> 파일을 저장소 루트에 업로드하면 버튼이 동작합니다.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Projects</h2>
+        <div class="hint">문제 → 판단 → 해결 → 결과 구조로 요약</div>
+      </div>
+
+      <div class="proj">
+        <!-- PROJECT 01 -->
+        <article class="card">
+          <div class="proj-head">
+            <div>
+              <h3 class="proj-title">PROJECT 01 — AI-Based Smart Recycling Using 3-axis Orthogonal Coordinate Robot System Development</h3>
+              <p class="proj-sub">개요: STM32 기반 자동 분류 및 초음파 세척 시스템 구현</p>
+            </div>
+            <div class="small">역할: 모터 제어 · 전력 분리 설계 · 펌웨어 구현</div>
+          </div>
+
+          <div class="grid2">
+            <div class="kv">
+              <h3>기술 요소</h3>
+              <ul>
+                <li>STM32, C</li>
+                <li>Timer 기반 PWM 제어</li>
+                <li>Encoder Interrupt 속도 측정</li>
+                <li>Relay 기반 AC 220V 분리 제어</li>
+                <li>DC 24V → DC 12V 전압 강하 회로 직접 제작</li>
+              </ul>
+            </div>
+            <div class="kv">
+              <h3>성과</h3>
+              <ul>
+                <li>캡스톤 디자인 특별상</li>
+                <li>교외 논문대회 동상</li>
+              </ul>
+              <p class="small" style="margin-top:8px;">
+                (수상/성과는 사실 기반으로만 기재)
+              </p>
+            </div>
+          </div>
+
+          <div class="problem">
+            <h4>문제 1 — 전력 사양 불일치</h4>
+            <div class="rows">
+              <div class="row"><b>상황</b> <span>파워서플라이 실제 출력이 고지 사양보다 낮아 전압 강하 및 구동 불안정 문제가 발생</span></div>
+              <div class="row"><b>판단</b> <span>신규 장비 구매 대신 기존 장비 활용을 선택</span></div>
+              <div class="row"><b>해결</b> <span>부하 분배 재설계, 전력 구조 재구성, 전압 강하 회로 재정비</span></div>
+              <div class="row"><b>결과</b> <span>전력 안정성 확보</span></div>
+            </div>
+          </div>
+
+          <div class="problem">
+            <h4>문제 2 — 엔코더 신호 불안정</h4>
+            <div class="rows">
+              <div class="row"><b>현상</b> <span>속도 계산 오차 발생</span></div>
+              <div class="row"><b>판단</b> <span>시스템 신뢰성 우선</span></div>
+              <div class="row"><b>해결</b> <span>폐루프 제어 대신 개방루프 PWM 구조로 전환</span></div>
+              <div class="row"><b>결과</b> <span>실동작 안정성 확보 방향으로 제어 구조 개선</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 02 -->
+        <article class="card">
+          <div class="proj-head">
+            <div>
+              <h3 class="proj-title">PROJECT 02 — Towing AMR Embedded Control System</h3>
+              <p class="proj-sub">개요: STM32 기반 견인 로봇 제어 시스템 구현</p>
+            </div>
+            <div class="small">역할: 모터 제어 및 액추에이터 제어 로직 구현</div>
+          </div>
+
+          <div class="grid2">
+            <div class="kv">
+              <h3>기술 요소</h3>
+              <ul>
+                <li>STM32, C</li>
+                <li>PWM 모터 제어</li>
+                <li>리니어 액추에이터 제어</li>
+                <li>Fusion 360 기반 기구 설계</li>
+              </ul>
+            </div>
+            <div class="kv">
+              <h3>핵심 포인트</h3>
+              <p>
+                “구조적 원인 정의 → 재설계 → 반복 부하 테스트”로 신뢰성을 확보한 경험을 강조했습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="problem">
+            <h4>문제 — 구조 강성 부족</h4>
+            <div class="rows">
+              <div class="row"><b>상황</b> <span>3D 프린팅 필라멘트 부품이 반복 부하에서 변형 발생</span></div>
+              <div class="row"><b>판단</b> <span>구조 보강 필요</span></div>
+              <div class="row"><b>해결</b> <span>기구 재설계, 반복 부하 테스트 수행</span></div>
+              <div class="row"><b>결과</b> <span>구조 안정성 확보</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <h2>Technical Summary</h2>
+        <div class="hint">바로 질문 받을 만한 키워드 중심</div>
+      </div>
+
+      <div class="skills">
+        <div class="card">
+          <h2>Firmware</h2>
+          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;">
+            <li>STM32 펌웨어 설계</li>
+            <li>Timer, PWM, Interrupt 기반 제어 구조</li>
+            <li>Encoder 속도 측정 구현 경험</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>Power & Hardware</h2>
+          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;">
+            <li>AC/DC 전력 분리 설계 경험</li>
+            <li>전력 사양 분석 및 재설계 경험</li>
+            <li>하드웨어 기반 디버깅 경험</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="docs">
+      <div class="section-title">
+        <h2>Documents</h2>
+        <div class="hint">필요한 파일만 저장소에 업로드하면 자동 연결</div>
+      </div>
+
+      <div class="card">
+        <p class="muted" style="margin:0;">
+          아래 버튼은 파일이 저장소 루트에 있을 때 동작합니다. (예: <span class="mono">resume.pdf</span>, <span class="mono">portfolio.pdf</span>)
+        </p>
+        <div class="btns">
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">이력서(PDF)</a>
+          <a class="btn secondary" href="portfolio.pdf" target="_blank" rel="noopener">포트폴리오(PDF)</a>
+        </div>
+        <p class="small" style="margin-top:10px;">
+          파일명이 다르면 버튼 링크의 파일명도 같이 바꾸시면 됩니다.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <div class="hint">이메일/깃허브만으로도 충분합니다</div>
+      </div>
+
+      <div class="card">
+        <p style="margin:0 0 6px;"><b>Email</b> <span class="muted">: (여기에 이메일 입력)</span></p>
+        <p style="margin:0 0 6px;"><b>GitHub</b> <span class="muted">: </span><a href="https://github.com/badasae" target="_blank" rel="noopener">github.com/badasae</a></p>
+        <p class="small" style="margin-top:12px;">
+          필요하시면 연락처/링크드인/노션 링크를 추가하셔도 됩니다.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> 문영민. Hosted on GitHub Pages.</div>
+      <div class="small" style="margin-top:6px;">Custom domain: youngmin-moon.com</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
