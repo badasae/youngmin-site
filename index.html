@@ -281,12 +281,14 @@
       background: rgba(77,163,255,.12);
       color:var(--text);
       font-size:13px;
+      cursor:pointer;
     }
     .btn:hover{ text-decoration:none; border-color: rgba(77,163,255,.9); }
     .btn.secondary{
       border-color: var(--line);
       background: rgba(15,23,42,.40);
       color: var(--muted);
+      cursor:pointer;
     }
 
     .skills{
@@ -423,6 +425,23 @@
       font-size:12px;
       color:var(--muted);
     }
+
+    /* ✅ Print to PDF */
+    @media print{
+      .nav, .lang-btn, #pdfBtn { display:none !important; }
+      body{ background:#fff !important; color:#000 !important; }
+      .card, .kv, .row, figure.ev, .ev-video, a.cert, footer{
+        box-shadow:none !important;
+        background:#fff !important;
+        border-color:#ddd !important;
+      }
+      a{ color:#000 !important; text-decoration:none !important; }
+      figure.ev img, .cert img{
+        height:auto !important;
+        object-fit:contain !important;
+      }
+      .ev-video{ display:none !important; } /* 영상은 PDF에서 제외 */
+    }
   </style>
 </head>
 
@@ -509,6 +528,12 @@
               <span data-lang="kr">상장/특허 보기</span>
               <span data-lang="en" hidden>View Certificates</span>
             </a>
+
+            <!-- ✅ Portfolio PDF save button -->
+            <button class="btn" id="pdfBtn" type="button">
+              <span data-lang="kr">포트폴리오(PDF) 저장</span>
+              <span data-lang="en" hidden>Save Portfolio (PDF)</span>
+            </button>
           </div>
 
           <p class="small" style="margin-top:10px;">
@@ -984,6 +1009,14 @@
     langBtn.addEventListener('click', () => {
       setLang(current === 'kr' ? 'en' : 'kr');
     });
+
+    // ✅ Save as PDF (print)
+    const pdfBtn = document.getElementById('pdfBtn');
+    if(pdfBtn){
+      pdfBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
   </script>
 </body>
 </html>
