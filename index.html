@@ -315,6 +315,73 @@
 
     /* hidden attribute handling */
     [hidden]{ display:none !important; }
+
+    /* ✅ Evidence gallery styles (added) */
+    .evidence-title{
+      margin-top:14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .evidence-title h4{
+      margin:0;
+      font-size:14px;
+      color:var(--text);
+    }
+    .evidence-title .hint{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .evidence{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 860px){
+      .evidence{ grid-template-columns: 1fr; }
+    }
+    figure.ev{
+      margin:0;
+      border:1px solid var(--line);
+      background: rgba(15,23,42,.40);
+      border-radius: 12px;
+      overflow:hidden;
+    }
+    figure.ev img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      display:block;
+    }
+    @media (max-width: 860px){
+      figure.ev img{ height:220px; }
+    }
+    figure.ev figcaption{
+      padding:10px 10px 11px;
+      font-size:12px;
+      color:var(--muted);
+      border-top:1px solid rgba(34,49,79,.6);
+    }
+    .ev-video{
+      margin-top:12px;
+      border:1px solid var(--line);
+      background: rgba(15,23,42,.40);
+      border-radius: 12px;
+      padding:12px;
+    }
+    .ev-video video{
+      width:100%;
+      border-radius:12px;
+      display:block;
+      background:#000;
+    }
+    .ev-video .cap{
+      margin:8px 0 0;
+      font-size:12px;
+      color:var(--muted);
+    }
   </style>
 </head>
 
@@ -542,6 +609,52 @@
               </div>
             </div>
           </div>
+
+          <!-- ✅ Evidence (PROJECT 01) added -->
+          <div class="evidence-title">
+            <h4 data-lang="kr">Evidence</h4>
+            <h4 data-lang="en" hidden>Evidence</h4>
+            <div class="hint">
+              <span data-lang="kr">사진 3 · 영상 1</span>
+              <span data-lang="en" hidden>3 photos · 1 video</span>
+            </div>
+          </div>
+
+          <div class="evidence">
+            <figure class="ev">
+              <img src="assets/img/project1/Configuring Relay Modules.jpg" alt="Relay modules" loading="lazy">
+              <figcaption>
+                <span data-lang="kr">AC/DC 분리 릴레이 모듈 구성</span>
+                <span data-lang="en" hidden>Relay module configuration for AC/DC isolation</span>
+              </figcaption>
+            </figure>
+
+            <figure class="ev">
+              <img src="assets/img/project1/Installation and wiring of power supplies.jpeg" alt="Power wiring" loading="lazy">
+              <figcaption>
+                <span data-lang="kr">전원부 설치 및 배선 구성</span>
+                <span data-lang="en" hidden>Power supply installation and wiring</span>
+              </figcaption>
+            </figure>
+
+            <figure class="ev">
+              <img src="assets/img/project1/Overall Modelling.png" alt="Overall modelling" loading="lazy">
+              <figcaption>
+                <span data-lang="kr">전체 시스템 모델링 구조</span>
+                <span data-lang="en" hidden>Overall system modelling</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="ev-video">
+            <video controls preload="metadata">
+              <source src="assets/video/project1/Classification motion images.MP4" type="video/mp4">
+            </video>
+            <p class="cap">
+              <span data-lang="kr">분류 동작 실제 구동 영상</span>
+              <span data-lang="en" hidden>Real sorting motion demo</span>
+            </p>
+          </div>
         </article>
 
         <!-- PROJECT 02 -->
@@ -613,6 +726,52 @@
                 <span data-lang="en" hidden>Achieved a stable and durable structure.</span>
               </div>
             </div>
+          </div>
+
+          <!-- ✅ Evidence (PROJECT 02) added -->
+          <div class="evidence-title">
+            <h4 data-lang="kr">Evidence</h4>
+            <h4 data-lang="en" hidden>Evidence</h4>
+            <div class="hint">
+              <span data-lang="kr">사진 3 · 영상 1</span>
+              <span data-lang="en" hidden>3 photos · 1 video</span>
+            </div>
+          </div>
+
+          <div class="evidence">
+            <figure class="ev">
+              <img src="assets/img/project2/Configuring towing system.jpg" alt="Towing configuration" loading="lazy">
+              <figcaption>
+                <span data-lang="kr">견인 시스템 구성</span>
+                <span data-lang="en" hidden>Towing system configuration</span>
+              </figcaption>
+            </figure>
+
+            <figure class="ev">
+              <img src="assets/img/project2/Towing system image.PNG" alt="Towing system image" loading="lazy">
+              <figcaption>
+                <span data-lang="kr">견인 로봇 전체 구조</span>
+                <span data-lang="en" hidden>Overall towing robot structure</span>
+              </figcaption>
+            </figure>
+
+            <figure class="ev">
+              <img src="assets/img/project2/Towing system image.jpg" alt="Towing structure detail" loading="lazy">
+              <figcaption>
+                <span data-lang="kr">견인 구조 상세</span>
+                <span data-lang="en" hidden>Towing structure detail</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="ev-video">
+            <video controls preload="metadata">
+              <source src="assets/video/project2/Towing system lift drive.MP4" type="video/mp4">
+            </video>
+            <p class="cap">
+              <span data-lang="kr">리프트 구동 동작 영상</span>
+              <span data-lang="en" hidden>Lift drive motion demo</span>
+            </p>
           </div>
         </article>
       </div>
