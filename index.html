@@ -92,7 +92,7 @@
     }
     .pill:hover{ border-color: rgba(77,163,255,.6); text-decoration:none; }
 
-    /* ✅ Language toggle button (visually distinct) */
+    /* Language toggle button (visually distinct) */
     .lang-btn{
       display:inline-flex;
       align-items:center;
@@ -109,6 +109,7 @@
     .lang-btn:hover{
       border-color: rgba(124,240,215,.9);
       background: rgba(124,240,215,.14);
+      text-decoration:none;
     }
     .lang-badge{
       display:inline-flex;
@@ -309,14 +310,10 @@
       font-size:12px;
       color:var(--muted);
     }
-    .mono{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
 
-    /* hidden attribute handling */
     [hidden]{ display:none !important; }
 
-    /* ✅ Evidence gallery styles */
+    /* Evidence gallery */
     .evidence-title{
       margin-top:14px;
       display:flex;
@@ -383,35 +380,46 @@
       color:var(--muted);
     }
 
-    /* ✅ Certificates list */
-    .docs-grid{
+    /* Certificates */
+    .cert-grid{
       margin-top:10px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap:12px;
     }
     @media (max-width: 860px){
-      .docs-grid{ grid-template-columns: 1fr; }
+      .cert-grid{ grid-template-columns: 1fr; }
     }
-    .doc-item{
+    a.cert{
+      display:block;
       border:1px solid var(--line);
       background: rgba(15,23,42,.40);
       border-radius: 12px;
-      padding:14px;
+      overflow:hidden;
+      color: inherit;
+      text-decoration:none;
     }
-    .doc-item .top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:10px;
+    a.cert:hover{
+      border-color: rgba(77,163,255,.65);
+      text-decoration:none;
     }
-    .doc-item .title{
+    .cert img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      display:block;
+    }
+    .cert .meta{
+      padding:12px;
+      border-top:1px solid rgba(34,49,79,.6);
+    }
+    .cert .title{
       margin:0;
-      font-size:14px;
+      font-size:13px;
       color:var(--text);
     }
-    .doc-item .meta{
-      margin:6px 0 0;
+    .cert .sub{
+      margin:4px 0 0;
       font-size:12px;
       color:var(--muted);
     }
@@ -436,7 +444,6 @@
           <nav class="nav" aria-label="sections">
             <a class="pill" href="#projects">Projects</a>
             <a class="pill" href="#skills">Skills</a>
-            <a class="pill" href="#docs">Docs</a>
             <a class="pill" href="#certificates">Certificates</a>
             <a class="pill" href="#contact">Contact</a>
           </nav>
@@ -483,33 +490,30 @@
             저는 시스템이 실제로 안정적으로 동작하는지를 기준으로 판단하는 임베디드 개발자입니다.
           </p>
           <p class="lead" data-lang="en" hidden>
-            I am an embedded developer who evaluates decisions by whether the system operates reliably in real conditions.
+            I evaluate decisions by whether the system operates reliably in real conditions.
           </p>
 
           <p class="muted" style="margin-top:10px;" data-lang="kr">
             코드의 완성도보다 현장의 신뢰성을 우선하며, 문제 발생 시 장비 교체보다 구조 분석을 먼저 선택해 왔습니다.
           </p>
           <p class="muted" style="margin-top:10px;" data-lang="en" hidden>
-            I prioritize field reliability over code “perfection,” and when issues occur, I start with system-structure analysis before replacing equipment.
+            I prioritize field reliability over “perfect code,” and I start with structural analysis before replacing equipment.
           </p>
 
           <div class="btns">
-            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">
-              <span data-lang="kr">이력서(PDF) 다운로드</span>
-              <span data-lang="en" hidden>Download Resume (PDF)</span>
-            </a>
             <a class="btn secondary" href="#projects">
               <span data-lang="kr">프로젝트 보기</span>
               <span data-lang="en" hidden>View Projects</span>
             </a>
+            <a class="btn secondary" href="#certificates">
+              <span data-lang="kr">상장/특허 보기</span>
+              <span data-lang="en" hidden>View Certificates</span>
+            </a>
           </div>
 
           <p class="small" style="margin-top:10px;">
-            <span data-lang="kr">참고: </span><span class="mono">resume.pdf</span>
-            <span data-lang="kr"> 파일을 저장소 루트에 업로드하면 버튼이 동작합니다.</span>
-
-            <span data-lang="en" hidden>Note: Upload </span><span class="mono" data-lang="en" hidden>resume.pdf</span>
-            <span data-lang="en" hidden> to the repository root to enable the button.</span>
+            <span data-lang="kr">※ 이 페이지 자체를 이력서처럼 사용하도록 구성했습니다.</span>
+            <span data-lang="en" hidden>※ This page is structured to function as a resume-like profile.</span>
           </p>
         </div>
       </div>
@@ -580,11 +584,6 @@
                 <li>[External] KIIT Fall Conference — Bronze Award</li>
                 <li>[Campus] Capstone Design Competition — Special Award</li>
               </ul>
-
-              <p class="small" style="margin-top:8px;">
-                <span data-lang="kr">(수상/성과는 사실 기반으로만 기재)</span>
-                <span data-lang="en" hidden>(All achievements are listed based on verified facts.)</span>
-              </p>
             </div>
           </div>
 
@@ -644,7 +643,6 @@
             </div>
           </div>
 
-          <!-- ✅ Evidence (PROJECT 01) -->
           <div class="evidence-title">
             <h4 data-lang="kr">Evidence</h4>
             <h4 data-lang="en" hidden>Evidence</h4>
@@ -659,7 +657,7 @@
               <img src="assets/img/project 1/Configuring Relay Modules.jpg" alt="Relay modules" loading="lazy">
               <figcaption>
                 <span data-lang="kr">AC/DC 분리 릴레이 모듈 구성</span>
-                <span data-lang="en" hidden>Relay module configuration for AC/DC isolation</span>
+                <span data-lang="en" hidden>Relay module setup for AC/DC power isolation</span>
               </figcaption>
             </figure>
 
@@ -667,15 +665,15 @@
               <img src="assets/img/project 1/Installation and wiring of power supplies.jpeg" alt="Power wiring" loading="lazy">
               <figcaption>
                 <span data-lang="kr">전원부 설치 및 배선 구성</span>
-                <span data-lang="en" hidden>Power supply installation and wiring</span>
+                <span data-lang="en" hidden>Power supply installation and wiring layout</span>
               </figcaption>
             </figure>
 
             <figure class="ev">
               <img src="assets/img/project 1/Overall Modelling.png" alt="Overall modelling" loading="lazy">
               <figcaption>
-                <span data-lang="kr">전체 시스템 모델링 구조</span>
-                <span data-lang="en" hidden>Overall system modelling</span>
+                <span data-lang="kr">전체 시스템 구조(모델링)</span>
+                <span data-lang="en" hidden>Overall system structure (CAD modeling)</span>
               </figcaption>
             </figure>
           </div>
@@ -685,8 +683,8 @@
               <source src="assets/video/project 1/Classification motion images.MP4" type="video/mp4">
             </video>
             <p class="cap">
-              <span data-lang="kr">분류 동작 실제 구동 영상</span>
-              <span data-lang="en" hidden>Real sorting motion demo</span>
+              <span data-lang="kr">분류 동작 구동 영상</span>
+              <span data-lang="en" hidden>Sorting motion demonstration</span>
             </p>
           </div>
         </article>
@@ -741,12 +739,12 @@
             <div class="rows">
               <div class="row">
                 <b data-lang="kr">상황</b><b data-lang="en" hidden>Situation</b>
-                <span data-lang="kr">3D 프린팅 필라멘트 부품의 강성 부족으로 반복 부하 시 변형 발생</span>
-                <span data-lang="en" hidden>3D-printed filament parts deformed under repetitive loads due to insufficient stiffness.</span>
+                <span data-lang="kr">3D 프린팅 부품의 강성 부족으로 반복 부하 시 변형 발생</span>
+                <span data-lang="en" hidden>3D-printed parts deformed under repetitive loads due to insufficient stiffness.</span>
               </div>
               <div class="row">
                 <b data-lang="kr">판단</b><b data-lang="en" hidden>Decision</b>
-                <span data-lang="kr">구조 보강 필요</span>
+                <span data-lang="kr">구조 보강 및 재설계 필요</span>
                 <span data-lang="en" hidden>Determined structural reinforcement and redesign were required.</span>
               </div>
               <div class="row">
@@ -762,7 +760,6 @@
             </div>
           </div>
 
-          <!-- ✅ Evidence (PROJECT 02) -->
           <div class="evidence-title">
             <h4 data-lang="kr">Evidence</h4>
             <h4 data-lang="en" hidden>Evidence</h4>
@@ -776,15 +773,15 @@
             <figure class="ev">
               <img src="assets/img/project 2/Configuring towing system.jpg" alt="Towing configuration" loading="lazy">
               <figcaption>
-                <span data-lang="kr">견인 시스템 구성</span>
-                <span data-lang="en" hidden>Towing system configuration</span>
+                <span data-lang="kr">견인 시스템 구성(조립)</span>
+                <span data-lang="en" hidden>Towing system configuration (assembly)</span>
               </figcaption>
             </figure>
 
             <figure class="ev">
               <img src="assets/img/project 2/Towing system image.PNG" alt="Towing system image" loading="lazy">
               <figcaption>
-                <span data-lang="kr">견인 로봇 구동 예시</span>
+                <span data-lang="kr">견인 로봇 전체 구조</span>
                 <span data-lang="en" hidden>Overall towing robot structure</span>
               </figcaption>
             </figure>
@@ -792,8 +789,8 @@
             <figure class="ev">
               <img src="assets/img/project 2/Towing system image.jpg" alt="Towing structure detail" loading="lazy">
               <figcaption>
-                <span data-lang="kr">로봇 프레임 및 구성</span>
-                <span data-lang="en" hidden>Towing structure detail</span>
+                <span data-lang="kr">프레임 및 구성 상세</span>
+                <span data-lang="en" hidden>Frame and configuration detail</span>
               </figcaption>
             </figure>
           </div>
@@ -804,7 +801,7 @@
             </video>
             <p class="cap">
               <span data-lang="kr">리프트 구동 동작 영상</span>
-              <span data-lang="en" hidden>Lift drive motion demo</span>
+              <span data-lang="en" hidden>Lift drive motion demonstration</span>
             </p>
           </div>
         </article>
@@ -853,118 +850,67 @@
       </div>
     </section>
 
-    <section id="docs">
-      <div class="section-title">
-        <h2 data-lang="kr">Documents</h2>
-        <h2 data-lang="en" hidden>Documents</h2>
-        <div class="hint"></div>
-      </div>
-
-      <div class="card">
-        <p class="muted" style="margin:0;">
-          <span data-lang="kr">아래 버튼은 파일이 저장소 루트에 있을 때 동작합니다. (예: </span>
-          <span data-lang="en" hidden>Buttons work when the file exists in the repository root (e.g., </span>
-          <span class="mono">resume.pdf</span><span data-lang="kr">)</span><span data-lang="en" hidden>).</span>
-        </p>
-
-        <div class="btns">
-          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">
-            <span data-lang="kr">이력서(PDF)</span>
-            <span data-lang="en" hidden>Resume (PDF)</span>
-          </a>
-        </div>
-
-        <p class="small" style="margin-top:10px;">
-          <span data-lang="kr">파일명이 다르면 링크의 파일명도 같이 바꾸면 됩니다.</span>
-          <span data-lang="en" hidden>If your filename differs, update the link filename as well.</span>
-        </p>
-      </div>
-    </section>
-
-    <!-- ✅ Certificates (Awards + Patent) -->
     <section id="certificates">
       <div class="section-title">
         <h2 data-lang="kr">Certificates</h2>
         <h2 data-lang="en" hidden>Certificates</h2>
         <div class="hint">
-          <span data-lang="kr">상장 · 특허</span>
-          <span data-lang="en" hidden>Awards · Patent</span>
+          <span data-lang="kr">상장 3 · 특허 1 (클릭하면 원본)</span>
+          <span data-lang="en" hidden>3 awards · 1 patent (click to open original)</span>
         </div>
       </div>
 
       <div class="card">
-        <h2 data-lang="kr">Awards</h2>
-        <h2 data-lang="en" hidden>Awards</h2>
+        <p class="muted" style="margin:0;">
+          <span data-lang="kr">증빙 자료는 클릭 시 원본 이미지로 열립니다.</span>
+          <span data-lang="en" hidden>Click each item to open the original image.</span>
+        </p>
 
-        <div class="docs-grid">
-          <!-- 최신순 배치 -->
-          <div class="doc-item">
-            <div class="top">
-              <div>
-                <p class="title" data-lang="kr">2024-12-03 · 캡스톤 디자인 특별상</p>
-                <p class="title" data-lang="en" hidden>2024-12-03 · Capstone Design — Special Award</p>
-                <p class="meta">PDF</p>
-              </div>
-              <a class="btn secondary" href="assets/certificate-of-award/20241203%20Special%20Award%20for%20Capstone%20Designpdf.pdf" target="_blank" rel="noopener">
-                <span data-lang="kr">열기</span>
-                <span data-lang="en" hidden>Open</span>
-              </a>
+        <div class="cert-grid">
+          <a class="cert" href="assets/certificate-of-award/240131 Capstone Design Encouragement Award Listed.jpg" target="_blank" rel="noopener">
+            <img src="assets/certificate-of-award/240131 Capstone Design Encouragement Award Listed.jpg" alt="Capstone Encouragement Award" loading="lazy">
+            <div class="meta">
+              <p class="title" data-lang="kr">2024.01.31 · 캡스톤 디자인 장려상</p>
+              <p class="title" data-lang="en" hidden>2024.01.31 · Capstone Design — Encouragement Award</p>
+              <p class="sub" data-lang="kr">증빙 이미지</p>
+              <p class="sub" data-lang="en" hidden>Evidence image</p>
             </div>
-          </div>
+          </a>
 
-          <div class="doc-item">
-            <div class="top">
-              <div>
-                <p class="title" data-lang="kr">2024-11-22 · 논문대회(등재) 확인</p>
-                <p class="title" data-lang="en" hidden>2024-11-22 · Thesis Contest — Listed</p>
-                <p class="meta">PDF</p>
-              </div>
-              <a class="btn secondary" href="assets/certificate-of-award/20241122%20Listed%20at%20the%20thesis%20contest.pdf" target="_blank" rel="noopener">
-                <span data-lang="kr">열기</span>
-                <span data-lang="en" hidden>Open</span>
-              </a>
+          <a class="cert" href="assets/certificate-of-award/20241122 Listed at the thesis contest.png" target="_blank" rel="noopener">
+            <img src="assets/certificate-of-award/20241122 Listed at the thesis contest.png" alt="Thesis contest listed" loading="lazy">
+            <div class="meta">
+              <p class="title" data-lang="kr">2024.11.22 · 논문 대회 등재( Listed )</p>
+              <p class="title" data-lang="en" hidden>2024.11.22 · Thesis Contest — Listed</p>
+              <p class="sub" data-lang="kr">증빙 이미지</p>
+              <p class="sub" data-lang="en" hidden>Evidence image</p>
             </div>
-          </div>
+          </a>
 
-          <div class="doc-item">
-            <div class="top">
-              <div>
-                <p class="title" data-lang="kr">2024-01-31 · 캡스톤 디자인 장려상(등재)</p>
-                <p class="title" data-lang="en" hidden>2024-01-31 · Capstone Design — Encouragement Award (Listed)</p>
-                <p class="meta">PDF</p>
-              </div>
-              <a class="btn secondary" href="assets/certificate-of-award/20240131%20Capstone%20Design%20Encouragement%20Award%20Listed.pdf" target="_blank" rel="noopener">
-                <span data-lang="kr">열기</span>
-                <span data-lang="en" hidden>Open</span>
-              </a>
+          <a class="cert" href="assets/certificate-of-award/241203 Special Award for Capstone Design.jpg" target="_blank" rel="noopener">
+            <img src="assets/certificate-of-award/241203 Special Award for Capstone Design.jpg" alt="Capstone special award" loading="lazy">
+            <div class="meta">
+              <p class="title" data-lang="kr">2024.12.03 · 캡스톤 디자인 특별상</p>
+              <p class="title" data-lang="en" hidden>2024.12.03 · Capstone Design — Special Award</p>
+              <p class="sub" data-lang="kr">증빙 이미지</p>
+              <p class="sub" data-lang="en" hidden>Evidence image</p>
             </div>
-          </div>
+          </a>
+
+          <a class="cert" href="assets/certificate-of-award/24 INTERFACE_WP245058_.jpg" target="_blank" rel="noopener">
+            <img src="assets/certificate-of-award/24 INTERFACE_WP245058_.jpg" alt="Patent" loading="lazy">
+            <div class="meta">
+              <p class="title" data-lang="kr">특허 · 24 INTERFACE_WP245058_</p>
+              <p class="title" data-lang="en" hidden>Patent · 24 INTERFACE_WP245058_</p>
+              <p class="sub" data-lang="kr">증빙 이미지</p>
+              <p class="sub" data-lang="en" hidden>Evidence image</p>
+            </div>
+          </a>
         </div>
 
-        <div style="height:12px;"></div>
-
-        <h2 data-lang="kr">Patent</h2>
-        <h2 data-lang="en" hidden>Patent</h2>
-
-        <div class="docs-grid">
-          <div class="doc-item">
-            <div class="top">
-              <div>
-                <p class="title" data-lang="kr">특허 증빙 문서</p>
-                <p class="title" data-lang="en" hidden>Patent Document</p>
-                <p class="meta">PDF · 24 INTERFACE_WP245058_</p>
-              </div>
-              <a class="btn secondary" href="assets/certificate-of-award/24%20INTERFACE_WP245058_.pdf" target="_blank" rel="noopener">
-                <span data-lang="kr">열기</span>
-                <span data-lang="en" hidden>Open</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <p class="small" style="margin-top:12px;">
-          <span data-lang="kr">팁: 파일명이 바뀌면 링크의 파일명도 동일하게 바꿔야 합니다.</span>
-          <span data-lang="en" hidden>Tip: If you rename files, update the filenames in the links accordingly.</span>
+        <p class="small" style="margin-top:10px;">
+          <span data-lang="kr">※ 파일명이 바뀌면 링크/이미지 경로도 동일하게 수정해야 합니다.</span>
+          <span data-lang="en" hidden>※ If filenames change, update the link and image paths accordingly.</span>
         </p>
       </div>
     </section>
