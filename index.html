@@ -288,7 +288,6 @@
       border-color: var(--line);
       background: rgba(15,23,42,.40);
       color: var(--muted);
-      cursor:pointer;
     }
 
     .skills{
@@ -426,21 +425,38 @@
       color:var(--muted);
     }
 
-    /* ✅ Print to PDF */
+    /* ✅ Print to PDF (keep dark theme) */
     @media print{
-      .nav, .lang-btn, #pdfBtn { display:none !important; }
-      body{ background:#fff !important; color:#000 !important; }
-      .card, .kv, .row, figure.ev, .ev-video, a.cert, footer{
-        box-shadow:none !important;
-        background:#fff !important;
-        border-color:#ddd !important;
+      /* hide UI */
+      .nav, .lang-btn, #pdfBtn{ display:none !important; }
+
+      /* keep background colors in print */
+      *{
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
-      a{ color:#000 !important; text-decoration:none !important; }
-      figure.ev img, .cert img{
-        height:auto !important;
-        object-fit:contain !important;
+
+      body{
+        background: var(--bg) !important;
+        color: var(--text) !important;
       }
-      .ev-video{ display:none !important; } /* 영상은 PDF에서 제외 */
+
+      .card{
+        background: rgba(17,27,46,.72) !important;
+        border-color: var(--line) !important;
+        box-shadow: none !important;
+      }
+      .kv, .row, figure.ev, .ev-video, a.cert, footer{
+        background: rgba(15,23,42,.55) !important;
+        border-color: var(--line) !important;
+        box-shadow: none !important;
+      }
+
+      a{ color: var(--accent) !important; text-decoration:none !important; }
+      .muted{ color: var(--muted) !important; }
+
+      /* videos don't print well */
+      .ev-video{ display:none !important; }
     }
   </style>
 </head>
@@ -528,11 +544,10 @@
               <span data-lang="kr">상장/특허 보기</span>
               <span data-lang="en" hidden>View Certificates</span>
             </a>
-
-            <!-- ✅ Portfolio PDF save button -->
+            <!-- ✅ PDF export button -->
             <button class="btn" id="pdfBtn" type="button">
-              <span data-lang="kr">포트폴리오(PDF) 저장</span>
-              <span data-lang="en" hidden>Save Portfolio (PDF)</span>
+              <span data-lang="kr">포트폴리오 PDF 저장</span>
+              <span data-lang="en" hidden>Save as PDF</span>
             </button>
           </div>
 
@@ -971,6 +986,7 @@
     const langBtn = document.getElementById('langBtn');
     const langBadge = document.getElementById('langBadge');
     const langLabel = document.getElementById('langLabel');
+    const pdfBtn = document.getElementById('pdfBtn');
 
     let current = 'kr';
 
@@ -1010,13 +1026,10 @@
       setLang(current === 'kr' ? 'en' : 'kr');
     });
 
-    // ✅ Save as PDF (print)
-    const pdfBtn = document.getElementById('pdfBtn');
-    if(pdfBtn){
-      pdfBtn.addEventListener('click', () => {
-        window.print();
-      });
-    }
+    // ✅ Save as PDF (browser print)
+    pdfBtn.addEventListener('click', () => {
+      window.print();
+    });
   </script>
 </body>
 </html>
