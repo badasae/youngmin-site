@@ -382,6 +382,39 @@
       font-size:12px;
       color:var(--muted);
     }
+
+    /* ✅ Certificates list */
+    .docs-grid{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 860px){
+      .docs-grid{ grid-template-columns: 1fr; }
+    }
+    .doc-item{
+      border:1px solid var(--line);
+      background: rgba(15,23,42,.40);
+      border-radius: 12px;
+      padding:14px;
+    }
+    .doc-item .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .doc-item .title{
+      margin:0;
+      font-size:14px;
+      color:var(--text);
+    }
+    .doc-item .meta{
+      margin:6px 0 0;
+      font-size:12px;
+      color:var(--muted);
+    }
   </style>
 </head>
 
@@ -404,6 +437,7 @@
             <a class="pill" href="#projects">Projects</a>
             <a class="pill" href="#skills">Skills</a>
             <a class="pill" href="#docs">Docs</a>
+            <a class="pill" href="#certificates">Certificates</a>
             <a class="pill" href="#contact">Contact</a>
           </nav>
 
@@ -843,6 +877,94 @@
         <p class="small" style="margin-top:10px;">
           <span data-lang="kr">파일명이 다르면 링크의 파일명도 같이 바꾸면 됩니다.</span>
           <span data-lang="en" hidden>If your filename differs, update the link filename as well.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ✅ Certificates (Awards + Patent) -->
+    <section id="certificates">
+      <div class="section-title">
+        <h2 data-lang="kr">Certificates</h2>
+        <h2 data-lang="en" hidden>Certificates</h2>
+        <div class="hint">
+          <span data-lang="kr">상장 · 특허</span>
+          <span data-lang="en" hidden>Awards · Patent</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 data-lang="kr">Awards</h2>
+        <h2 data-lang="en" hidden>Awards</h2>
+
+        <div class="docs-grid">
+          <!-- 최신순 배치 -->
+          <div class="doc-item">
+            <div class="top">
+              <div>
+                <p class="title" data-lang="kr">2024-12-03 · 캡스톤 디자인 특별상</p>
+                <p class="title" data-lang="en" hidden>2024-12-03 · Capstone Design — Special Award</p>
+                <p class="meta">PDF</p>
+              </div>
+              <a class="btn secondary" href="assets/certificate-of-award/20241203%20Special%20Award%20for%20Capstone%20Designpdf.pdf" target="_blank" rel="noopener">
+                <span data-lang="kr">열기</span>
+                <span data-lang="en" hidden>Open</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="doc-item">
+            <div class="top">
+              <div>
+                <p class="title" data-lang="kr">2024-11-22 · 논문대회(등재) 확인</p>
+                <p class="title" data-lang="en" hidden>2024-11-22 · Thesis Contest — Listed</p>
+                <p class="meta">PDF</p>
+              </div>
+              <a class="btn secondary" href="assets/certificate-of-award/20241122%20Listed%20at%20the%20thesis%20contest.pdf" target="_blank" rel="noopener">
+                <span data-lang="kr">열기</span>
+                <span data-lang="en" hidden>Open</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="doc-item">
+            <div class="top">
+              <div>
+                <p class="title" data-lang="kr">2024-01-31 · 캡스톤 디자인 장려상(등재)</p>
+                <p class="title" data-lang="en" hidden>2024-01-31 · Capstone Design — Encouragement Award (Listed)</p>
+                <p class="meta">PDF</p>
+              </div>
+              <a class="btn secondary" href="assets/certificate-of-award/20240131%20Capstone%20Design%20Encouragement%20Award%20Listed.pdf" target="_blank" rel="noopener">
+                <span data-lang="kr">열기</span>
+                <span data-lang="en" hidden>Open</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:12px;"></div>
+
+        <h2 data-lang="kr">Patent</h2>
+        <h2 data-lang="en" hidden>Patent</h2>
+
+        <div class="docs-grid">
+          <div class="doc-item">
+            <div class="top">
+              <div>
+                <p class="title" data-lang="kr">특허 증빙 문서</p>
+                <p class="title" data-lang="en" hidden>Patent Document</p>
+                <p class="meta">PDF · 24 INTERFACE_WP245058_</p>
+              </div>
+              <a class="btn secondary" href="assets/certificate-of-award/24%20INTERFACE_WP245058_.pdf" target="_blank" rel="noopener">
+                <span data-lang="kr">열기</span>
+                <span data-lang="en" hidden>Open</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <p class="small" style="margin-top:12px;">
+          <span data-lang="kr">팁: 파일명이 바뀌면 링크의 파일명도 동일하게 바꿔야 합니다.</span>
+          <span data-lang="en" hidden>Tip: If you rename files, update the filenames in the links accordingly.</span>
         </p>
       </div>
     </section>
