@@ -316,7 +316,7 @@
     /* hidden attribute handling */
     [hidden]{ display:none !important; }
 
-    /* ✅ Evidence gallery styles (added) */
+    /* ✅ Evidence gallery styles */
     .evidence-title{
       margin-top:14px;
       display:flex;
@@ -610,7 +610,7 @@
             </div>
           </div>
 
-          <!-- ✅ Evidence (PROJECT 01) added -->
+          <!-- ✅ Evidence (PROJECT 01) -->
           <div class="evidence-title">
             <h4 data-lang="kr">Evidence</h4>
             <h4 data-lang="en" hidden>Evidence</h4>
@@ -622,7 +622,7 @@
 
           <div class="evidence">
             <figure class="ev">
-              <img src="assets/img/project1/Configuring Relay Modules.jpg" alt="Relay modules" loading="lazy">
+              <img src="assets/img/project 1/Configuring Relay Modules.jpg" alt="Relay modules" loading="lazy">
               <figcaption>
                 <span data-lang="kr">AC/DC 분리 릴레이 모듈 구성</span>
                 <span data-lang="en" hidden>Relay module configuration for AC/DC isolation</span>
@@ -630,7 +630,7 @@
             </figure>
 
             <figure class="ev">
-              <img src="assets/img/project1/Installation and wiring of power supplies.jpeg" alt="Power wiring" loading="lazy">
+              <img src="assets/img/project 1/Installation and wiring of power supplies.jpeg" alt="Power wiring" loading="lazy">
               <figcaption>
                 <span data-lang="kr">전원부 설치 및 배선 구성</span>
                 <span data-lang="en" hidden>Power supply installation and wiring</span>
@@ -638,7 +638,7 @@
             </figure>
 
             <figure class="ev">
-              <img src="assets/img/project1/Overall Modelling.png" alt="Overall modelling" loading="lazy">
+              <img src="assets/img/project 1/Overall Modelling.png" alt="Overall modelling" loading="lazy">
               <figcaption>
                 <span data-lang="kr">전체 시스템 모델링 구조</span>
                 <span data-lang="en" hidden>Overall system modelling</span>
@@ -648,7 +648,7 @@
 
           <div class="ev-video">
             <video controls preload="metadata">
-              <source src="assets/video/project1/Classification motion images.MP4" type="video/mp4">
+              <source src="assets/video/project 1/Classification motion images.MP4" type="video/mp4">
             </video>
             <p class="cap">
               <span data-lang="kr">분류 동작 실제 구동 영상</span>
@@ -728,7 +728,7 @@
             </div>
           </div>
 
-          <!-- ✅ Evidence (PROJECT 02) added -->
+          <!-- ✅ Evidence (PROJECT 02) -->
           <div class="evidence-title">
             <h4 data-lang="kr">Evidence</h4>
             <h4 data-lang="en" hidden>Evidence</h4>
@@ -740,7 +740,7 @@
 
           <div class="evidence">
             <figure class="ev">
-              <img src="assets/img/project2/Configuring towing system.jpg" alt="Towing configuration" loading="lazy">
+              <img src="assets/img/project 2/Configuring towing system.jpg" alt="Towing configuration" loading="lazy">
               <figcaption>
                 <span data-lang="kr">견인 시스템 구성</span>
                 <span data-lang="en" hidden>Towing system configuration</span>
@@ -748,7 +748,7 @@
             </figure>
 
             <figure class="ev">
-              <img src="assets/img/project2/Towing system image.PNG" alt="Towing system image" loading="lazy">
+              <img src="assets/img/project 2/Towing system image.PNG" alt="Towing system image" loading="lazy">
               <figcaption>
                 <span data-lang="kr">견인 로봇 전체 구조</span>
                 <span data-lang="en" hidden>Overall towing robot structure</span>
@@ -756,7 +756,7 @@
             </figure>
 
             <figure class="ev">
-              <img src="assets/img/project2/Towing system image.jpg" alt="Towing structure detail" loading="lazy">
+              <img src="assets/img/project 2/Towing system image.jpg" alt="Towing structure detail" loading="lazy">
               <figcaption>
                 <span data-lang="kr">견인 구조 상세</span>
                 <span data-lang="en" hidden>Towing structure detail</span>
@@ -766,7 +766,7 @@
 
           <div class="ev-video">
             <video controls preload="metadata">
-              <source src="assets/video/project2/Towing system lift drive.MP4" type="video/mp4">
+              <source src="assets/video/project 2/Towing system lift drive.MP4" type="video/mp4">
             </video>
             <p class="cap">
               <span data-lang="kr">리프트 구동 동작 영상</span>
@@ -894,7 +894,6 @@
       krEls.forEach(el => { el.hidden = (lang !== 'kr'); });
       enEls.forEach(el => { el.hidden = (lang !== 'en'); });
 
-      // button UI
       if(lang === 'kr'){
         langBadge.textContent = 'KR';
         langLabel.textContent = 'English';
@@ -908,7 +907,6 @@
       try { localStorage.setItem('site_lang', lang); } catch(e) {}
     }
 
-    // initial language: ?lang=en / ?lang=kr > saved > default(kr)
     let saved = null;
     try { saved = localStorage.getItem('site_lang'); } catch(e) {}
     const params = new URLSearchParams(window.location.search);
