@@ -92,7 +92,6 @@
     }
     .pill:hover{ border-color: rgba(77,163,255,.6); text-decoration:none; }
 
-    /* Language toggle button (visually distinct) */
     .lang-btn{
       display:inline-flex;
       align-items:center;
@@ -314,7 +313,6 @@
 
     [hidden]{ display:none !important; }
 
-    /* Evidence gallery */
     .evidence-title{
       margin-top:14px;
       display:flex;
@@ -337,8 +335,13 @@
       grid-template-columns: repeat(3, 1fr);
       gap:10px;
     }
+    .evidence.one{
+      grid-template-columns: minmax(220px, 1fr);
+      max-width: 420px;
+    }
     @media (max-width: 860px){
       .evidence{ grid-template-columns: 1fr; }
+      .evidence.one{ max-width:none; }
     }
     figure.ev{
       margin:0;
@@ -381,7 +384,6 @@
       color:var(--muted);
     }
 
-    /* Certificates */
     .cert-grid{
       margin-top:10px;
       display:grid;
@@ -425,12 +427,9 @@
       color:var(--muted);
     }
 
-    /* ✅ Print to PDF (keep dark theme) */
     @media print{
-      /* hide UI */
       .nav, .lang-btn, #pdfBtn{ display:none !important; }
 
-      /* keep background colors in print */
       *{
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
@@ -455,7 +454,6 @@
       a{ color: var(--accent) !important; text-decoration:none !important; }
       .muted{ color: var(--muted) !important; }
 
-      /* videos don't print well */
       .ev-video{ display:none !important; }
     }
   </style>
@@ -511,8 +509,10 @@
             <span class="tag">Timer / PWM</span>
             <span class="tag">Interrupt</span>
             <span class="tag">Encoder</span>
+            <span class="tag">PID Control</span>
             <span class="tag">AC/DC Power Split</span>
             <span class="tag">Hardware Debugging</span>
+            <span class="tag">KiCad</span>
             <span class="tag">3D Modeling</span>
           </div>
         </div>
@@ -544,7 +544,6 @@
               <span data-lang="kr">상장/특허 보기</span>
               <span data-lang="en" hidden>View Certificates</span>
             </a>
-            <!-- ✅ PDF export button -->
             <button class="btn" id="pdfBtn" type="button">
               <span data-lang="kr">포트폴리오 PDF 저장</span>
               <span data-lang="en" hidden>Save as PDF</span>
@@ -591,19 +590,21 @@
               <h3 data-lang="en" hidden>Technical Elements</h3>
 
               <ul data-lang="kr">
-                <li>STM32, C, Fusion 360</li>
+                <li>STM32, C, Fusion 360, KiCad</li>
                 <li>Timer 기반 PWM 제어</li>
-                <li>Encoder Interrupt 속도 측정</li>
+                <li>Encoder Interrupt 기반 속도 측정</li>
+                <li>PID 제어 코드 구현 및 별도 모터 테스트</li>
                 <li>Relay 기반 AC 220V 분리 제어</li>
-                <li>DC 24V → DC 12V 전압 강하 회로 직접 제작</li>
+                <li>DC 24V → DC 12V 전압 강하 회로 설계 및 재구성</li>
               </ul>
 
               <ul data-lang="en" hidden>
-                <li>STM32, C, Fusion 360</li>
+                <li>STM32, C, Fusion 360, KiCad</li>
                 <li>Timer-based PWM motor control</li>
-                <li>Encoder interrupt for speed measurement</li>
+                <li>Encoder interrupt-based speed measurement</li>
+                <li>PID control implementation and validation with a separate motor setup</li>
                 <li>Relay-based AC 220V isolation control</li>
-                <li>Custom DC 24V → DC 12V step-down circuit</li>
+                <li>DC 24V → DC 12V step-down power design and redesign</li>
               </ul>
             </div>
 
@@ -628,57 +629,113 @@
           </div>
 
           <div class="problem">
-            <h4 data-lang="kr">문제 1 — 전력 사양 불일치</h4>
-            <h4 data-lang="en" hidden>Issue 1 — Power Specification Mismatch</h4>
+            <h4 data-lang="kr">문제 1 — 전력 설계 사양 미확인</h4>
+            <h4 data-lang="en" hidden>Issue 1 — Power Design Oversight</h4>
 
             <div class="rows">
               <div class="row">
                 <b data-lang="kr">상황</b><b data-lang="en" hidden>Situation</b>
-                <span data-lang="kr">파워서플라이 실제 출력이 고지 사양보다 낮아 전압 강하 및 구동 불안정 문제가 발생</span>
-                <span data-lang="en" hidden>The PSU output was lower than the stated specification, causing voltage drops and unstable operation.</span>
+                <span data-lang="kr">
+                  스텝다운 컨버터 모듈의 허용 전류(최대 5A)를 인지하지 못한 채 회로를 설계하여 과전류가 발생했고,
+                  그 결과 스텝다운 컨버터가 파손되었습니다.
+                </span>
+                <span data-lang="en" hidden>
+                  I designed the circuit without recognizing that the step-down converter module had a maximum allowable current of 5A.
+                  This caused an overcurrent condition, and the converter module failed.
+                </span>
               </div>
+
               <div class="row">
                 <b data-lang="kr">판단</b><b data-lang="en" hidden>Decision</b>
-                <span data-lang="kr">신규 장비 구매 대신 기존 장비 활용을 선택</span>
-                <span data-lang="en" hidden>Chose to stabilize the system using existing equipment instead of purchasing new hardware.</span>
+                <span data-lang="kr">
+                  실제 회로에서 어떤 부위가 손상되었는지 확인하고, 기존에 계산했던 회로 설계 자료와 대조하여
+                  고장 지점과 원인을 추적했습니다. 전체 부품 사양을 다시 검토하던 중 스텝다운 컨버터의 최대 허용 전류가 5A임을 파악했고,
+                  추가로 파워서플라이가 500W로 안내받은 것과 달리 실제 운용 가능한 출력은 약 320W 수준임을 확인했습니다.
+                </span>
+                <span data-lang="en" hidden>
+                  I inspected the damaged circuit and compared it with my original design calculations to identify both the failure point and the cause.
+                  During the full component review, I found that the step-down converter was limited to 5A.
+                  I also confirmed that the power supply, which had been described as 500W, actually provided around 320W of usable output.
+                </span>
               </div>
+
               <div class="row">
                 <b data-lang="kr">해결</b><b data-lang="en" hidden>Solution</b>
-                <span data-lang="kr">부하 분배 재설계, 전력 구조 재구성, 전압 강하 회로 재정비</span>
-                <span data-lang="en" hidden>Redesigned load distribution, restructured power paths, and refined the step-down circuit.</span>
+                <span data-lang="kr">
+                  스텝다운 컨버터의 허용 전류 5A 기준에 맞춰 회로를 재설계하고,
+                  파워서플라이의 실제 출력 성능(약 320W)에 맞게 전체 전력 분배 구조를 다시 구성했습니다.
+                </span>
+                <span data-lang="en" hidden>
+                  I redesigned the circuit based on the converter’s 5A current limit and restructured the overall power distribution
+                  according to the PSU’s actual output capability of about 320W.
+                </span>
               </div>
+
               <div class="row">
                 <b data-lang="kr">결과</b><b data-lang="en" hidden>Result</b>
-                <span data-lang="kr">전력 안정성 확보</span>
-                <span data-lang="en" hidden>Achieved stable power delivery and reliable system operation.</span>
+                <span data-lang="kr">
+                  전력 안정성을 확보하고 동일한 문제가 재발하지 않도록 회로 구조를 개선했습니다.
+                </span>
+                <span data-lang="en" hidden>
+                  Secured stable power delivery and improved the circuit structure to prevent the same failure from recurring.
+                </span>
               </div>
             </div>
           </div>
 
           <div class="problem">
-            <h4 data-lang="kr">문제 2 — 엔코더 신호 불안정</h4>
-            <h4 data-lang="en" hidden>Issue 2 — Unstable Encoder Signal</h4>
+            <h4 data-lang="kr">문제 2 — 컨베이어용 엔코더 모터 센서 불량</h4>
+            <h4 data-lang="en" hidden>Issue 2 — Encoder Sensor Failure in the Conveyor Motor</h4>
 
             <div class="rows">
               <div class="row">
-                <b data-lang="kr">현상</b><b data-lang="en" hidden>Symptom</b>
-                <span data-lang="kr">속도 계산 오차 발생</span>
-                <span data-lang="en" hidden>Speed calculation errors occurred due to unstable encoder signals.</span>
+                <b data-lang="kr">상황</b><b data-lang="en" hidden>Situation</b>
+                <span data-lang="kr">
+                  PID 제어를 적용하기 위해 코드를 구현하고 테스트를 진행했으며,
+                  별도 테스트 환경과 다른 엔코더 모터에서는 정상적으로 동작함을 확인했습니다.
+                  그러나 실제 컨베이어 벨트에 사용하려던 엔코더 모터는 엔코더 센서가 고장나 있어
+                  속도 피드백을 정상적으로 받을 수 없었습니다.
+                </span>
+                <span data-lang="en" hidden>
+                  I implemented PID control and verified that it worked properly in a separate test setup and with another encoder motor.
+                  However, the encoder sensor in the motor intended for the actual conveyor belt was faulty,
+                  so reliable speed feedback could not be obtained.
+                </span>
               </div>
+
               <div class="row">
                 <b data-lang="kr">판단</b><b data-lang="en" hidden>Decision</b>
-                <span data-lang="kr">시스템 신뢰성 우선</span>
-                <span data-lang="en" hidden>Prioritized system reliability and predictable behavior.</span>
+                <span data-lang="kr">
+                  문제 원인이 제어 알고리즘이 아니라 실제 하드웨어(엔코더 센서 불량)에 있음을 판단했습니다.
+                  추가 모터 구매를 고려했지만 비용이 높았기 때문에, 실제 시스템에서는 안정적인 동작 확보를 우선하기로 했습니다.
+                </span>
+                <span data-lang="en" hidden>
+                  I determined that the root cause was not the control algorithm itself but the faulty encoder sensor.
+                  Replacing the motor was considered, but because of the high cost, I prioritized stable operation with the available hardware.
+                </span>
               </div>
+
               <div class="row">
                 <b data-lang="kr">해결</b><b data-lang="en" hidden>Solution</b>
-                <span data-lang="kr">폐루프 제어 대신 개방루프 PWM 구조로 전환</span>
-                <span data-lang="en" hidden>Switched from closed-loop control to a stable open-loop PWM approach.</span>
+                <span data-lang="kr">
+                  PID 제어 코드와 테스트 결과는 별도 증빙 자료로 정리하여 제어 구현 역량을 보여주고,
+                  실제 컨베이어 시스템에는 개방루프 PWM 방식으로 제어 구조를 전환했습니다.
+                </span>
+                <span data-lang="en" hidden>
+                  I preserved the PID control code and test results as evidence of implementation capability,
+                  and switched the actual conveyor system to an open-loop PWM control method.
+                </span>
               </div>
+
               <div class="row">
                 <b data-lang="kr">결과</b><b data-lang="en" hidden>Result</b>
-                <span data-lang="kr">실동작 안정성 확보 방향으로 제어 구조 개선</span>
-                <span data-lang="en" hidden>Improved the control structure for robust real-world operation.</span>
+                <span data-lang="kr">
+                  PID 제어 구현 능력을 증빙 가능한 형태로 남기면서,
+                  실제 장비에서는 안정적인 구동이 가능한 제어 구조를 확보했습니다.
+                </span>
+                <span data-lang="en" hidden>
+                  This allowed me to demonstrate my PID implementation capability while securing stable operation in the real system.
+                </span>
               </div>
             </div>
           </div>
@@ -687,28 +744,29 @@
             <h4 data-lang="kr">Evidence</h4>
             <h4 data-lang="en" hidden>Evidence</h4>
             <div class="hint">
-              <span data-lang="kr">사진 3 · 영상 1</span>
-              <span data-lang="en" hidden>3 photos · 1 video</span>
+              <span data-lang="kr">설계 PDF 2 · 코드 1 · 이미지 1 · 영상 2</span>
+              <span data-lang="en" hidden>2 design PDFs · 1 code file · 1 image · 2 videos</span>
             </div>
           </div>
 
-          <div class="evidence">
-            <figure class="ev">
-              <img src="assets/img/project 1/Configuring Relay Modules.jpg" alt="Relay modules" loading="lazy">
-              <figcaption>
-                <span data-lang="kr">AC/DC 분리 릴레이 모듈 구성</span>
-                <span data-lang="en" hidden>Relay module setup for AC/DC power isolation</span>
-              </figcaption>
-            </figure>
+          <div class="btns" style="margin-bottom:12px;">
+            <a class="btn secondary" href="assets/docs/project 1/AC power design.pdf" target="_blank" rel="noopener">
+              <span data-lang="kr">AC 설계 도면 PDF</span>
+              <span data-lang="en" hidden>AC Design PDF</span>
+            </a>
 
-            <figure class="ev">
-              <img src="assets/img/project 1/Installation and wiring of power supplies.jpeg" alt="Power wiring" loading="lazy">
-              <figcaption>
-                <span data-lang="kr">전원부 설치 및 배선 구성</span>
-                <span data-lang="en" hidden>Power supply installation and wiring layout</span>
-              </figcaption>
-            </figure>
+            <a class="btn secondary" href="assets/docs/project 1/DC power design.pdf" target="_blank" rel="noopener">
+              <span data-lang="kr">DC 설계 도면 PDF</span>
+              <span data-lang="en" hidden>DC Design PDF</span>
+            </a>
 
+            <a class="btn secondary" href="assets/docs/project 1/PID control code.pdf" target="_blank" rel="noopener">
+              <span data-lang="kr">PID 제어 코드</span>
+              <span data-lang="en" hidden>PID Control Code</span>
+            </a>
+          </div>
+
+          <div class="evidence one">
             <figure class="ev">
               <img src="assets/img/project 1/Overall Modelling.png" alt="Overall modelling" loading="lazy">
               <figcaption>
@@ -720,11 +778,21 @@
 
           <div class="ev-video">
             <video controls preload="metadata">
-              <source src="assets/video/project 1/Classification motion images.MP4" type="video/mp4">
+              <source src="assets/video/project 1/PID control test with encoder motor.MP4" type="video/mp4">
             </video>
             <p class="cap">
-              <span data-lang="kr">분류 동작 구동 영상</span>
-              <span data-lang="en" hidden>Sorting motion demonstration</span>
+              <span data-lang="kr">별도 테스트 환경 및 다른 엔코더 모터에서 수행한 PID 제어 검증 영상</span>
+              <span data-lang="en" hidden>PID control validation video in a separate test setup using another encoder motor</span>
+            </p>
+          </div>
+
+          <div class="ev-video">
+            <video controls preload="metadata">
+              <source src="assets/video/project 1/Conveyor operation with PWM.MP4" type="video/mp4">
+            </video>
+            <p class="cap">
+              <span data-lang="kr">실제 컨베이어 구동 영상(PWM 제어 적용)</span>
+              <span data-lang="en" hidden>Actual conveyor operation video with PWM-based control</span>
             </p>
           </div>
         </article>
@@ -863,12 +931,14 @@
             <li>STM32 펌웨어 설계</li>
             <li>Timer, PWM, Interrupt 기반 제어 구조</li>
             <li>Encoder 속도 측정 구현 경험</li>
+            <li>PID 제어 구현 및 테스트 경험</li>
           </ul>
 
           <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en" hidden>
             <li>STM32 firmware design</li>
             <li>Timer/PWM/Interrupt-driven control architecture</li>
             <li>Encoder-based speed measurement implementation</li>
+            <li>PID control implementation and testing experience</li>
           </ul>
         </div>
 
@@ -878,12 +948,14 @@
           <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="kr">
             <li>AC/DC 전력 분리 설계 경험</li>
             <li>전력 사양 분석 및 재설계 경험</li>
+            <li>KiCad 기반 AC/DC 회로 설계 문서화</li>
             <li>하드웨어 기반 디버깅 경험</li>
           </ul>
 
           <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en" hidden>
             <li>AC/DC power separation design experience</li>
             <li>Power specification analysis and redesign</li>
+            <li>AC/DC circuit documentation using KiCad</li>
             <li>Hardware-based debugging experience</li>
           </ul>
         </div>
@@ -1026,7 +1098,6 @@
       setLang(current === 'kr' ? 'en' : 'kr');
     });
 
-    // ✅ Save as PDF (browser print)
     pdfBtn.addEventListener('click', () => {
       window.print();
     });
