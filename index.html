@@ -334,6 +334,40 @@
       color: var(--muted);
     }
 
+    .btn.featured{
+      width:100%;
+      min-height:56px;
+      padding:16px 22px;
+      font-size:16px;
+      font-weight:800;
+      letter-spacing:-.01em;
+      border-radius:16px;
+      border:1px solid rgba(124,240,215,.9);
+      background: linear-gradient(135deg, rgba(77,163,255,.34), rgba(124,240,215,.22));
+      color:var(--text);
+      box-shadow:
+        0 0 0 4px rgba(124,240,215,.08),
+        0 14px 30px rgba(0,0,0,.34);
+    }
+
+    .btn.featured:hover{
+      border-color: rgba(124,240,215,1);
+      background: linear-gradient(135deg, rgba(77,163,255,.45), rgba(124,240,215,.32));
+      transform: translateY(-1px);
+      text-decoration:none;
+    }
+
+    .btn.featured::before{
+      content:"▶";
+      font-size:14px;
+      color:var(--accent2);
+    }
+
+    .featured-wrap{
+      margin-top:14px;
+      justify-content:center;
+    }
+
     .skills{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -940,7 +974,7 @@
 
           <div class="ev-video">
             <video controls preload="metadata">
-              <source src="assets/video/project 2/Subsequent improvements in towing.mp4" type="video/mp4">
+              <source src="assets/video/project 2/Subsequent improvements in towing.MP4" type="video/mp4">
             </video>
 
             <p class="cap">
@@ -949,10 +983,10 @@
             </p>
           </div>
 
-          <div class="btns" style="margin-top:12px;">
-            <a class="btn secondary" href="https://youtu.be/PHcA-O1GWsk" target="_blank" rel="noopener">
-              <span data-lang="kr">견인 시스템 구동 영상 보기</span>
-              <span data-lang="en" hidden>Watch towing system operation video</span>
+          <div class="btns featured-wrap">
+            <a class="btn featured" href="https://youtu.be/PHcA-O1GWsk" target="_blank" rel="noopener">
+              <span data-lang="kr">견인 시스템 주행 영상 보기</span>
+              <span data-lang="en" hidden>Watch towing system driving video</span>
             </a>
           </div>
         </article>
