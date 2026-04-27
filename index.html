@@ -329,19 +329,15 @@
       font-size:12px;
       color:var(--muted);
     }
+
     .evidence{
       margin-top:10px;
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:10px;
     }
-    .evidence.one{
-      grid-template-columns: minmax(220px, 1fr);
-      max-width: 420px;
-    }
     @media (max-width: 860px){
       .evidence{ grid-template-columns: 1fr; }
-      .evidence.one{ max-width:none; }
     }
     figure.ev{
       margin:0;
@@ -365,6 +361,7 @@
       color:var(--muted);
       border-top:1px solid rgba(34,49,79,.6);
     }
+
     .ev-video{
       margin-top:12px;
       border:1px solid var(--line);
@@ -744,55 +741,45 @@
             <h4 data-lang="kr">Evidence</h4>
             <h4 data-lang="en" hidden>Evidence</h4>
             <div class="hint">
-              <span data-lang="kr">설계 PDF 2 · 코드 1 · 이미지 1 · 영상 2</span>
-              <span data-lang="en" hidden>2 design PDFs · 1 code file · 1 image · 2 videos</span>
+              <span data-lang="kr">회로 PDF 2 · PID 코드 1 · 영상 2</span>
+              <span data-lang="en" hidden>2 circuit PDFs · 1 PID code link · 2 videos</span>
             </div>
           </div>
 
           <div class="btns" style="margin-bottom:12px;">
-            <a class="btn secondary" href="assets/docs/project 1/AC power design.pdf" target="_blank" rel="noopener">
-              <span data-lang="kr">AC 설계 도면 PDF</span>
-              <span data-lang="en" hidden>AC Design PDF</span>
+            <a class="btn secondary" href="assets/img/project 1/RecyclingSystem-Power-Architecture-AC.pdf" target="_blank" rel="noopener">
+              <span data-lang="kr">AC 회로 설계 PDF</span>
+              <span data-lang="en" hidden>AC Circuit Design PDF</span>
             </a>
 
-            <a class="btn secondary" href="assets/docs/project 1/DC power design.pdf" target="_blank" rel="noopener">
-              <span data-lang="kr">DC 설계 도면 PDF</span>
-              <span data-lang="en" hidden>DC Design PDF</span>
+            <a class="btn secondary" href="assets/img/project 1/RecyclingSystem-Power-Architecture-DC.pdf" target="_blank" rel="noopener">
+              <span data-lang="kr">DC 회로 설계 PDF</span>
+              <span data-lang="en" hidden>DC Circuit Design PDF</span>
             </a>
 
-            <a class="btn secondary" href="assets/docs/project 1/PID control code.pdf" target="_blank" rel="noopener">
-              <span data-lang="kr">PID 제어 코드</span>
-              <span data-lang="en" hidden>PID Control Code</span>
+            <a class="btn secondary" href="https://github.com/badasae/stm32-encoder-pid-control" target="_blank" rel="noopener">
+              <span data-lang="kr">PID 제어 코드 GitHub</span>
+              <span data-lang="en" hidden>PID Control Code on GitHub</span>
             </a>
-          </div>
-
-          <div class="evidence one">
-            <figure class="ev">
-              <img src="assets/img/project 1/Overall Modelling.png" alt="Overall modelling" loading="lazy">
-              <figcaption>
-                <span data-lang="kr">전체 시스템 구조(모델링)</span>
-                <span data-lang="en" hidden>Overall system structure (CAD modeling)</span>
-              </figcaption>
-            </figure>
           </div>
 
           <div class="ev-video">
             <video controls preload="metadata">
-              <source src="assets/video/project 1/PID control test with encoder motor.MP4" type="video/mp4">
+              <source src="assets/video/project 1/PID_Controll_100rpm.mp4" type="video/mp4">
             </video>
             <p class="cap">
-              <span data-lang="kr">별도 테스트 환경 및 다른 엔코더 모터에서 수행한 PID 제어 검증 영상</span>
-              <span data-lang="en" hidden>PID control validation video in a separate test setup using another encoder motor</span>
+              <span data-lang="kr">PID 제어 테스트 그래프 영상(100RPM)</span>
+              <span data-lang="en" hidden>PID control graph test video at 100 RPM</span>
             </p>
           </div>
 
           <div class="ev-video">
             <video controls preload="metadata">
-              <source src="assets/video/project 1/Conveyor operation with PWM.MP4" type="video/mp4">
+              <source src="assets/video/project 1/PID_MotorControll_realpart.mp4" type="video/mp4">
             </video>
             <p class="cap">
-              <span data-lang="kr">실제 컨베이어 구동 영상(PWM 제어 적용)</span>
-              <span data-lang="en" hidden>Actual conveyor operation video with PWM-based control</span>
+              <span data-lang="kr">실제 엔코더 모터 PID 제어 구동 영상</span>
+              <span data-lang="en" hidden>Actual encoder motor PID control operation video</span>
             </p>
           </div>
         </article>
