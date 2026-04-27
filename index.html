@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>문영민 | Embedded Portfolio</title>
-  <meta name="description" content="STM32 기반 임베디드 펌웨어 설계 및 하드웨어 환경 문제 해결 경험을 정리한 포트폴리오" />
+  <meta name="description" content="STM32 기반 임베디드 펌웨어 설계, 하드웨어 제작, 전력 설계 및 실제 시스템 문제 해결 경험을 정리한 포트폴리오" />
 
   <style>
     :root{
@@ -21,6 +21,7 @@
     }
 
     *{ box-sizing:border-box; }
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
@@ -34,7 +35,12 @@
     a{ color:var(--accent); text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
-    .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 64px; }
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:28px 18px 64px;
+    }
+
     header{ padding:28px 0 10px; }
 
     .topbar{
@@ -44,11 +50,13 @@
       gap:12px;
       flex-wrap:wrap;
     }
+
     .brand{
       display:flex;
       flex-direction:column;
       gap:6px;
     }
+
     .kicker{
       display:inline-flex;
       align-items:center;
@@ -58,16 +66,21 @@
       text-transform:uppercase;
       color:var(--muted);
     }
+
     .dot{
-      width:8px; height:8px; border-radius:999px;
+      width:8px;
+      height:8px;
+      border-radius:999px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 0 0 4px rgba(77,163,255,.10);
     }
+
     h1{
       margin:0;
       font-size:40px;
       letter-spacing:-.02em;
     }
+
     .subtitle{
       margin:0;
       color:var(--muted);
@@ -79,6 +92,7 @@
       gap:10px;
       flex-wrap:wrap;
     }
+
     .pill{
       display:inline-flex;
       align-items:center;
@@ -90,7 +104,11 @@
       color:var(--text);
       font-size:13px;
     }
-    .pill:hover{ border-color: rgba(77,163,255,.6); text-decoration:none; }
+
+    .pill:hover{
+      border-color: rgba(77,163,255,.6);
+      text-decoration:none;
+    }
 
     .lang-btn{
       display:inline-flex;
@@ -105,16 +123,19 @@
       background: rgba(124,240,215,.10);
       box-shadow: 0 0 0 4px rgba(124,240,215,.07);
     }
+
     .lang-btn:hover{
       border-color: rgba(124,240,215,.9);
       background: rgba(124,240,215,.14);
       text-decoration:none;
     }
+
     .lang-badge{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      width:22px; height:22px;
+      width:22px;
+      height:22px;
       border-radius:999px;
       border:1px solid rgba(124,240,215,.55);
       background: rgba(15,23,42,.55);
@@ -128,6 +149,7 @@
       grid-template-columns: 1.15fr .85fr;
       gap:14px;
     }
+
     @media (max-width: 860px){
       .hero{ grid-template-columns: 1fr; }
     }
@@ -139,16 +161,19 @@
       box-shadow: var(--shadow);
       padding:18px;
     }
+
     .card h2{
       margin:0 0 12px;
       font-size:18px;
       letter-spacing:-.01em;
     }
+
     .lead{
       margin:0;
       color:var(--text);
       font-size:15px;
     }
+
     .muted{ color:var(--muted); }
 
     .tags{
@@ -157,6 +182,7 @@
       gap:8px;
       margin-top:12px;
     }
+
     .tag{
       font-size:12px;
       padding:7px 10px;
@@ -167,6 +193,7 @@
     }
 
     section{ margin-top:18px; }
+
     .section-title{
       display:flex;
       align-items:flex-end;
@@ -174,11 +201,13 @@
       gap:10px;
       margin:22px 0 10px;
     }
+
     .section-title h2{
       margin:0;
       font-size:20px;
       letter-spacing:-.01em;
     }
+
     .section-title .hint{
       color:var(--muted);
       font-size:13px;
@@ -198,10 +227,12 @@
       flex-wrap:wrap;
       margin-bottom:10px;
     }
+
     .proj-title{
       margin:0;
       font-size:18px;
     }
+
     .proj-sub{
       margin:2px 0 0;
       color:var(--muted);
@@ -213,27 +244,31 @@
       grid-template-columns: 1fr 1fr;
       gap:12px;
     }
+
     @media (max-width: 860px){
       .grid2{ grid-template-columns: 1fr; }
     }
 
     .kv{
       border:1px solid var(--line);
-      border-radius: 12px;
+      border-radius:12px;
       background: rgba(15,23,42,.55);
       padding:14px;
     }
+
     .kv h3{
       margin:0 0 8px;
       font-size:14px;
       color:var(--text);
     }
+
     .kv ul{
       margin:0;
       padding-left:18px;
       color:var(--muted);
       font-size:13px;
     }
+
     .kv p{
       margin:0;
       color:var(--muted);
@@ -245,21 +280,25 @@
       padding-left:12px;
       margin-top:12px;
     }
+
     .problem h4{
       margin:0 0 8px;
       font-size:14px;
     }
+
     .rows{
       display:grid;
       gap:8px;
       margin-top:6px;
     }
+
     .row{
       border:1px solid var(--line);
       background: rgba(15,23,42,.40);
-      border-radius: 12px;
+      border-radius:12px;
       padding:12px;
     }
+
     .row b{ color:var(--text); }
     .row span{ color:var(--muted); }
 
@@ -269,20 +308,26 @@
       gap:10px;
       margin-top:12px;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:8px;
       padding:11px 14px;
-      border-radius: 12px;
+      border-radius:12px;
       border:1px solid rgba(77,163,255,.45);
       background: rgba(77,163,255,.12);
       color:var(--text);
       font-size:13px;
       cursor:pointer;
     }
-    .btn:hover{ text-decoration:none; border-color: rgba(77,163,255,.9); }
+
+    .btn:hover{
+      text-decoration:none;
+      border-color: rgba(77,163,255,.9);
+    }
+
     .btn.secondary{
       border-color: var(--line);
       background: rgba(15,23,42,.40);
@@ -291,9 +336,10 @@
 
     .skills{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap:12px;
     }
+
     @media (max-width: 860px){
       .skills{ grid-template-columns: 1fr; }
     }
@@ -320,11 +366,13 @@
       justify-content:space-between;
       gap:10px;
     }
+
     .evidence-title h4{
       margin:0;
       font-size:14px;
       color:var(--text);
     }
+
     .evidence-title .hint{
       font-size:12px;
       color:var(--muted);
@@ -336,25 +384,30 @@
       grid-template-columns: repeat(3, 1fr);
       gap:10px;
     }
+
     @media (max-width: 860px){
       .evidence{ grid-template-columns: 1fr; }
     }
+
     figure.ev{
       margin:0;
       border:1px solid var(--line);
       background: rgba(15,23,42,.40);
-      border-radius: 12px;
+      border-radius:12px;
       overflow:hidden;
     }
+
     figure.ev img{
       width:100%;
       height:180px;
       object-fit:cover;
       display:block;
     }
+
     @media (max-width: 860px){
       figure.ev img{ height:220px; }
     }
+
     figure.ev figcaption{
       padding:10px 10px 11px;
       font-size:12px;
@@ -366,15 +419,17 @@
       margin-top:12px;
       border:1px solid var(--line);
       background: rgba(15,23,42,.40);
-      border-radius: 12px;
+      border-radius:12px;
       padding:12px;
     }
+
     .ev-video video{
       width:100%;
       border-radius:12px;
       display:block;
       background:#000;
     }
+
     .ev-video .cap{
       margin:8px 0 0;
       font-size:12px;
@@ -387,37 +442,44 @@
       grid-template-columns: repeat(2, 1fr);
       gap:12px;
     }
+
     @media (max-width: 860px){
       .cert-grid{ grid-template-columns: 1fr; }
     }
+
     a.cert{
       display:block;
       border:1px solid var(--line);
       background: rgba(15,23,42,.40);
-      border-radius: 12px;
+      border-radius:12px;
       overflow:hidden;
-      color: inherit;
+      color:inherit;
       text-decoration:none;
     }
+
     a.cert:hover{
       border-color: rgba(77,163,255,.65);
       text-decoration:none;
     }
+
     .cert img{
       width:100%;
       height:240px;
       object-fit:cover;
       display:block;
     }
+
     .cert .meta{
       padding:12px;
       border-top:1px solid rgba(34,49,79,.6);
     }
+
     .cert .title{
       margin:0;
       font-size:13px;
       color:var(--text);
     }
+
     .cert .sub{
       margin:4px 0 0;
       font-size:12px;
@@ -425,7 +487,9 @@
     }
 
     @media print{
-      .nav, .lang-btn, #pdfBtn{ display:none !important; }
+      .nav, .lang-btn, #pdfBtn{
+        display:none !important;
+      }
 
       *{
         -webkit-print-color-adjust: exact !important;
@@ -442,16 +506,23 @@
         border-color: var(--line) !important;
         box-shadow: none !important;
       }
+
       .kv, .row, figure.ev, .ev-video, a.cert, footer{
         background: rgba(15,23,42,.55) !important;
         border-color: var(--line) !important;
         box-shadow: none !important;
       }
 
-      a{ color: var(--accent) !important; text-decoration:none !important; }
+      a{
+        color: var(--accent) !important;
+        text-decoration:none !important;
+      }
+
       .muted{ color: var(--muted) !important; }
 
-      .ev-video{ display:none !important; }
+      .ev-video{
+        display:none !important;
+      }
     }
   </style>
 </head>
@@ -491,13 +562,13 @@
           <h2 data-lang="en" hidden>Summary</h2>
 
           <p class="lead" data-lang="kr">
-            STM32 기반 임베디드 펌웨어를 설계하고 실제 하드웨어 환경에서 발생한 전력 및 제어 문제를 해결한 경험이 있습니다.
-            Timer, PWM, Interrupt 기반 제어 구조를 구현했으며 AC/DC 전원 분리 설계와 전력 재구성 경험을 보유하고 있습니다.
+            STM32 기반 임베디드 펌웨어를 설계하고, 실제 하드웨어 환경에서 발생한 전력·제어·구조 문제를 해결한 경험이 있습니다.
+            모터 제어, 전력 분배, 회로 문서화, 기구 제작까지 시스템 구현 과정 전반을 직접 수행했습니다.
           </p>
 
           <p class="lead" data-lang="en" hidden>
-            I have hands-on experience designing STM32-based embedded firmware and solving power/control issues in real hardware environments.
-            I implemented a Timer/PWM/Interrupt-driven control architecture and have practical experience in AC/DC power separation and power-system redesign.
+            I have hands-on experience designing STM32-based embedded firmware and solving power, control, and mechanical issues in real hardware environments.
+            I have worked across motor control, power distribution, circuit documentation, and mechanical fabrication.
           </p>
 
           <div class="tags" aria-label="core tags">
@@ -510,7 +581,8 @@
             <span class="tag">AC/DC Power Split</span>
             <span class="tag">Hardware Debugging</span>
             <span class="tag">KiCad</span>
-            <span class="tag">3D Modeling</span>
+            <span class="tag">Fusion 360</span>
+            <span class="tag">Mechanical Design</span>
           </div>
         </div>
 
@@ -526,10 +598,10 @@
           </p>
 
           <p class="muted" style="margin-top:10px;" data-lang="kr">
-            코드의 완성도보다 현장의 신뢰성을 우선하며, 문제 발생 시 장비 교체보다 구조 분석을 먼저 선택해 왔습니다.
+            코드뿐 아니라 전원, 배선, 센서, 기구 구조까지 함께 보며 문제 원인을 추적하고 개선해 왔습니다.
           </p>
           <p class="muted" style="margin-top:10px;" data-lang="en" hidden>
-            I prioritize field reliability over “perfect code,” and I start with structural analysis before replacing equipment.
+            I analyze not only code but also power, wiring, sensors, and mechanical structure to identify and improve root causes.
           </p>
 
           <div class="btns">
@@ -537,20 +609,17 @@
               <span data-lang="kr">프로젝트 보기</span>
               <span data-lang="en" hidden>View Projects</span>
             </a>
+
             <a class="btn secondary" href="#certificates">
               <span data-lang="kr">상장/특허 보기</span>
               <span data-lang="en" hidden>View Certificates</span>
             </a>
+
             <button class="btn" id="pdfBtn" type="button">
               <span data-lang="kr">포트폴리오 PDF 저장</span>
               <span data-lang="en" hidden>Save as PDF</span>
             </button>
           </div>
-
-          <p class="small" style="margin-top:10px;">
-            <span data-lang="kr"></span>
-            <span data-lang="en" hidden></span>
-          </p>
         </div>
       </div>
     </header>
@@ -589,19 +658,19 @@
               <ul data-lang="kr">
                 <li>STM32, C, Fusion 360, KiCad</li>
                 <li>Timer 기반 PWM 제어</li>
-                <li>Encoder Interrupt 기반 속도 측정</li>
-                <li>PID 제어 코드 구현 및 별도 모터 테스트</li>
+                <li>Encoder 기반 속도 측정 및 PID 테스트</li>
                 <li>Relay 기반 AC 220V 분리 제어</li>
-                <li>DC 24V → DC 12V 전압 강하 회로 설계 및 재구성</li>
+                <li>DC 24V → DC 12V 전력 분배 설계</li>
+                <li>전력 사양 분석 및 회로 재설계</li>
               </ul>
 
               <ul data-lang="en" hidden>
                 <li>STM32, C, Fusion 360, KiCad</li>
                 <li>Timer-based PWM motor control</li>
-                <li>Encoder interrupt-based speed measurement</li>
-                <li>PID control implementation and validation with a separate motor setup</li>
+                <li>Encoder-based speed measurement and PID testing</li>
                 <li>Relay-based AC 220V isolation control</li>
-                <li>DC 24V → DC 12V step-down power design and redesign</li>
+                <li>DC 24V → DC 12V power distribution design</li>
+                <li>Power specification analysis and circuit redesign</li>
               </ul>
             </div>
 
@@ -632,50 +701,26 @@
             <div class="rows">
               <div class="row">
                 <b data-lang="kr">상황</b><b data-lang="en" hidden>Situation</b>
-                <span data-lang="kr">
-                  스텝다운 컨버터 모듈의 허용 전류(최대 5A)를 인지하지 못한 채 회로를 설계하여 과전류가 발생했고,
-                  그 결과 스텝다운 컨버터가 파손되었습니다.
-                </span>
-                <span data-lang="en" hidden>
-                  I designed the circuit without recognizing that the step-down converter module had a maximum allowable current of 5A.
-                  This caused an overcurrent condition, and the converter module failed.
-                </span>
+                <span data-lang="kr">스텝다운 컨버터 허용 전류(5A)를 초과해 모듈이 파손됨</span>
+                <span data-lang="en" hidden">The step-down converter failed because the load exceeded its 5A current limit.</span>
               </div>
 
               <div class="row">
                 <b data-lang="kr">판단</b><b data-lang="en" hidden>Decision</b>
-                <span data-lang="kr">
-                  실제 회로에서 어떤 부위가 손상되었는지 확인하고, 기존에 계산했던 회로 설계 자료와 대조하여
-                  고장 지점과 원인을 추적했습니다. 전체 부품 사양을 다시 검토하던 중 스텝다운 컨버터의 최대 허용 전류가 5A임을 파악했고,
-                  추가로 파워서플라이가 500W로 안내받은 것과 달리 실제 운용 가능한 출력은 약 320W 수준임을 확인했습니다.
-                </span>
-                <span data-lang="en" hidden>
-                  I inspected the damaged circuit and compared it with my original design calculations to identify both the failure point and the cause.
-                  During the full component review, I found that the step-down converter was limited to 5A.
-                  I also confirmed that the power supply, which had been described as 500W, actually provided around 320W of usable output.
-                </span>
+                <span data-lang="kr">실제 회로와 설계 계산을 대조해 컨버터 전류 제한과 전원 출력 한계를 확인</span>
+                <span data-lang="en" hidden>Compared the damaged circuit with design calculations and identified the converter current limit and PSU output limitation.</span>
               </div>
 
               <div class="row">
                 <b data-lang="kr">해결</b><b data-lang="en" hidden>Solution</b>
-                <span data-lang="kr">
-                  스텝다운 컨버터의 허용 전류 5A 기준에 맞춰 회로를 재설계하고,
-                  파워서플라이의 실제 출력 성능(약 320W)에 맞게 전체 전력 분배 구조를 다시 구성했습니다.
-                </span>
-                <span data-lang="en" hidden>
-                  I redesigned the circuit based on the converter’s 5A current limit and restructured the overall power distribution
-                  according to the PSU’s actual output capability of about 320W.
-                </span>
+                <span data-lang="kr">5A 제한과 실제 전원 출력(약 320W)에 맞춰 전력 분배 구조를 재설계</span>
+                <span data-lang="en" hidden>Redesigned the power distribution based on the 5A converter limit and the actual PSU output of about 320W.</span>
               </div>
 
               <div class="row">
                 <b data-lang="kr">결과</b><b data-lang="en" hidden>Result</b>
-                <span data-lang="kr">
-                  전력 안정성을 확보하고 동일한 문제가 재발하지 않도록 회로 구조를 개선했습니다.
-                </span>
-                <span data-lang="en" hidden>
-                  Secured stable power delivery and improved the circuit structure to prevent the same failure from recurring.
-                </span>
+                <span data-lang="kr">전력 안정성을 확보하고 동일한 파손 문제가 재발하지 않도록 개선</span>
+                <span data-lang="en" hidden>Secured stable power delivery and prevented the same failure from recurring.</span>
               </div>
             </div>
           </div>
@@ -687,52 +732,26 @@
             <div class="rows">
               <div class="row">
                 <b data-lang="kr">상황</b><b data-lang="en" hidden>Situation</b>
-                <span data-lang="kr">
-                  PID 제어를 적용하기 위해 코드를 구현하고 테스트를 진행했으며,
-                  별도 테스트 환경과 다른 엔코더 모터에서는 정상적으로 동작함을 확인했습니다.
-                  그러나 실제 컨베이어 벨트에 사용하려던 엔코더 모터는 엔코더 센서가 고장나 있어
-                  속도 피드백을 정상적으로 받을 수 없었습니다.
-                </span>
-                <span data-lang="en" hidden>
-                  I implemented PID control and verified that it worked properly in a separate test setup and with another encoder motor.
-                  However, the encoder sensor in the motor intended for the actual conveyor belt was faulty,
-                  so reliable speed feedback could not be obtained.
-                </span>
+                <span data-lang="kr">PID 제어는 별도 엔코더 모터에서 검증했지만, 실제 컨베이어 모터의 엔코더 센서가 불량이었음</span>
+                <span data-lang="en" hidden>PID control was verified with a separate encoder motor, but the encoder sensor of the actual conveyor motor was faulty.</span>
               </div>
 
               <div class="row">
                 <b data-lang="kr">판단</b><b data-lang="en" hidden>Decision</b>
-                <span data-lang="kr">
-                  문제 원인이 제어 알고리즘이 아니라 실제 하드웨어(엔코더 센서 불량)에 있음을 판단했습니다.
-                  추가 모터 구매를 고려했지만 비용이 높았기 때문에, 실제 시스템에서는 안정적인 동작 확보를 우선하기로 했습니다.
-                </span>
-                <span data-lang="en" hidden>
-                  I determined that the root cause was not the control algorithm itself but the faulty encoder sensor.
-                  Replacing the motor was considered, but because of the high cost, I prioritized stable operation with the available hardware.
-                </span>
+                <span data-lang="kr">문제 원인은 제어 알고리즘이 아니라 하드웨어 센서 불량이라고 판단</span>
+                <span data-lang="en" hidden>Determined that the root cause was not the control algorithm but the faulty encoder sensor.</span>
               </div>
 
               <div class="row">
                 <b data-lang="kr">해결</b><b data-lang="en" hidden>Solution</b>
-                <span data-lang="kr">
-                  PID 제어 코드와 테스트 결과는 별도 증빙 자료로 정리하여 제어 구현 역량을 보여주고,
-                  실제 컨베이어 시스템에는 개방루프 PWM 방식으로 제어 구조를 전환했습니다.
-                </span>
-                <span data-lang="en" hidden>
-                  I preserved the PID control code and test results as evidence of implementation capability,
-                  and switched the actual conveyor system to an open-loop PWM control method.
-                </span>
+                <span data-lang="kr">PID 구현 결과는 증빙으로 남기고, 실제 컨베이어는 안정성을 위해 PWM 제어로 전환</span>
+                <span data-lang="en" hidden>Documented the PID test result as evidence and switched the actual conveyor to PWM control for stable operation.</span>
               </div>
 
               <div class="row">
                 <b data-lang="kr">결과</b><b data-lang="en" hidden>Result</b>
-                <span data-lang="kr">
-                  PID 제어 구현 능력을 증빙 가능한 형태로 남기면서,
-                  실제 장비에서는 안정적인 구동이 가능한 제어 구조를 확보했습니다.
-                </span>
-                <span data-lang="en" hidden>
-                  This allowed me to demonstrate my PID implementation capability while securing stable operation in the real system.
-                </span>
+                <span data-lang="kr">PID 제어 구현 능력과 실제 장비에 맞춘 판단 과정을 함께 제시</span>
+                <span data-lang="en" hidden>Demonstrated both PID implementation capability and practical decision-making for real hardware.</span>
               </div>
             </div>
           </div>
@@ -740,6 +759,7 @@
           <div class="evidence-title">
             <h4 data-lang="kr">Evidence</h4>
             <h4 data-lang="en" hidden>Evidence</h4>
+
             <div class="hint">
               <span data-lang="kr">회로 PDF 2 · PID 코드 1 · 영상 2</span>
               <span data-lang="en" hidden>2 circuit PDFs · 1 PID code link · 2 videos</span>
@@ -767,6 +787,7 @@
             <video controls preload="metadata">
               <source src="assets/video/project 1/PID_Controll_100rpm.mp4" type="video/mp4">
             </video>
+
             <p class="cap">
               <span data-lang="kr">PID 제어 테스트 그래프 영상(100RPM)</span>
               <span data-lang="en" hidden>PID control graph test video at 100 RPM</span>
@@ -777,6 +798,7 @@
             <video controls preload="metadata">
               <source src="assets/video/project 1/PID_MotorControll_realpart.mp4" type="video/mp4">
             </video>
+
             <p class="cap">
               <span data-lang="kr">실제 엔코더 모터 PID 제어 구동 영상</span>
               <span data-lang="en" hidden>Actual encoder motor PID control operation video</span>
@@ -790,12 +812,12 @@
             <div>
               <h3 class="proj-title">PROJECT 02 — Towing AMR Embedded Control System</h3>
 
-              <p class="proj-sub" data-lang="kr">개요: STM32 기반 견인 로봇 제어 시스템 구현</p>
-              <p class="proj-sub" data-lang="en" hidden>Overview: Implemented an STM32-based towing AMR embedded control system.</p>
+              <p class="proj-sub" data-lang="kr">개요: 견인 기능을 갖춘 AMR 하드웨어 및 STM32 기반 제어 시스템 구현</p>
+              <p class="proj-sub" data-lang="en" hidden>Overview: Implemented a towing-capable AMR hardware platform and STM32-based control system.</p>
             </div>
 
-            <div class="small" data-lang="kr">역할: 모터 제어 및 액추에이터 제어 로직 구현</div>
-            <div class="small" data-lang="en" hidden>Role: Implemented motor control and actuator control logic on STM32.</div>
+            <div class="small" data-lang="kr">역할: 전체 하드웨어/기구 설계 및 제작 · 모터/리니어 액추에이터 제어 구현</div>
+            <div class="small" data-lang="en" hidden>Role: Full hardware/mechanical design and fabrication, motor and linear actuator control implementation.</div>
           </div>
 
           <div class="grid2">
@@ -804,17 +826,21 @@
               <h3 data-lang="en" hidden>Technical Elements</h3>
 
               <ul data-lang="kr">
-                <li>STM32, C</li>
-                <li>PWM 모터 제어</li>
-                <li>리니어 액추에이터 제어</li>
-                <li>Fusion 360 기반 기구 설계</li>
+                <li>STM32, C, Fusion 360</li>
+                <li>견인 로봇 전체 하드웨어 구조 설계</li>
+                <li>프레임, 리프트, 견인부 기구 설계 및 제작</li>
+                <li>PWM 기반 모터 제어</li>
+                <li>리니어 액추에이터 기반 리프트 제어</li>
+                <li>3D 프린팅 부품 제작 및 반복 부하 테스트</li>
               </ul>
 
               <ul data-lang="en" hidden>
-                <li>STM32, C</li>
-                <li>PWM motor control</li>
-                <li>Linear actuator control</li>
-                <li>Mechanical design using Fusion 360</li>
+                <li>STM32, C, Fusion 360</li>
+                <li>Overall hardware architecture design for the towing robot</li>
+                <li>Frame, lift, and towing mechanism design and fabrication</li>
+                <li>PWM-based motor control</li>
+                <li>Linear actuator-based lift control</li>
+                <li>3D-printed part fabrication and repetitive load testing</li>
               </ul>
             </div>
 
@@ -822,35 +848,43 @@
               <h3 data-lang="kr">핵심 포인트</h3>
               <h3 data-lang="en" hidden>Key Point</h3>
 
-              <p data-lang="kr">“구조적 원인 정의 → 재설계 → 반복 부하 테스트” 및 전반적인 하드웨어 설계</p>
-              <p data-lang="en" hidden>Focused on “root cause identification → redesign → repetitive load testing,” including overall hardware design.</p>
+              <p data-lang="kr">
+                견인 로봇의 프레임, 리프트 구조, 견인부를 직접 설계·제작하고, 제어부와 통합해 실제 구동 가능한 하드웨어로 완성했습니다.
+              </p>
+
+              <p data-lang="en" hidden>
+                Designed and fabricated the towing robot frame, lift mechanism, and towing structure, then integrated them with the control system into a working hardware prototype.
+              </p>
             </div>
           </div>
 
           <div class="problem">
-            <h4 data-lang="kr">문제 — 구조 강성 부족</h4>
-            <h4 data-lang="en" hidden>Issue — Insufficient Structural Stiffness</h4>
+            <h4 data-lang="kr">문제 — 견인 구조 강성 및 내구성 확보</h4>
+            <h4 data-lang="en" hidden>Issue — Securing Structural Stiffness and Durability</h4>
 
             <div class="rows">
               <div class="row">
                 <b data-lang="kr">상황</b><b data-lang="en" hidden>Situation</b>
-                <span data-lang="kr">3D 프린팅 부품의 강성 부족으로 반복 부하 시 변형 발생</span>
-                <span data-lang="en" hidden>3D-printed parts deformed under repetitive loads due to insufficient stiffness.</span>
+                <span data-lang="kr">3D 프린팅 기반 견인 구조에서 반복 부하 시 변형이 발생</span>
+                <span data-lang="en" hidden>Deformation occurred in the 3D-printed towing structure under repeated load.</span>
               </div>
+
               <div class="row">
                 <b data-lang="kr">판단</b><b data-lang="en" hidden>Decision</b>
-                <span data-lang="kr">구조 보강 및 재설계 필요</span>
-                <span data-lang="en" hidden>Determined structural reinforcement and redesign were required.</span>
+                <span data-lang="kr">견인부 형상, 체결 위치, 하중 방향을 기준으로 구조 보강이 필요하다고 판단</span>
+                <span data-lang="en" hidden>Structural reinforcement was required based on the towing geometry, fastening points, and load direction.</span>
               </div>
+
               <div class="row">
                 <b data-lang="kr">해결</b><b data-lang="en" hidden>Solution</b>
-                <span data-lang="kr">기구 재설계 및 반복 부하 테스트 수행</span>
-                <span data-lang="en" hidden>Redesigned the structure and conducted repetitive load testing.</span>
+                <span data-lang="kr">프레임과 견인부를 재설계하고, 제작 후 반복 부하 테스트로 구조를 개선</span>
+                <span data-lang="en" hidden>Redesigned the frame and towing structure, then improved it through fabrication and repeated load testing.</span>
               </div>
+
               <div class="row">
                 <b data-lang="kr">결과</b><b data-lang="en" hidden>Result</b>
-                <span data-lang="kr">구조 안정성 확보</span>
-                <span data-lang="en" hidden>Achieved a stable and durable structure.</span>
+                <span data-lang="kr">리프트와 견인 동작이 가능한 하드웨어 구조를 확보</span>
+                <span data-lang="en" hidden>Secured a hardware structure capable of lift and towing operation.</span>
               </div>
             </div>
           </div>
@@ -858,6 +892,7 @@
           <div class="evidence-title">
             <h4 data-lang="kr">Evidence</h4>
             <h4 data-lang="en" hidden>Evidence</h4>
+
             <div class="hint">
               <span data-lang="kr">사진 3 · 영상 1</span>
               <span data-lang="en" hidden>3 photos · 1 video</span>
@@ -866,26 +901,26 @@
 
           <div class="evidence">
             <figure class="ev">
-              <img src="assets/img/project 2/Configuring towing system.jpg" alt="Towing configuration" loading="lazy">
+              <img src="assets/img/project 2/Configuring towing system.jpg" alt="Towing system configuration" loading="lazy">
               <figcaption>
                 <span data-lang="kr">견인 시스템 구성</span>
-                <span data-lang="en" hidden>Towing system configuration (assembly)</span>
+                <span data-lang="en" hidden>Towing system configuration</span>
               </figcaption>
             </figure>
 
             <figure class="ev">
-              <img src="assets/img/project 2/Towing system image.PNG" alt="Towing system image" loading="lazy">
+              <img src="assets/img/project 2/Towing system image.PNG" alt="Towing system operation diagram" loading="lazy">
               <figcaption>
                 <span data-lang="kr">견인 로봇 예상 운영도</span>
-                <span data-lang="en" hidden>Towing robot expected operation chart</span>
+                <span data-lang="en" hidden>Towing robot operation diagram</span>
               </figcaption>
             </figure>
 
             <figure class="ev">
-              <img src="assets/img/project 2/Towing system image.jpg" alt="Towing structure detail" loading="lazy">
+              <img src="assets/img/project 2/Towing system image.jpg" alt="Towing robot frame and structure" loading="lazy">
               <figcaption>
-                <span data-lang="kr">프레임 및 구성</span>
-                <span data-lang="en" hidden>Frame and configuration</span>
+                <span data-lang="kr">프레임 및 견인 구조</span>
+                <span data-lang="en" hidden>Frame and towing structure</span>
               </figcaption>
             </figure>
           </div>
@@ -894,6 +929,7 @@
             <video controls preload="metadata">
               <source src="assets/video/project 2/Towing system lift drive.MP4" type="video/mp4">
             </video>
+
             <p class="cap">
               <span data-lang="kr">리프트 구동 동작 영상</span>
               <span data-lang="en" hidden>Lift drive motion demonstration</span>
@@ -946,6 +982,24 @@
             <li>Hardware-based debugging experience</li>
           </ul>
         </div>
+
+        <div class="card">
+          <h2>Mechanical</h2>
+
+          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="kr">
+            <li>Fusion 360 기반 기구 설계</li>
+            <li>프레임, 리프트, 견인부 구조 설계</li>
+            <li>3D 프린팅 부품 제작 및 조립</li>
+            <li>반복 부하 테스트 기반 구조 개선</li>
+          </ul>
+
+          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en" hidden>
+            <li>Mechanical design using Fusion 360</li>
+            <li>Frame, lift, and towing mechanism design</li>
+            <li>3D-printed part fabrication and assembly</li>
+            <li>Structural improvement through repeated load testing</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -953,6 +1007,7 @@
       <div class="section-title">
         <h2 data-lang="kr">Certificates</h2>
         <h2 data-lang="en" hidden>Certificates</h2>
+
         <div class="hint">
           <span data-lang="kr">상장 3 · 특허 1 (클릭하면 원본)</span>
           <span data-lang="en" hidden>3 awards · 1 patent (click to open original)</span>
@@ -967,7 +1022,8 @@
 
         <div class="cert-grid">
           <a class="cert" href="assets/certificate-of-award/240131 Capstone Design Encouragement Award Listed.jpg" target="_blank" rel="noopener">
-            <img src="assets/certificate-of-award/240131 Capstone Design Encouragement Award Listed.jpg" alt="Capstone Encouragement Award" loading="lazy">
+            <img src="assets/certificate-of-award/240131 Capstone Design Encouragement Award Listed.jpg" alt="Capstone Design Encouragement Award" loading="lazy">
+
             <div class="meta">
               <p class="title" data-lang="kr">2024.01.31 · 캡스톤 디자인 장려상</p>
               <p class="title" data-lang="en" hidden>2024.01.31 · Capstone Design — Encouragement Award</p>
@@ -978,6 +1034,7 @@
 
           <a class="cert" href="assets/certificate-of-award/20241122 Listed at the thesis contest.png" target="_blank" rel="noopener">
             <img src="assets/certificate-of-award/20241122 Listed at the thesis contest.png" alt="Thesis contest listed" loading="lazy">
+
             <div class="meta">
               <p class="title" data-lang="kr">2024.11.22 · 논문 대회 등재( Listed )</p>
               <p class="title" data-lang="en" hidden>2024.11.22 · Thesis Contest — Listed</p>
@@ -987,7 +1044,8 @@
           </a>
 
           <a class="cert" href="assets/certificate-of-award/241203 Special Award for Capstone Design.jpg" target="_blank" rel="noopener">
-            <img src="assets/certificate-of-award/241203 Special Award for Capstone Design.jpg" alt="Capstone special award" loading="lazy">
+            <img src="assets/certificate-of-award/241203 Special Award for Capstone Design.jpg" alt="Capstone Design Special Award" loading="lazy">
+
             <div class="meta">
               <p class="title" data-lang="kr">2024.12.03 · 캡스톤 디자인 특별상</p>
               <p class="title" data-lang="en" hidden>2024.12.03 · Capstone Design — Special Award</p>
@@ -997,7 +1055,8 @@
           </a>
 
           <a class="cert" href="assets/certificate-of-award/24 INTERFACE_WP245058_.jpg" target="_blank" rel="noopener">
-            <img src="assets/certificate-of-award/24 INTERFACE_WP245058_.jpg" alt="Patent" loading="lazy">
+            <img src="assets/certificate-of-award/24 INTERFACE_WP245058_.jpg" alt="Patent evidence" loading="lazy">
+
             <div class="meta">
               <p class="title" data-lang="kr">특허 · 24 INTERFACE_WP245058_</p>
               <p class="title" data-lang="en" hidden>Patent · 24 INTERFACE_WP245058_</p>
@@ -1035,6 +1094,7 @@
         <span data-lang="kr">문영민</span><span data-lang="en" hidden>Youngmin Moon</span>.
         Hosted on GitHub Pages.
       </div>
+
       <div class="small" style="margin-top:6px;">Custom domain: youngmin-moon.com</div>
     </footer>
   </div>
@@ -1068,18 +1128,29 @@
         document.documentElement.lang = 'en';
       }
 
-      try { localStorage.setItem('site_lang', lang); } catch(e) {}
+      try{
+        localStorage.setItem('site_lang', lang);
+      }catch(e){}
     }
 
     let saved = null;
-    try { saved = localStorage.getItem('site_lang'); } catch(e) {}
+
+    try{
+      saved = localStorage.getItem('site_lang');
+    }catch(e){}
+
     const params = new URLSearchParams(window.location.search);
     const forced = params.get('lang');
 
-    if(forced === 'en') setLang('en');
-    else if(forced === 'kr') setLang('kr');
-    else if(saved === 'en' || saved === 'kr') setLang(saved);
-    else setLang('kr');
+    if(forced === 'en'){
+      setLang('en');
+    }else if(forced === 'kr'){
+      setLang('kr');
+    }else if(saved === 'en' || saved === 'kr'){
+      setLang(saved);
+    }else{
+      setLang('kr');
+    }
 
     langBtn.addEventListener('click', () => {
       setLang(current === 'kr' ? 'en' : 'kr');
