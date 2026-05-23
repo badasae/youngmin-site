@@ -368,6 +368,128 @@
       justify-content:center;
     }
 
+
+    .circuit-showcase{
+      margin:12px 0 14px;
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:12px;
+    }
+
+    @media (max-width: 860px){
+      .circuit-showcase{ grid-template-columns: 1fr; }
+    }
+
+    .circuit-card{
+      position:relative;
+      display:block;
+      overflow:hidden;
+      min-height:170px;
+      padding:18px;
+      border-radius:16px;
+      border:1px solid rgba(77,163,255,.48);
+      background:
+        linear-gradient(135deg, rgba(77,163,255,.20), rgba(15,23,42,.68) 58%),
+        rgba(15,23,42,.55);
+      color:inherit;
+      text-decoration:none;
+      box-shadow: 0 14px 34px rgba(0,0,0,.28);
+    }
+
+    .circuit-card:hover{
+      transform:translateY(-2px);
+      border-color: rgba(124,240,215,.85);
+      text-decoration:none;
+    }
+
+    .circuit-card::before{
+      content:"";
+      position:absolute;
+      inset:-50% auto auto -30%;
+      width:180px;
+      height:180px;
+      border-radius:999px;
+      background:rgba(77,163,255,.14);
+      filter:blur(2px);
+    }
+
+    .circuit-card.dc{
+      border-color:rgba(124,240,215,.58);
+      background:
+        linear-gradient(135deg, rgba(124,240,215,.20), rgba(15,23,42,.68) 58%),
+        rgba(15,23,42,.55);
+    }
+
+    .circuit-card.dc::before{
+      background:rgba(124,240,215,.14);
+    }
+
+    .circuit-label{
+      position:relative;
+      z-index:1;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 9px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.07);
+      font-size:11px;
+      letter-spacing:.08em;
+      color:var(--accent2);
+      font-weight:800;
+    }
+
+    .circuit-card h5{
+      position:relative;
+      z-index:1;
+      margin:13px 0 8px;
+      font-size:17px;
+      letter-spacing:-.01em;
+      color:var(--text);
+    }
+
+    .circuit-desc{
+      position:relative;
+      z-index:1;
+      margin:0;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .circuit-action{
+      position:relative;
+      z-index:1;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:14px;
+      font-size:13px;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .circuit-action::after{
+      content:"→";
+      color:var(--accent2);
+    }
+
+    .evidence.featured-media{
+      grid-template-columns:1fr;
+      margin-bottom:12px;
+    }
+
+    .evidence.featured-media figure.ev img{
+      height:320px;
+      object-fit:contain;
+      background:#07111f;
+      padding:10px;
+    }
+
+    @media (max-width: 860px){
+      .evidence.featured-media figure.ev img{ height:240px; }
+    }
+
     .skills{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -541,7 +663,7 @@
         box-shadow: none !important;
       }
 
-      .kv, .row, figure.ev, .ev-video, a.cert, footer{
+      .kv, .row, figure.ev, .ev-video, a.cert, .circuit-card, footer{
         background: rgba(15,23,42,.55) !important;
         border-color: var(--line) !important;
         box-shadow: none !important;
@@ -797,26 +919,59 @@
             <h4 data-lang="en" hidden>Evidence</h4>
 
             <div class="hint">
-              <span data-lang="kr">회로 PDF 2 · PID 코드 1 · 영상 2</span>
-              <span data-lang="en" hidden>2 circuit PDFs · 1 PID code link · 2 videos</span>
+              <span data-lang="kr">회로 PDF 2 · PID 코드 1 · 사진 1 · 영상 3</span>
+              <span data-lang="en" hidden>2 circuit PDFs · 1 PID code link · 1 photo · 3 videos</span>
             </div>
           </div>
 
+          <div class="circuit-showcase" aria-label="power architecture evidence">
+            <a class="circuit-card ac" href="assets/img/project 1/RecyclingSystem-Power-Architecture-AC.pdf" target="_blank" rel="noopener">
+              <span class="circuit-label">AC POWER</span>
+              <h5 data-lang="kr">AC 220V 회로 설계</h5>
+              <h5 data-lang="en" hidden>AC 220V Circuit Design</h5>
+              <p class="circuit-desc" data-lang="kr">초음파 세척기 등 AC 부하를 릴레이로 분리 제어한 전원 구조입니다.</p>
+              <p class="circuit-desc" data-lang="en" hidden>Power architecture for relay-based isolation control of AC loads such as the ultrasonic cleaner.</p>
+              <span class="circuit-action" data-lang="kr">PDF 열기</span>
+              <span class="circuit-action" data-lang="en" hidden>Open PDF</span>
+            </a>
+
+            <a class="circuit-card dc" href="assets/img/project 1/RecyclingSystem-Power-Architecture-DC.pdf" target="_blank" rel="noopener">
+              <span class="circuit-label">DC POWER</span>
+              <h5 data-lang="kr">DC 24V → 12V/5V 전력 분배</h5>
+              <h5 data-lang="en" hidden>DC 24V → 12V/5V Power Distribution</h5>
+              <p class="circuit-desc" data-lang="kr">전원 출력 한계와 부하 전류를 고려해 재설계한 DC 전력 분배 구조입니다.</p>
+              <p class="circuit-desc" data-lang="en" hidden>DC power distribution redesigned based on PSU output limits and load current requirements.</p>
+              <span class="circuit-action" data-lang="kr">PDF 열기</span>
+              <span class="circuit-action" data-lang="en" hidden>Open PDF</span>
+            </a>
+          </div>
+
           <div class="btns" style="margin-bottom:12px;">
-            <a class="btn secondary" href="assets/img/project 1/RecyclingSystem-Power-Architecture-AC.pdf" target="_blank" rel="noopener">
-              <span data-lang="kr">AC 회로 설계 PDF</span>
-              <span data-lang="en" hidden>AC Circuit Design PDF</span>
-            </a>
-
-            <a class="btn secondary" href="assets/img/project 1/RecyclingSystem-Power-Architecture-DC.pdf" target="_blank" rel="noopener">
-              <span data-lang="kr">DC 회로 설계 PDF</span>
-              <span data-lang="en" hidden>DC Circuit Design PDF</span>
-            </a>
-
             <a class="btn secondary" href="https://github.com/badasae/STM32_MotorControll_PID/tree/main" target="_blank" rel="noopener">
               <span data-lang="kr">PID 제어 코드 GitHub</span>
               <span data-lang="en" hidden>PID Control Code on GitHub</span>
             </a>
+          </div>
+
+          <div class="evidence featured-media">
+            <figure class="ev">
+              <img src="assets/img/project 1/Overall Modelling.png" alt="Overall 3D modelling of smart recycling system" loading="lazy">
+              <figcaption>
+                <span data-lang="kr">스마트 분리수거 시스템 전체 3D 모델링</span>
+                <span data-lang="en" hidden>Overall 3D modelling of the smart recycling system</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="ev-video">
+            <video controls preload="metadata">
+              <source src="assets/video/project 1/Classification motion images.MP4" type="video/mp4">
+            </video>
+
+            <p class="cap">
+              <span data-lang="kr">분류 모션 및 3축 로봇 구동 영상</span>
+              <span data-lang="en" hidden>Classification motion and 3-axis robot operation video</span>
+            </p>
           </div>
 
           <div class="ev-video">
