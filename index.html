@@ -15,19 +15,20 @@
       --muted:#a9b6cf;
       --accent:#4da3ff;
       --accent2:#7cf0d7;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 14px;
-      --max: 980px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+      --max:980px;
     }
 
     *{ box-sizing:border-box; }
 
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
-      background: radial-gradient(1200px 700px at 20% -10%, rgba(77,163,255,.15), transparent 55%),
-                  radial-gradient(1000px 600px at 90% 10%, rgba(124,240,215,.10), transparent 50%),
-                  var(--bg);
+      font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(77,163,255,.15), transparent 55%),
+        radial-gradient(1000px 600px at 90% 10%, rgba(124,240,215,.10), transparent 50%),
+        var(--bg);
       color:var(--text);
       line-height:1.6;
     }
@@ -71,8 +72,8 @@
       width:8px;
       height:8px;
       border-radius:999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(77,163,255,.10);
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 4px rgba(77,163,255,.10);
     }
 
     h1{
@@ -99,14 +100,14 @@
       gap:8px;
       padding:10px 12px;
       border:1px solid var(--line);
-      background: rgba(17,27,46,.55);
+      background:rgba(17,27,46,.55);
       border-radius:999px;
       color:var(--text);
       font-size:13px;
     }
 
     .pill:hover{
-      border-color: rgba(77,163,255,.6);
+      border-color:rgba(77,163,255,.6);
       text-decoration:none;
     }
 
@@ -120,13 +121,13 @@
       color:var(--text);
       cursor:pointer;
       border:1px solid rgba(124,240,215,.55);
-      background: rgba(124,240,215,.10);
-      box-shadow: 0 0 0 4px rgba(124,240,215,.07);
+      background:rgba(124,240,215,.10);
+      box-shadow:0 0 0 4px rgba(124,240,215,.07);
     }
 
     .lang-btn:hover{
-      border-color: rgba(124,240,215,.9);
-      background: rgba(124,240,215,.14);
+      border-color:rgba(124,240,215,.9);
+      background:rgba(124,240,215,.14);
       text-decoration:none;
     }
 
@@ -138,7 +139,7 @@
       height:22px;
       border-radius:999px;
       border:1px solid rgba(124,240,215,.55);
-      background: rgba(15,23,42,.55);
+      background:rgba(15,23,42,.55);
       font-size:11px;
       color:var(--muted);
     }
@@ -146,20 +147,17 @@
     .hero{
       margin-top:18px;
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns:1.15fr .85fr;
       gap:14px;
     }
 
-    @media (max-width: 860px){
-      .hero{ grid-template-columns: 1fr; }
-    }
-
     .card{
-      background: rgba(17,27,46,.72);
+      background:rgba(17,27,46,.72);
       border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
       padding:18px;
+      min-width:0;
     }
 
     .card h2{
@@ -188,7 +186,7 @@
       padding:7px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(15,23,42,.55);
+      background:rgba(15,23,42,.55);
       color:var(--muted);
     }
 
@@ -215,7 +213,7 @@
 
     .proj{
       display:grid;
-      grid-template-columns: 1fr;
+      grid-template-columns:1fr;
       gap:12px;
     }
 
@@ -241,18 +239,14 @@
 
     .grid2{
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:1fr 1fr;
       gap:12px;
-    }
-
-    @media (max-width: 860px){
-      .grid2{ grid-template-columns: 1fr; }
     }
 
     .kv{
       border:1px solid var(--line);
       border-radius:12px;
-      background: rgba(15,23,42,.55);
+      background:rgba(15,23,42,.55);
       padding:14px;
     }
 
@@ -294,7 +288,7 @@
 
     .row{
       border:1px solid var(--line);
-      background: rgba(15,23,42,.40);
+      background:rgba(15,23,42,.40);
       border-radius:12px;
       padding:12px;
     }
@@ -317,7 +311,7 @@
       padding:11px 14px;
       border-radius:12px;
       border:1px solid rgba(77,163,255,.45);
-      background: rgba(77,163,255,.12);
+      background:rgba(77,163,255,.12);
       color:var(--text);
       font-size:13px;
       cursor:pointer;
@@ -325,13 +319,13 @@
 
     .btn:hover{
       text-decoration:none;
-      border-color: rgba(77,163,255,.9);
+      border-color:rgba(77,163,255,.9);
     }
 
     .btn.secondary{
-      border-color: var(--line);
-      background: rgba(15,23,42,.40);
-      color: var(--muted);
+      border-color:var(--line);
+      background:rgba(15,23,42,.40);
+      color:var(--muted);
     }
 
     .btn.featured{
@@ -343,7 +337,7 @@
       letter-spacing:-.01em;
       border-radius:16px;
       border:1px solid rgba(124,240,215,.9);
-      background: linear-gradient(135deg, rgba(77,163,255,.34), rgba(124,240,215,.22));
+      background:linear-gradient(135deg, rgba(77,163,255,.34), rgba(124,240,215,.22));
       color:var(--text);
       box-shadow:
         0 0 0 4px rgba(124,240,215,.08),
@@ -351,9 +345,9 @@
     }
 
     .btn.featured:hover{
-      border-color: rgba(124,240,215,1);
-      background: linear-gradient(135deg, rgba(77,163,255,.45), rgba(124,240,215,.32));
-      transform: translateY(-1px);
+      border-color:rgba(124,240,215,1);
+      background:linear-gradient(135deg, rgba(77,163,255,.45), rgba(124,240,215,.32));
+      transform:translateY(-1px);
       text-decoration:none;
     }
 
@@ -368,152 +362,79 @@
       justify-content:center;
     }
 
-
+    /* 회로도: 버튼 대신 이미지를 전체 폭으로 바로 표시 */
     .circuit-showcase{
       margin:12px 0 14px;
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:12px;
+      grid-template-columns:minmax(0, 1fr);
+      gap:18px;
     }
 
-    @media (max-width: 860px){
-      .circuit-showcase{ grid-template-columns: 1fr; }
-    }
-
-    .circuit-card{
-      position:relative;
-      display:block;
+    .circuit-figure{
+      margin:0;
       overflow:hidden;
-      min-height:170px;
-      padding:18px;
-      border-radius:16px;
       border:1px solid rgba(77,163,255,.48);
-      background:
-        linear-gradient(135deg, rgba(77,163,255,.20), rgba(15,23,42,.68) 58%),
-        rgba(15,23,42,.55);
-      color:inherit;
-      text-decoration:none;
-      box-shadow: 0 14px 34px rgba(0,0,0,.28);
+      border-radius:16px;
+      background:rgba(15,23,42,.55);
     }
 
-    .circuit-card:hover{
-      transform:translateY(-2px);
-      border-color: rgba(124,240,215,.85);
-      text-decoration:none;
-    }
-
-    .circuit-card::before{
-      content:"";
-      position:absolute;
-      inset:-50% auto auto -30%;
-      width:180px;
-      height:180px;
-      border-radius:999px;
-      background:rgba(77,163,255,.14);
-      filter:blur(2px);
-    }
-
-    .circuit-card.dc{
+    .circuit-figure.dc{
       border-color:rgba(124,240,215,.58);
-      background:
-        linear-gradient(135deg, rgba(124,240,215,.20), rgba(15,23,42,.68) 58%),
-        rgba(15,23,42,.55);
     }
 
-    .circuit-card.dc::before{
-      background:rgba(124,240,215,.14);
+    .circuit-heading{
+      padding:16px 18px;
+      border-bottom:1px solid var(--line);
     }
 
     .circuit-label{
-      position:relative;
-      z-index:1;
       display:inline-flex;
       align-items:center;
-      gap:6px;
-      padding:6px 9px;
+      padding:5px 9px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.07);
+      border:1px solid rgba(124,240,215,.35);
+      background:rgba(124,240,215,.07);
       font-size:11px;
       letter-spacing:.08em;
       color:var(--accent2);
       font-weight:800;
     }
 
-    .circuit-card h5{
-      position:relative;
-      z-index:1;
-      margin:13px 0 8px;
+    .circuit-heading h5{
+      margin:10px 0 6px;
       font-size:17px;
-      letter-spacing:-.01em;
       color:var(--text);
     }
 
     .circuit-desc{
-      position:relative;
-      z-index:1;
       margin:0;
       font-size:13px;
       color:var(--muted);
     }
 
-    .circuit-action{
-      position:relative;
-      z-index:1;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      margin-top:14px;
-      font-size:13px;
-      font-weight:800;
-      color:var(--text);
+    .circuit-image-link{
+      display:block;
+      background:#fff;
     }
 
-    .circuit-action::after{
-      content:"→";
-      color:var(--accent2);
+    .circuit-image-link:focus-visible{
+      outline:3px solid var(--accent);
+      outline-offset:-3px;
     }
 
-    .evidence.featured-media{
-      grid-template-columns:1fr;
-      margin-bottom:12px;
+    .circuit-image{
+      display:block;
+      width:100%;
+      height:auto;
+      background:#fff;
     }
 
-    .evidence.featured-media figure.ev img{
-      height:320px;
-      object-fit:contain;
-      background:#07111f;
-      padding:10px;
-    }
-
-    @media (max-width: 860px){
-      .evidence.featured-media figure.ev img{ height:240px; }
-    }
-
-    .skills{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-
-    @media (max-width: 860px){
-      .skills{ grid-template-columns: 1fr; }
-    }
-
-    footer{
-      margin-top:28px;
-      padding-top:18px;
+    .circuit-figure figcaption{
+      padding:11px 18px;
       border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    .small{
       font-size:12px;
       color:var(--muted);
     }
-
-    [hidden]{ display:none !important; }
 
     .evidence-title{
       margin-top:14px;
@@ -537,18 +458,26 @@
     .evidence{
       margin-top:10px;
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:repeat(3, 1fr);
       gap:10px;
     }
 
-    @media (max-width: 860px){
-      .evidence{ grid-template-columns: 1fr; }
+    .evidence.featured-media{
+      grid-template-columns:1fr;
+      margin-bottom:12px;
+    }
+
+    .evidence.featured-media figure.ev img{
+      height:320px;
+      object-fit:contain;
+      background:#07111f;
+      padding:10px;
     }
 
     figure.ev{
       margin:0;
       border:1px solid var(--line);
-      background: rgba(15,23,42,.40);
+      background:rgba(15,23,42,.40);
       border-radius:12px;
       overflow:hidden;
     }
@@ -558,10 +487,6 @@
       height:180px;
       object-fit:cover;
       display:block;
-    }
-
-    @media (max-width: 860px){
-      figure.ev img{ height:220px; }
     }
 
     figure.ev figcaption{
@@ -574,7 +499,7 @@
     .ev-video{
       margin-top:12px;
       border:1px solid var(--line);
-      background: rgba(15,23,42,.40);
+      background:rgba(15,23,42,.40);
       border-radius:12px;
       padding:12px;
     }
@@ -592,21 +517,23 @@
       color:var(--muted);
     }
 
-    .cert-grid{
-      margin-top:10px;
+    .skills{
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns:repeat(3, 1fr);
       gap:12px;
     }
 
-    @media (max-width: 860px){
-      .cert-grid{ grid-template-columns: 1fr; }
+    .cert-grid{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:12px;
     }
 
     a.cert{
       display:block;
       border:1px solid var(--line);
-      background: rgba(15,23,42,.40);
+      background:rgba(15,23,42,.40);
       border-radius:12px;
       overflow:hidden;
       color:inherit;
@@ -614,7 +541,7 @@
     }
 
     a.cert:hover{
-      border-color: rgba(77,163,255,.65);
+      border-color:rgba(77,163,255,.65);
       text-decoration:none;
     }
 
@@ -642,42 +569,78 @@
       color:var(--muted);
     }
 
+    footer{
+      margin-top:28px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .small{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    [hidden]{ display:none !important; }
+
+    @media (max-width:860px){
+      .hero,
+      .grid2,
+      .skills,
+      .evidence,
+      .cert-grid{
+        grid-template-columns:1fr;
+      }
+
+      figure.ev img{ height:220px; }
+
+      .evidence.featured-media figure.ev img{
+        height:240px;
+      }
+    }
+
     @media print{
       .nav, .lang-btn, #pdfBtn{
         display:none !important;
       }
 
       *{
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
       }
 
       body{
-        background: var(--bg) !important;
-        color: var(--text) !important;
+        background:var(--bg) !important;
+        color:var(--text) !important;
       }
 
       .card{
-        background: rgba(17,27,46,.72) !important;
-        border-color: var(--line) !important;
-        box-shadow: none !important;
+        background:rgba(17,27,46,.72) !important;
+        border-color:var(--line) !important;
+        box-shadow:none !important;
       }
 
-      .kv, .row, figure.ev, .ev-video, a.cert, .circuit-card, footer{
-        background: rgba(15,23,42,.55) !important;
-        border-color: var(--line) !important;
-        box-shadow: none !important;
+      .kv, .row, figure.ev, .ev-video,
+      a.cert, .circuit-figure, footer{
+        background:rgba(15,23,42,.55) !important;
+        border-color:var(--line) !important;
+        box-shadow:none !important;
       }
 
       a{
-        color: var(--accent) !important;
+        color:var(--accent) !important;
         text-decoration:none !important;
       }
 
-      .muted{ color: var(--muted) !important; }
+      .muted{ color:var(--muted) !important; }
 
       .ev-video{
         display:none !important;
+      }
+
+      .circuit-figure{
+        break-inside:avoid;
       }
     }
   </style>
@@ -923,31 +886,82 @@
             <h4 data-lang="en" hidden>Evidence</h4>
 
             <div class="hint">
-              <span data-lang="kr">회로 PDF 2 · PID 코드 1 · 사진 1 · 영상 3</span>
-              <span data-lang="en" hidden>2 circuit PDFs · 1 PID code link · 1 photo · 3 videos</span>
+              <span data-lang="kr">회로도 2 · PID 코드 1 · 사진 1 · 영상 3</span>
+              <span data-lang="en" hidden>2 circuit diagrams · 1 PID code link · 1 photo · 3 videos</span>
             </div>
           </div>
 
+          <!-- 회로도 이미지를 바로 표시 / 클릭 시 원본 PDF 열기 -->
           <div class="circuit-showcase" aria-label="power architecture evidence">
-            <a class="circuit-card ac" href="assets/img/project 1/RecyclingSystem-Power-Architecture-AC.pdf" target="_blank" rel="noopener">
-              <span class="circuit-label">AC POWER</span>
-              <h5 data-lang="kr">AC 220V 회로 설계</h5>
-              <h5 data-lang="en" hidden>AC 220V Circuit Design</h5>
-              <p class="circuit-desc" data-lang="kr">초음파 세척기 등 AC 부하를 릴레이로 분리 제어한 전원 구조입니다.</p>
-              <p class="circuit-desc" data-lang="en" hidden>Power architecture for relay-based isolation control of AC loads such as the ultrasonic cleaner.</p>
-              <span class="circuit-action" data-lang="kr">PDF 열기</span>
-              <span class="circuit-action" data-lang="en" hidden>Open PDF</span>
-            </a>
+            <figure class="circuit-figure">
+              <div class="circuit-heading">
+                <span class="circuit-label">AC POWER</span>
 
-            <a class="circuit-card dc" href="assets/img/project 1/RecyclingSystem-Power-Architecture-DC.pdf" target="_blank" rel="noopener">
-              <span class="circuit-label">DC POWER</span>
-              <h5 data-lang="kr">DC 24V → 12V/5V 전력 분배</h5>
-              <h5 data-lang="en" hidden>DC 24V → 12V/5V Power Distribution</h5>
-              <p class="circuit-desc" data-lang="kr">전원 출력 한계와 부하 전류를 고려해 재설계한 DC 전력 분배 구조입니다.</p>
-              <p class="circuit-desc" data-lang="en" hidden>DC power distribution redesigned based on PSU output limits and load current requirements.</p>
-              <span class="circuit-action" data-lang="kr">PDF 열기</span>
-              <span class="circuit-action" data-lang="en" hidden>Open PDF</span>
-            </a>
+                <h5 data-lang="kr">AC 220V 회로 설계</h5>
+                <h5 data-lang="en" hidden>AC 220V Circuit Design</h5>
+
+                <p class="circuit-desc" data-lang="kr">
+                  초음파 세척기 등 AC 부하를 릴레이로 분리 제어한 전원 구조입니다.
+                </p>
+                <p class="circuit-desc" data-lang="en" hidden>
+                  Power architecture for relay-based isolation control of AC loads such as the ultrasonic cleaner.
+                </p>
+              </div>
+
+              <a
+                class="circuit-image-link"
+                href="assets/img/project 1/RecyclingSystem-Power-Architecture-AC.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  class="circuit-image"
+                  src="assets/img/project 1/RecyclingSystem-Power-Architecture-AC.png"
+                  alt="AC 220V circuit diagram — open original PDF"
+                  loading="lazy"
+                >
+              </a>
+
+              <figcaption>
+                <span data-lang="kr">회로도를 클릭하면 원본 PDF를 새 탭에서 볼 수 있습니다.</span>
+                <span data-lang="en" hidden>Click the diagram to open the original PDF in a new tab.</span>
+              </figcaption>
+            </figure>
+
+            <figure class="circuit-figure dc">
+              <div class="circuit-heading">
+                <span class="circuit-label">DC POWER</span>
+
+                <h5 data-lang="kr">DC 24V → 12V/5V 전력 분배</h5>
+                <h5 data-lang="en" hidden>DC 24V → 12V/5V Power Distribution</h5>
+
+                <p class="circuit-desc" data-lang="kr">
+                  전원 출력 한계와 부하 전류를 고려해 재설계한 DC 전력 분배 구조입니다.
+                </p>
+                <p class="circuit-desc" data-lang="en" hidden>
+                  DC power distribution redesigned based on PSU output limits and load current requirements.
+                </p>
+              </div>
+
+              <a
+                class="circuit-image-link"
+                href="assets/img/project 1/RecyclingSystem-Power-Architecture-DC.pdf"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  class="circuit-image"
+                  src="assets/img/project 1/RecyclingSystem-Power-Architecture-DC.png"
+                  alt="DC 24V to 12V and 5V power distribution diagram — open original PDF"
+                  loading="lazy"
+                >
+              </a>
+
+              <figcaption>
+                <span data-lang="kr">회로도를 클릭하면 원본 PDF를 새 탭에서 볼 수 있습니다.</span>
+                <span data-lang="en" hidden>Click the diagram to open the original PDF in a new tab.</span>
+              </figcaption>
+            </figure>
           </div>
 
           <div class="btns" style="margin-bottom:12px;">
@@ -1090,8 +1104,8 @@
             <h4 data-lang="en" hidden>Evidence</h4>
 
             <div class="hint">
-              <span data-lang="kr">사진 3 · 영상 3</span>
-              <span data-lang="en" hidden>3 photos · 3 videos</span>
+              <span data-lang="kr">사진 2 · 영상 2</span>
+              <span data-lang="en" hidden>2 photos · 2 videos</span>
             </div>
           </div>
 
@@ -1104,7 +1118,8 @@
               </figcaption>
             </figure>
 
-            <figure class="ev">
+            <!-- 임시 숨김: 다시 표시하려면 아래 figure의 hidden 속성을 삭제 -->
+            <figure class="ev" hidden>
               <img src="assets/img/project 2/Towing system image.PNG" alt="Towing system operation diagram" loading="lazy">
               <figcaption>
                 <span data-lang="kr">견인 로봇 예상 운영도</span>
@@ -1132,7 +1147,8 @@
             </p>
           </div>
 
-          <div class="ev-video">
+          <!-- 임시 숨김: 다시 표시하려면 아래 div의 hidden 속성을 삭제 -->
+          <div class="ev-video" hidden>
             <video controls preload="metadata">
               <source src="assets/video/project 2/Subsequent improvements in towing.MP4" type="video/mp4">
             </video>
