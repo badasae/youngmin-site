@@ -362,7 +362,6 @@
       justify-content:center;
     }
 
-    /* 회로도: 버튼 대신 이미지를 전체 폭으로 바로 표시 */
     .circuit-showcase{
       margin:12px 0 14px;
       display:grid;
@@ -738,10 +737,16 @@
               <span data-lang="en" hidden>View Certificates</span>
             </a>
 
-            <button class="btn" id="pdfBtn" type="button">
-              <span data-lang="kr">포트폴리오 PDF 저장</span>
-              <span data-lang="en" hidden>Save as PDF</span>
-            </button>
+            <!-- 업로드한 포트폴리오 PDF 다운로드 -->
+            <a
+              class="btn"
+              id="pdfBtn"
+              href="assets/pdf/Youngmin_Moon_Portfolio.pdf"
+              download="Youngmin_Moon_Portfolio.pdf"
+            >
+              <span data-lang="kr">포트폴리오 PDF 다운로드</span>
+              <span data-lang="en" hidden>Download Portfolio PDF</span>
+            </a>
           </div>
         </div>
       </div>
@@ -1335,7 +1340,6 @@
     const langBtn = document.getElementById('langBtn');
     const langBadge = document.getElementById('langBadge');
     const langLabel = document.getElementById('langLabel');
-    const pdfBtn = document.getElementById('pdfBtn');
 
     let current = 'kr';
 
@@ -1345,8 +1349,13 @@
       const krEls = document.querySelectorAll('[data-lang="kr"]');
       const enEls = document.querySelectorAll('[data-lang="en"]');
 
-      krEls.forEach(el => { el.hidden = (lang !== 'kr'); });
-      enEls.forEach(el => { el.hidden = (lang !== 'en'); });
+      krEls.forEach(el => {
+        el.hidden = (lang !== 'kr');
+      });
+
+      enEls.forEach(el => {
+        el.hidden = (lang !== 'en');
+      });
 
       if(lang === 'kr'){
         langBadge.textContent = 'KR';
@@ -1384,10 +1393,6 @@
 
     langBtn.addEventListener('click', () => {
       setLang(current === 'kr' ? 'en' : 'kr');
-    });
-
-    pdfBtn.addEventListener('click', () => {
-      window.print();
     });
   </script>
 </body>
