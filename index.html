@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>문영민 | Hardware & Robotics Systems Portfolio</title>
-  <meta name="description" content="로봇 하드웨어 설계, 전장 구성, 제어기·센서 통합, 펌웨어 구현 및 실제 시스템 검증 경험을 정리한 포트폴리오" />
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>문영민 | 전장·제어 시스템 H/W 포트폴리오</title>
+<meta content="전원 분배, 모터 구동부 연동, 전장 시스템 통합 및 검증 경험을 담은 문영민의 하드웨어 포트폴리오" name="description"/>
+<style>
     :root{
       --bg:#0b1220;
       --card:#111b2e;
@@ -642,699 +642,497 @@
         break-inside:avoid;
       }
     }
-  </style>
-</head>
+  
 
+/* MODERN ENGINEERING — light editorial theme / v1 */
+:root{--bg:#f6f8f5;--card:#fff;--line:#dce4dc;--text:#24352c;--muted:#63736a;--accent:#2e7559;--accent2:#a4c9b4;--shadow:0 12px 32px rgba(38,65,49,.055);--radius:18px;--max:1140px}
+html{scroll-behavior:smooth}body{background:linear-gradient(180deg,#f1f5f0 0,#f7f9f6 440px,#f6f8f5 100%);color:var(--text)}
+a{color:var(--accent)}.wrap{padding:24px 24px 80px}header{padding-top:18px}.topbar{border-bottom:1px solid var(--line);padding-bottom:20px}.brand{gap:2px}.brand h1{font-size:26px;font-weight:800}.subtitle{font-size:12px;font-weight:650;color:#3d7459;letter-spacing:.03em}.kicker{font-size:10px;font-weight:750;letter-spacing:.17em}.dot{background:#3c8865;box-shadow:0 0 0 4px #e0eee3}
+.pill{background:#fff;border-color:#dce4dc;color:#52655a;padding:9px 14px}.pill:hover{border-color:#6b9b7b}.lang-btn{background:#e8f2e9;border:1px solid #bdd8c6;box-shadow:none;color:#286448}.lang-badge{background:#fff;border:1px solid #c4ddcb;color:#2e7559}
+.card{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);padding:26px}.card h2{color:#263e30}.hero{grid-template-columns:minmax(0,1.55fr) minmax(270px,.85fr);gap:18px;margin-top:30px}.hero-main{padding:48px 40px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-main:after{content:'';position:absolute;width:250px;height:250px;right:-140px;top:-140px;border:1px solid #d4e5d7;border-radius:50%;pointer-events:none}.eyebrow{font-size:10px;font-weight:800;letter-spacing:.16em;color:#528269;margin-bottom:28px}.hero-role{font-size:13px;font-weight:800;color:#367654;margin:0 0 10px}.hero-statement{font-size:clamp(27px,3.5vw,42px);line-height:1.33;letter-spacing:-.06em;margin:0 0 24px;color:#23372b}.hero-statement em{font-style:normal;color:#36805d}.hero-desc{font-size:14px;color:#596d60;line-height:1.85;max-width:600px}.hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.hero-side{border-radius:22px;background:#e7eee7;border:1px solid #d7e3d9;padding:29px 23px;display:flex;flex-direction:column;justify-content:center}.side-label{font-size:10px;font-weight:800;color:#64806b;letter-spacing:.12em;margin-bottom:20px}.capability{display:flex;gap:15px;padding:18px 0;border-bottom:1px solid #cdded0}.cap-number{font-size:15px;font-weight:800;color:#3c8b64}.capability strong{display:block;font-size:12px;letter-spacing:.03em;color:#2b4635}.capability small{display:block;margin-top:6px;font-size:12px;color:#617668;line-height:1.5}.side-foot{margin-top:22px;font-size:10px;font-weight:800;color:#65826d}.side-foot span{display:block;margin-top:6px;color:#3b5d46;font-size:11px}
+.btn{background:#2f7656!important;border-color:#2f7656!important;color:#fff!important;box-shadow:none!important;border-radius:10px!important}.btn:hover{background:#255f45!important}.btn.secondary{background:#fff!important;border-color:#cbd9cd!important;color:#315e43!important}.btn.secondary:hover{background:#f0f6f0!important}.section-title{margin-top:48px;margin-bottom:17px}.section-title h2{font-size:23px;letter-spacing:-.04em}.section-title .hint{color:#7a8a7d}.proj{gap:22px}.proj-head{border-bottom:1px solid #e5ebe5;padding-bottom:17px}.proj-title{color:#243a2c!important}.proj-sub{color:#64806c!important}.small{color:#607667!important}.kv,.problem,.ev,.circuit-figure,.cert{background:#fbfcfa!important;border-color:#e1e9e1!important}.tag{background:#eff5ef;color:#3b7052;border-color:#d8e7d9}.featured-project{border-top:4px solid #3b8963}.featured-intro{margin:20px 0 23px;padding:25px;border-radius:14px;background:#f0f6f0;border:1px solid #dce9dd}.featured-kicker{font-size:10px;letter-spacing:.13em;font-weight:850;color:#43815d}.featured-intro h4{font-size:21px;letter-spacing:-.04em;line-height:1.45;margin:8px 0;color:#2a4935}.featured-intro p{font-size:13px;line-height:1.85;color:#526c59}.spec-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.spec-row>span{background:#fff;border:1px solid #dce9df;border-radius:9px;padding:10px 13px;font-size:15px;font-weight:800;color:#2d6849}.spec-row small{font-size:9px;color:#75927c;display:block;letter-spacing:.04em}.featured-intro .evidence-note{font-size:11px;color:#758678;margin-bottom:0}.primary-skill{border-top:3px solid #3b8963!important}.problem h4{color:#2b5e41!important}.circuit-label{background:#e5f1e8!important;color:#31734e!important}.circuit-image{background:#fff}.skills .card{box-shadow:var(--shadow)}.cert-grid img{background:#fff}
+@media(max-width:820px){.hero{grid-template-columns:1fr}.hero-main{padding:34px 25px}.hero-side{padding:20px 24px}.capability{padding:12px 0}.wrap{padding:16px 15px 50px}}@media print{body{background:#fff!important}.hero-main,.hero-side,.card{box-shadow:none!important}.hero{grid-template-columns:1.3fr .7fr}.hero-main{padding:20px}.hero-statement{font-size:27px}}
+</style>
+<style>
+/* Modern Engineering v2: readable, restrained, high-contrast editorial layout */
+:root{--bg:#f8faf7!important;--card:#ffffff!important;--line:#dbe5dd!important;--text:#23382c!important;--muted:#52685a!important;--accent:#267451!important;--accent2:#b5d8c1!important;--shadow:0 4px 20px rgba(27,59,38,.055)!important}
+body{background:#f8faf7!important;color:#23382c!important}
+.hero-main{padding:32px 34px!important;box-shadow:none!important}
+.hero-statement{font-size:clamp(23px,2.5vw,31px)!important;line-height:1.46!important;letter-spacing:-.045em!important;font-weight:740!important;margin-bottom:16px!important}
+.hero-statement em{color:#2d7957!important}
+.hero-side{background:#fff!important;border:1px solid #dce6df!important;box-shadow:none!important}
+.eyebrow{margin-bottom:18px!important}
+.card{box-shadow:0 3px 16px rgba(29,58,38,.045)!important}
+.kv,.problem,.ev,.circuit-figure,.cert{background:#fff!important;border:1px solid #dce5dd!important;color:#263c2f!important}
+.problem{border-left:4px solid #448a65!important;padding:22px!important}
+.problem h4{color:#245b3e!important}
+.problem .row{background:#f7fbf7!important;border:1px solid #e0eae2!important;border-radius:8px;padding:12px!important;margin:7px 0!important;color:#283e30!important}
+.problem .row b{color:#226246!important}
+.problem .row span{color:#314c3a!important}
+.featured-intro{background:#edf6ee!important;border-color:#d5e8d8!important}
+.featured-intro p,.featured-intro .evidence-note{color:#3c5c47!important}
+.small,.proj-sub,.section-title .hint,.hero-desc{color:#526b5b!important}
+.engineering-review{margin:24px 0;padding:26px;background:#fff;border:1px solid #cfdfd3;border-radius:16px;box-shadow:0 5px 20px rgba(30,68,44,.05)}
+.review-eyebrow,.review-label{font-size:10px;font-weight:850;letter-spacing:.12em;color:#2a7954}
+.review-head h4{font-size:21px;line-height:1.4;color:#203b2b;margin:9px 0}
+.review-head p{color:#486354;font-size:13px;line-height:1.8}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+.review-col{padding:19px;background:#f5faf6;border:1px solid #d9e8dd;border-radius:12px}
+.review-col.review-future{background:#fffaf0;border-color:#ecdfc6}
+.review-future .review-label{color:#97662e}
+.review-col h5{font-size:16px;color:#253c2d;margin:10px 0}
+.review-col p{font-size:13px;color:#3b5543;line-height:1.8;margin:0}
+.review-foot{border-top:1px solid #e0e9e2;padding-top:14px;color:#4c6655;font-size:12px;line-height:1.75}
+.amr-review{background:#f5faf6;border:1px solid #d8e7dc;border-radius:12px;padding:19px;margin-top:20px;color:#344d3b;font-size:13px;line-height:1.85}
+.amr-review p{margin:8px 0}
+@media(max-width:760px){.review-grid{grid-template-columns:1fr}.hero-main{padding:26px 22px!important}.hero-statement{font-size:25px!important}}
+@media print{.engineering-review,.amr-review{break-inside:avoid}.review-grid{grid-template-columns:1fr 1fr}}
+</style><style>
+/* v3: brighter media surfaces and readable Korean-first project copy */
+.ev-video{background:#eef6ee!important;border:1px solid #d4e5d7!important;border-radius:14px!important;overflow:hidden!important;color:#243c2c!important;box-shadow:none!important}
+.ev-video video{display:block;background:#15231b!important;border-radius:10px 10px 0 0!important}
+.ev-video .cap{background:#f3faf3!important;color:#2b4b35!important;border-top:1px solid #dceadd!important;font-size:13px!important;font-weight:650!important;line-height:1.6!important;padding:13px 15px!important}
+.evidence .ev{background:#fff!important}
+.evidence .ev figcaption{background:#f3faf3!important;color:#2b4b35!important}
+.proj-title{font-size:clamp(19px,2.3vw,25px)!important;line-height:1.45!important;letter-spacing:-.04em!important}
+.proj-sub,.small,.muted{line-height:1.75!important}
+.featured-intro p,.problem .row span,.review-col p{font-size:14px!important;line-height:1.85!important;letter-spacing:-.015em!important}
+.problem .row{display:grid!important;grid-template-columns:60px minmax(0,1fr)!important;gap:14px!important;align-items:start!important;background:#fff!important;border:0!important;border-bottom:1px solid #e0ebe2!important;border-radius:0!important;padding:13px 2px!important}
+.problem .row b{font-size:13px!important}
+.problem .row span{color:#294335!important}
+.review-col{background:#f1f8f2!important}
+.review-col.review-future{background:#fff9ef!important}
+.review-head h4{font-size:19px!important}
+@media(max-width:600px){.problem .row{grid-template-columns:1fr!important;gap:3px!important}}
+</style><style>
+.project-context{background:#fff;border:1px solid #d5e6d9;border-radius:16px;padding:26px;margin:22px 0 24px;color:#273e30}
+.context-kicker{font-size:11px;font-weight:800;letter-spacing:.11em;color:#2d7954;margin-bottom:12px}
+.project-context h4{font-size:21px;line-height:1.45;letter-spacing:-.035em;margin:0 0 12px;color:#233d2c}
+.project-context .context-lead{font-size:14px;line-height:1.85;color:#3b5945;margin:0 0 19px;max-width:860px}
+.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.context-panel{border:1px solid #dce9df;border-radius:12px;background:#f5faf6;padding:19px}
+.context-panel:nth-child(2){background:#f8fbf7}
+.context-label{color:#28704e;font-size:11px;font-weight:800;letter-spacing:.03em;margin-bottom:10px}
+.context-panel h5{font-size:16px;color:#24402f;margin:0 0 12px;line-height:1.45}
+.context-panel ul,.context-panel ol{padding-left:19px;margin:0;color:#385443;font-size:13px;line-height:1.9}
+.context-panel li{padding-left:2px;margin:5px 0}
+.context-boundary{font-size:12px;line-height:1.8;color:#496353;padding:14px 3px 0}
+@media(max-width:760px){.context-grid{grid-template-columns:1fr}.project-context{padding:20px}.project-context h4{font-size:19px}}
+</style><style>
+.design-reasoning,.amr-context{background:#fff;border:1px solid #d5e5d9;border-radius:16px;padding:25px;margin:22px 0;box-shadow:0 3px 14px rgba(30,60,39,.035)}
+.design-tag{font-size:11px;letter-spacing:.08em;font-weight:800;color:#2a7952;margin-bottom:12px}
+.design-reasoning h4,.amr-context h4{font-size:21px;line-height:1.5;color:#263f2e;margin:0 0 14px}
+.reasoning-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.reasoning-grid>div{background:#f2f9f3;border:1px solid #dfebe0;border-radius:12px;padding:17px}
+.reason-label{font-weight:800;color:#276d4a;font-size:12px;margin-bottom:10px}
+.reasoning-grid p,.amr-context p{color:#324b39;font-size:14px;line-height:1.8;margin:0}
+.reason-caution{background:#fffaf0;border:1px solid #eee0c8;border-radius:10px;padding:15px;margin-top:15px;font-size:12px;line-height:1.8;color:#6b5130}
+.amr-context>p{margin-bottom:18px}
+.amr-roles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.amr-roles>div{background:#f1f8f2;border:1px solid #dce9df;border-radius:11px;padding:18px}
+.amr-roles strong{display:block;color:#276b49;margin-bottom:8px;font-size:14px}
+@media(max-width:780px){.reasoning-grid,.amr-roles{grid-template-columns:1fr}}
+</style><style>
+/* v7 uploaded project evidence */
+.v7-media-heading{margin:32px 0 14px;color:#284c35;font-size:20px}.v7-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.v7-figure{margin:0;border:1px solid #dce8de;background:#fff;border-radius:13px;overflow:hidden}.v7-figure img{display:block;width:100%;height:250px;object-fit:contain;background:#f5f8f5}.v7-figure figcaption{padding:12px 14px;color:#4b6552;font-size:13px}.v7-video{margin:20px 0;padding:16px;background:#f0f6f0;border:1px solid #dce8de;border-radius:14px}.v7-video video{width:100%;max-height:480px;background:#101a14;border-radius:8px}.v7-video p{font-size:13px;color:#3e604a;margin:8px 0 0}.v7-disclaimer{padding:16px 20px;background:#f8faf8;border-left:3px solid #638c70;font-size:13px;color:#496450}@media(max-width:650px){.v7-gallery{grid-template-columns:1fr}.v7-figure img{height:auto;max-height:320px}}
+</style><style>.legacy-evidence{margin-top:34px;padding-top:20px;border-top:1px solid #dce8de}.legacy-evidence>p{color:#4b6552;line-height:1.75}.v8-extra{margin-top:18px;padding:16px 18px;background:#f5f8f5;border:1px solid #dce8de;border-radius:12px}.v8-extra summary{cursor:pointer;font-weight:700;color:#284c35}.v8-extra>p{font-size:14px;line-height:1.7}.v8-extra .v7-video{margin-bottom:8px}</style></head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="topbar">
-        <div class="brand">
-          <div class="kicker"><span class="dot"></span> PORTFOLIO</div>
-
-          <div data-lang="kr"><h1>문영민</h1></div>
-          <div data-lang="en" hidden><h1>Youngmin Moon</h1></div>
-
-          <p class="subtitle" data-lang="kr">Hardware / Robotics Systems</p>
-          <p class="subtitle" data-lang="en" hidden>Hardware / Robotics Systems</p>
-        </div>
-
-        <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-          <nav class="nav" aria-label="sections">
-            <a class="pill" href="#projects">Projects</a>
-            <a class="pill" href="#skills">Skills</a>
-            <a class="pill" href="#certificates">Certificates</a>
-            <a class="pill" href="#contact">Contact</a>
-          </nav>
-
-          <button class="lang-btn" id="langBtn" type="button" aria-label="toggle language">
-            <span class="lang-badge" id="langBadge">KR</span>
-            <span id="langLabel">English</span>
-          </button>
-        </div>
-      </div>
-
-      <div class="hero">
-        <div class="card">
-          <h2 data-lang="kr">Summary</h2>
-          <h2 data-lang="en" hidden>Summary</h2>
-
-          <p class="lead" data-lang="kr">
-            로봇 하드웨어 구조 설계부터 전장 구성, 제어기·센서 통합, 펌웨어 구현, 제작·검증까지 실제 시스템 구현 과정을 경험했습니다.
-            전력 분배, 모터 구동, 리프트/견인 구조, 회로 문서화 등 하드웨어 중심의 문제를 직접 분석하고 개선했습니다.
-          </p>
-
-          <p class="lead" data-lang="en" hidden>
-            I have hands-on experience across robot hardware design, electrical integration, controller/sensor integration, firmware implementation, fabrication, and system validation.
-            I have analyzed and improved hardware-centered issues including power distribution, motor drive, lift/towing mechanisms, and circuit documentation.
-          </p>
-
-          <div class="tags" aria-label="core tags">
-            <span class="tag">Robot Hardware</span>
-            <span class="tag">STM32</span>
-            <span class="tag">Embedded C</span>
-            <span class="tag">Timer / PWM</span>
-            <span class="tag">Interrupt</span>
-            <span class="tag">Encoder</span>
-            <span class="tag">PID Control</span>
-            <span class="tag">AC/DC Power Split</span>
-            <span class="tag">Electrical Integration</span>
-            <span class="tag">Hardware Debugging</span>
-            <span class="tag">KiCad</span>
-            <span class="tag">Fusion 360</span>
-            <span class="tag">Mechanical Design</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2 data-lang="kr">One-line Principle</h2>
-          <h2 data-lang="en" hidden>One-line Principle</h2>
-
-          <p class="lead" data-lang="kr">
-            저는 실제 환경에서 안정적으로 동작하는 로봇 하드웨어 시스템을 만드는 엔지니어입니다.
-          </p>
-
-          <p class="lead" data-lang="en" hidden>
-            I build robot hardware systems with a focus on reliable operation in real conditions.
-          </p>
-
-          <p class="muted" style="margin-top:10px;" data-lang="kr">
-            전원, 배선, 센서, 제어기, 기구 구조를 함께 보며 문제 원인을 좁히고 개선해 왔습니다.
-          </p>
-
-          <p class="muted" style="margin-top:10px;" data-lang="en" hidden>
-            I analyze power, wiring, sensors, controllers, and mechanical structure together to identify and improve root causes.
-          </p>
-
-          <div class="btns">
-            <a class="btn secondary" href="#projects">
-              <span data-lang="kr">프로젝트 보기</span>
-              <span data-lang="en" hidden>View Projects</span>
-            </a>
-
-            <a class="btn secondary" href="#certificates">
-              <span data-lang="kr">상장/특허 보기</span>
-              <span data-lang="en" hidden>View Certificates</span>
-            </a>
-
-            <!-- 업로드한 포트폴리오 PDF 다운로드 -->
-            <a
-              class="btn"
-              id="pdfBtn"
-              href="assets/pdf/Youngmin_Moon_Portfolio.pdf"
-              download="Youngmin_Moon_Portfolio.pdf"
-            >
-              <span data-lang="kr">포트폴리오 PDF 다운로드</span>
-              <span data-lang="en" hidden>Download Portfolio PDF</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <section id="projects">
-      <div class="section-title">
-        <h2 data-lang="kr">Projects</h2>
-        <h2 data-lang="en" hidden>Projects</h2>
-
-        <div class="hint">
-          <span data-lang="kr">문제 → 판단 → 해결 → 결과</span>
-          <span data-lang="en" hidden>Problem → Decision → Solution → Result</span>
-        </div>
-      </div>
-
-      <div class="proj">
-        <!-- PROJECT 01 -->
-        <article class="card">
-          <div class="proj-head">
-            <div>
-              <h3 class="proj-title">PROJECT 01 — AI-Based Smart Recycling Using 3-axis Orthogonal Coordinate Robot System Development</h3>
-
-              <p class="proj-sub" data-lang="kr">개요: 자동 분류·초음파 세척 로봇 시스템의 하드웨어 및 제어 시스템 구현</p>
-              <p class="proj-sub" data-lang="en" hidden>Overview: Implemented the hardware and control system for an automatic sorting and ultrasonic cleaning robot system.</p>
-            </div>
-
-            <div class="small" data-lang="kr">역할: 전장/전력 설계 · 모터 제어 · 펌웨어 구현 · 기구/하드웨어 제작</div>
-            <div class="small" data-lang="en" hidden>Role: Electrical/power design, motor control, firmware implementation, and hardware/mechanical fabrication.</div>
-          </div>
-
-          <div class="grid2">
-            <div class="kv">
-              <h3 data-lang="kr">기술 요소</h3>
-              <h3 data-lang="en" hidden>Technical Elements</h3>
-
-              <ul data-lang="kr">
-                <li>STM32, C, Fusion 360, KiCad</li>
-                <li>로봇 시스템 구조 설계 및 제어부 통합</li>
-                <li>Timer 기반 PWM 모터 구동</li>
-                <li>Encoder 기반 속도 측정 및 PID 테스트</li>
-                <li>Relay 기반 AC 220V 부하 분리 제어</li>
-                <li>DC 24V → 12V/5V 전력 분배 설계</li>
-                <li>부하 전류·전원 용량 분석 및 회로 재설계</li>
-              </ul>
-
-              <ul data-lang="en" hidden>
-                <li>STM32, C, Fusion 360, KiCad</li>
-                <li>Robot system architecture design and controller integration</li>
-                <li>Timer-based PWM motor drive</li>
-                <li>Encoder-based speed measurement and PID testing</li>
-                <li>Relay-based isolation control for AC 220V loads</li>
-                <li>DC 24V → 12V/5V power distribution design</li>
-                <li>Load current and power capacity analysis with circuit redesign</li>
-              </ul>
-            </div>
-
-            <div class="kv">
-              <h3 data-lang="kr">성과</h3>
-              <h3 data-lang="en" hidden>Achievements</h3>
-
-              <ul data-lang="kr">
-                <li>[교내] 창업지적재산권 페스티벌 장려상</li>
-                <li>특허 출원</li>
-                <li>[교외] 한국정보기술학회 추계종합학술대회 동상</li>
-                <li>[교내] 캡스톤디자인 경진대회 특별상</li>
-              </ul>
-
-              <ul data-lang="en" hidden>
-                <li>[Campus] Entrepreneurship/IP Festival — Encouragement Award</li>
-                <li>Patent application filed</li>
-                <li>[External] KIIT Fall Conference — Bronze Award</li>
-                <li>[Campus] Capstone Design Competition — Special Award</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="problem">
-            <h4 data-lang="kr">문제 1 — 전력 설계 사양 미확인</h4>
-            <h4 data-lang="en" hidden>Issue 1 — Power Design Oversight</h4>
-
-            <div class="rows">
-              <div class="row">
-                <b data-lang="kr">상황</b><b data-lang="en" hidden>Situation</b>
-                <span data-lang="kr">스텝다운 컨버터 허용 전류(5A)를 초과해 모듈이 파손됨</span>
-                <span data-lang="en" hidden>The step-down converter failed because the load exceeded its 5A current limit.</span>
-              </div>
-
-              <div class="row">
-                <b data-lang="kr">판단</b><b data-lang="en" hidden>Decision</b>
-                <span data-lang="kr">실제 회로와 설계 계산을 대조해 컨버터 전류 제한과 전원 출력 한계를 확인</span>
-                <span data-lang="en" hidden>Compared the damaged circuit with design calculations and identified the converter current limit and PSU output limitation.</span>
-              </div>
-
-              <div class="row">
-                <b data-lang="kr">해결</b><b data-lang="en" hidden>Solution</b>
-                <span data-lang="kr">5A 제한과 실제 전원 출력(약 320W)에 맞춰 전력 분배 구조를 재설계</span>
-                <span data-lang="en" hidden>Redesigned the power distribution based on the 5A converter limit and the actual PSU output of about 320W.</span>
-              </div>
-
-              <div class="row">
-                <b data-lang="kr">결과</b><b data-lang="en" hidden>Result</b>
-                <span data-lang="kr">전력 안정성을 확보하고 동일한 파손 문제가 재발하지 않도록 개선</span>
-                <span data-lang="en" hidden>Secured stable power delivery and prevented the same failure from recurring.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="problem">
-            <h4 data-lang="kr">문제 2 — 컨베이어용 엔코더 모터 센서 불량</h4>
-            <h4 data-lang="en" hidden>Issue 2 — Encoder Sensor Failure in the Conveyor Motor</h4>
-
-            <div class="rows">
-              <div class="row">
-                <b data-lang="kr">상황</b><b data-lang="en" hidden>Situation</b>
-                <span data-lang="kr">PID 제어는 별도 엔코더 모터에서 검증했지만, 실제 컨베이어 모터의 엔코더 센서가 불량이었음</span>
-                <span data-lang="en" hidden>PID control was verified with a separate encoder motor, but the encoder sensor of the actual conveyor motor was faulty.</span>
-              </div>
-
-              <div class="row">
-                <b data-lang="kr">판단</b><b data-lang="en" hidden>Decision</b>
-                <span data-lang="kr">문제 원인은 제어 알고리즘이 아니라 하드웨어 센서 불량이라고 판단</span>
-                <span data-lang="en" hidden>Determined that the root cause was not the control algorithm but the faulty encoder sensor.</span>
-              </div>
-
-              <div class="row">
-                <b data-lang="kr">해결</b><b data-lang="en" hidden>Solution</b>
-                <span data-lang="kr">PID 구현 결과는 증빙으로 남기고, 실제 컨베이어는 안정성을 위해 PWM 제어로 전환</span>
-                <span data-lang="en" hidden>Documented the PID test result as evidence and switched the actual conveyor to PWM control for stable operation.</span>
-              </div>
-
-              <div class="row">
-                <b data-lang="kr">결과</b><b data-lang="en" hidden>Result</b>
-                <span data-lang="kr">PID 제어 구현 능력과 실제 장비에 맞춘 판단 과정을 함께 제시</span>
-                <span data-lang="en" hidden>Demonstrated both PID implementation capability and practical decision-making for real hardware.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="evidence-title">
-            <h4 data-lang="kr">Evidence</h4>
-            <h4 data-lang="en" hidden>Evidence</h4>
-
-            <div class="hint">
-              <span data-lang="kr">회로도 2 · PID 코드 1 · 사진 1 · 영상 3</span>
-              <span data-lang="en" hidden>2 circuit diagrams · 1 PID code link · 1 photo · 3 videos</span>
-            </div>
-          </div>
-
-          <!-- 회로도 이미지를 바로 표시 / 클릭 시 원본 PDF 열기 -->
-          <div class="circuit-showcase" aria-label="power architecture evidence">
-            <figure class="circuit-figure">
-              <div class="circuit-heading">
-                <span class="circuit-label">AC POWER</span>
-
-                <h5 data-lang="kr">AC 220V 회로 설계</h5>
-                <h5 data-lang="en" hidden>AC 220V Circuit Design</h5>
-
-                <p class="circuit-desc" data-lang="kr">
-                  초음파 세척기 등 AC 부하를 릴레이로 분리 제어한 전원 구조입니다.
-                </p>
-                <p class="circuit-desc" data-lang="en" hidden>
-                  Power architecture for relay-based isolation control of AC loads such as the ultrasonic cleaner.
-                </p>
-              </div>
-
-              <a
-                class="circuit-image-link"
-                href="assets/img/project 1/RecyclingSystem-Power-Architecture-AC.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                <img
-                  class="circuit-image"
-                  src="assets/img/project 1/RecyclingSystem-Power-Architecture-AC.png"
-                  alt="AC 220V circuit diagram — open original PDF"
-                  loading="lazy"
-                >
-              </a>
-
-              <figcaption>
-                <span data-lang="kr">회로도를 클릭하면 원본 PDF를 새 탭에서 볼 수 있습니다.</span>
-                <span data-lang="en" hidden>Click the diagram to open the original PDF in a new tab.</span>
-              </figcaption>
-            </figure>
-
-            <figure class="circuit-figure dc">
-              <div class="circuit-heading">
-                <span class="circuit-label">DC POWER</span>
-
-                <h5 data-lang="kr">DC 24V → 12V/5V 전력 분배</h5>
-                <h5 data-lang="en" hidden>DC 24V → 12V/5V Power Distribution</h5>
-
-                <p class="circuit-desc" data-lang="kr">
-                  전원 출력 한계와 부하 전류를 고려해 재설계한 DC 전력 분배 구조입니다.
-                </p>
-                <p class="circuit-desc" data-lang="en" hidden>
-                  DC power distribution redesigned based on PSU output limits and load current requirements.
-                </p>
-              </div>
-
-              <a
-                class="circuit-image-link"
-                href="assets/img/project 1/RecyclingSystem-Power-Architecture-DC.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                <img
-                  class="circuit-image"
-                  src="assets/img/project 1/RecyclingSystem-Power-Architecture-DC.png"
-                  alt="DC 24V to 12V and 5V power distribution diagram — open original PDF"
-                  loading="lazy"
-                >
-              </a>
-
-              <figcaption>
-                <span data-lang="kr">회로도를 클릭하면 원본 PDF를 새 탭에서 볼 수 있습니다.</span>
-                <span data-lang="en" hidden>Click the diagram to open the original PDF in a new tab.</span>
-              </figcaption>
-            </figure>
-          </div>
-
-          <div class="btns" style="margin-bottom:12px;">
-            <a class="btn secondary" href="https://github.com/badasae/STM32_MotorControll_PID/tree/main" target="_blank" rel="noopener">
-              <span data-lang="kr">PID 제어 코드 GitHub</span>
-              <span data-lang="en" hidden>PID Control Code on GitHub</span>
-            </a>
-          </div>
-
-          <div class="evidence featured-media">
-            <figure class="ev">
-              <img src="assets/img/project 1/Overall Modelling.png" alt="Overall 3D modelling of smart recycling system" loading="lazy">
-              <figcaption>
-                <span data-lang="kr">스마트 분리수거 시스템 전체 3D 모델링</span>
-                <span data-lang="en" hidden>Overall 3D modelling of the smart recycling system</span>
-              </figcaption>
-            </figure>
-          </div>
-
-          <div class="ev-video">
-            <video controls preload="metadata">
-              <source src="assets/video/project 1/Classification motion images.MP4" type="video/mp4">
-            </video>
-
-            <p class="cap">
-              <span data-lang="kr">분류 모션 및 3축 로봇 구동 영상</span>
-              <span data-lang="en" hidden>Classification motion and 3-axis robot operation video</span>
-            </p>
-          </div>
-
-          <div class="ev-video">
-            <video controls preload="metadata">
-              <source src="assets/video/project 1/PID_Controll_100rpm.mp4" type="video/mp4">
-            </video>
-
-            <p class="cap">
-              <span data-lang="kr">PID 제어 테스트 그래프 영상(100RPM)</span>
-              <span data-lang="en" hidden>PID control graph test video at 100 RPM</span>
-            </p>
-          </div>
-
-          <div class="ev-video">
-            <video controls preload="metadata">
-              <source src="assets/video/project 1/PID_MotorControll_realpart.mp4" type="video/mp4">
-            </video>
-
-            <p class="cap">
-              <span data-lang="kr">실제 엔코더 모터 PID 제어 구동 영상</span>
-              <span data-lang="en" hidden>Actual encoder motor PID control operation video</span>
-            </p>
-          </div>
-        </article>
-
-        <!-- PROJECT 02 -->
-        <article class="card">
-          <div class="proj-head">
-            <div>
-              <h3 class="proj-title">PROJECT 02 — Towing AMR Hardware & Control System</h3>
-
-              <p class="proj-sub" data-lang="kr">개요: 견인 기능을 갖춘 AMR 하드웨어 플랫폼 및 제어 시스템 구현</p>
-              <p class="proj-sub" data-lang="en" hidden>Overview: Implemented a towing-capable AMR hardware platform and control system.</p>
-            </div>
-
-            <div class="small" data-lang="kr">역할: 전체 하드웨어/기구 설계 및 제작 · 전장 구성 · 모터/리니어 액추에이터 제어 구현</div>
-            <div class="small" data-lang="en" hidden>Role: Full hardware/mechanical design and fabrication, electrical integration, motor and linear actuator control implementation.</div>
-          </div>
-
-          <div class="grid2">
-            <div class="kv">
-              <h3 data-lang="kr">기술 요소</h3>
-              <h3 data-lang="en" hidden>Technical Elements</h3>
-
-              <ul data-lang="kr">
-                <li>STM32, C, Fusion 360</li>
-                <li>견인 로봇 전체 하드웨어 구조 설계</li>
-                <li>프레임, 리프트, 견인부 기구 설계 및 제작</li>
-                <li>PWM 기반 모터 제어</li>
-                <li>리니어 액추에이터 기반 리프트 제어</li>
-                <li>3D 프린팅 부품 제작 및 반복 부하 테스트</li>
-              </ul>
-
-              <ul data-lang="en" hidden>
-                <li>STM32, C, Fusion 360</li>
-                <li>Overall hardware architecture design for the towing robot</li>
-                <li>Frame, lift, and towing mechanism design and fabrication</li>
-                <li>Integration of drive units, controller, and sensor mounting structures</li>
-                <li>PWM-based motor control</li>
-                <li>Linear actuator-based lift control</li>
-                <li>3D-printed part fabrication and repetitive load testing</li>
-              </ul>
-            </div>
-
-            <div class="kv">
-              <h3 data-lang="kr">핵심 포인트</h3>
-              <h3 data-lang="en" hidden>Key Point</h3>
-
-              <p data-lang="kr">
-                견인 로봇의 프레임, 리프트 구조, 견인부, 제어부 배치를 직접 설계·제작하고, 실제 구동 가능한 로봇 하드웨어 시스템으로 통합했습니다.
-              </p>
-
-              <p data-lang="en" hidden>
+<div class="wrap">
+<header>
+<div class="topbar">
+<div class="brand">
+<div class="kicker"><span class="dot"></span> PORTFOLIO</div>
+<div data-lang="kr"><h1>문영민</h1></div>
+<div data-lang="en" hidden=""><h1>Youngmin Moon</h1></div>
+<p class="subtitle" data-lang="kr">Electrical &amp; Control Systems H/W</p>
+<p class="subtitle" data-lang="en" hidden="">Electrical &amp; Control Systems H/W</p>
+</div>
+<div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+<nav aria-label="sections" class="nav">
+<a class="pill" href="#projects">Projects</a>
+<a class="pill" href="#skills">Skills</a>
+<a class="pill" href="#certificates">Certificates</a>
+<a class="pill" href="#contact">Contact</a>
+</nav>
+<button aria-label="toggle language" class="lang-btn" id="langBtn" type="button">
+<span class="lang-badge" id="langBadge">KR</span>
+<span id="langLabel">English</span>
+</button>
+</div>
+</div>
+<div class="hero"><div class="hero-main"><div class="eyebrow">ELECTRICAL &amp; CONTROL SYSTEMS · HARDWARE PORTFOLIO</div><div data-lang="kr"><p class="hero-role">전장·제어 시스템 H/W 개발</p><h2 class="hero-statement">전원 분배와 구동부 연동을 경험한<br/><em>전장·제어 시스템 H/W 지원자</em></h2><p class="hero-desc">자동화 로봇 프로젝트에서 24V 전원 분배, DC 모터 전원 경로 분리, 센서·구동부 연동과 장비 재시험을 수행했습니다. STM32 제어 및 기구 제작 경험을 바탕으로 시스템 전체의 동작을 고려합니다.</p></div><div data-lang="en" hidden=""><p class="hero-role">Electrical &amp; Control Systems Hardware</p><h2 class="hero-statement">Electrical &amp; Control Systems<br/>Hardware Engineering</h2><p class="hero-desc">Hands-on experience in 24V power distribution, dedicated DC motor power paths, hardware integration, and system retesting. Supporting experience includes STM32 control and mechanical prototyping.</p></div><div class="hero-actions"><a class="btn" href="#projects"><span data-lang="kr">대표 프로젝트 살펴보기</span><span data-lang="en" hidden="">Explore featured project</span></a></div></div><div class="hero-side"><div class="side-label">CORE CAPABILITIES / 01—03</div><div class="capability"><span class="cap-number">01</span><div><strong>POWER DISTRIBUTION</strong><small data-lang="kr">24V SMPS · 12V/5V 분배 · 부하 재배치</small><small data-lang="en" hidden="">24V SMPS · 12V/5V rails · load allocation</small></div></div><div class="capability"><span class="cap-number">02</span><div><strong>DRIVE INTEGRATION</strong><small data-lang="kr">DC 모터 · 드라이버 · 센서 연동</small><small data-lang="en" hidden="">DC motors · drivers · sensors</small></div></div><div class="capability"><span class="cap-number">03</span><div><strong>SYSTEM VALIDATION</strong><small data-lang="kr">구동 불량 분석 · 구성 변경 · 재시험</small><small data-lang="en" hidden="">Fault analysis · revision · retesting</small></div></div><div class="side-foot">SUPPORTING SKILLS <span>STM32 / FUSION 360 / KiCad</span></div></div></div>
+</header>
+<section id="projects">
+<div class="section-title">
+<h2 data-lang="kr">Projects</h2>
+<h2 data-lang="en" hidden="">Projects</h2>
+<div class="hint">
+<span data-lang="kr">문제 → 판단 → 해결 → 결과</span>
+<span data-lang="en" hidden="">Problem → Decision → Solution → Result</span>
+</div>
+</div>
+<div class="proj">
+<!-- PROJECT 01 -->
+<article class="card featured-project">
+<div class="proj-head">
+<div>
+<h3 class="proj-title"><span data-lang="kr">PROJECT 01 · 스마트 분리수거 자동화 시스템</span><span data-lang="en" hidden="">PROJECT 01 · Smart Recycling Automation System</span></h3>
+<p class="proj-sub" data-lang="kr">대표 사례 · 자동화 장비의 전원 분배 및 모터 구동 시스템 통합</p>
+<p class="proj-sub" data-lang="en" hidden="">Featured case · Power distribution and motor drive integration in an automated system</p>
+</div>
+<div class="small" data-lang="kr">본인 담당: 24V 전원 분배 · DC 모터 전원 경로 분리 · 배선·부하 재배치 · 장비 재시험</div>
+<div class="small" data-lang="en" hidden="">My role: 24V power distribution, dedicated DC motor power paths, load allocation, wiring and system retesting</div>
+</div>
+<div class="project-context">
+<div class="context-kicker">PROJECT CONTEXT / 프로젝트 소개</div>
+<h4 data-lang="kr">쓰레기를 분류하고 세척하는 자동화 장비를 만들었습니다</h4>
+<h4 data-lang="en" hidden="">Built an automated recycling, sorting and cleaning prototype</h4>
+<p class="context-lead" data-lang="kr">4명이 함께 만든 시제품으로, 컨베이어를 통해 투입된 물체를 분류하고 로봇 구동부와 세척 장치를 연동하는 시스템입니다. 영상 인식, 로봇 구동, 전원 구성, 장비 제작 등을 팀원들이 나누어 맡았습니다.</p>
+<p class="context-lead" data-lang="en" hidden="">A four-person prototype combining conveyor transport, object sorting, robotic motion, and cleaning. Team members divided responsibilities across vision, motion, power, and fabrication.</p>
+<div class="context-grid">
+<div class="context-panel"><div class="context-label">01 / 내가 맡은 일</div><h5 data-lang="kr">전원 구성과 장비 제작·시험</h5><h5 data-lang="en" hidden="">Power integration, fabrication and testing</h5>
+<ul data-lang="kr"><li>24V 주전원을 장치별 12V·5V 전원으로 나누어 공급</li><li>DC 모터와 펌프 등 구동부의 전원 연결·배선 구성</li><li>컨베이어 모터 PID 실험 및 기구 부품 설계·조립</li><li>장비를 구동하며 발생한 문제 확인과 재시험</li></ul>
+<ul data-lang="en" hidden=""><li>Distributed a 24V supply into 12V and 5V paths</li><li>Integrated power and wiring for DC motors and other loads</li><li>Tested conveyor motor PID and designed/assembled mechanical parts</li><li>Checked faults and retested equipment</li></ul></div>
+<div class="context-panel"><div class="context-label">02 / 실제 진행 흐름</div><h5 data-lang="kr">전원을 연결하고, 함께 구동하며 확인</h5><h5 data-lang="en" hidden="">Integrated and tested the system</h5>
+<ol data-lang="kr"><li>각 장치에 필요한 전압을 확인하고 전원 경로 구성</li><li>DC 모터·제어부·기타 장치를 연결해 조립</li><li>개별 구동과 전체 장비 구동을 반복 확인</li><li>DC-DC 컨버터 파손 발생 → 전원 분배 방식 수정</li></ol>
+<ol data-lang="en" hidden=""><li>Checked voltage requirements and planned power paths</li><li>Connected motors, controller and other loads</li><li>Tested individual loads and the assembled system</li><li>Responded to a failed DC-DC converter by reallocating supply paths</li></ol></div>
+</div>
+<div class="context-boundary" data-lang="kr"><strong>역할 구분</strong> · 영상 인식과 스텝모터 구동 방식·드라이버 설정은 팀원이 담당했습니다. 나는 팀원이 전달한 전원 요구사항에 맞춰 공급 경로를 구성했습니다.</div>
+<div class="context-boundary" data-lang="en" hidden=""><strong>Responsibility boundary</strong> · Teammates handled computer vision and stepper drive/driver settings. I integrated supply paths based on their power requirements.</div>
+</div><div class="featured-intro"><div class="featured-kicker">FEATURED ENGINEERING CASE</div><div data-lang="kr"><h4>장비를 구동하던 중, DC-DC 컨버터가 파손됐습니다</h4><p>처음에는 DC 모터와 다른 12V 장치가 컨버터 하나를 함께 썼습니다. 모터를 구동하던 중 컨버터가 파손됐고, 모터에 순간적으로 큰 전류가 필요할 수 있다는 점을 다시 살펴봤습니다. 이후 DC 모터에 전용 컨버터를 배정하고 다른 장치들의 전원 연결을 조정했습니다.</p></div><div data-lang="en" hidden=""><h4>Dedicated power paths for DC motor loads</h4><p>Initially, DC motors shared a 12V DC-DC converter with other loads. After converter failure, I reviewed load allocation, assigned dedicated 12V conversion paths to the motors, and redistributed other loads.</p></div><div class="spec-row"><span>24V / 14.6A <small>SMPS</small></span><span>12V <small>DC MOTOR PATHS</small></span><span>5V <small>CONTROL RAIL</small></span></div><p class="evidence-note" data-lang="kr">처음에는 DC 모터와 다른 12V 장치가 컨버터 하나를 함께 사용했습니다. 컨버터가 파손된 뒤 가변 DC 파워서플라이로 모터에 12V를 공급하며 구동시험을 했고, 전류가 순간적으로 증가하는 현상과 전압 강하를 확인했습니다. 이를 바탕으로 모터별 전용 컨버터를 배정하고 다른 부하의 전원 경로를 분리했습니다.</p><p class="evidence-note" data-lang="en" hidden="">A 12V converter initially powered a DC motor alongside other devices. After failure, I identified insufficient allowance for motor startup/transient demand and shared loads as a plausible design weakness, then assigned dedicated converters to motors and separated other loads. The exact physical failure mechanism was not measured or proven.</p></div><div class="grid2">
+<div class="kv">
+<h3 data-lang="kr">기술 요소</h3>
+<h3 data-lang="en" hidden="">Technical Elements</h3>
+<ul data-lang="kr">
+<li>STM32, C, Fusion 360, KiCad</li>
+<li>로봇 시스템 구조 설계 및 제어부 통합</li>
+<li>Timer 기반 PWM 모터 구동</li>
+<li>Encoder 기반 속도 측정 및 PID 테스트</li>
+<li>Relay 기반 AC 220V 부하 분리 제어</li>
+<li>DC 24V → 12V/5V 전력 분배 설계</li>
+<li>부하 특성 검토 및 전원 분배 경로 변경</li>
+</ul>
+<ul data-lang="en" hidden="">
+<li>STM32, C, Fusion 360, KiCad</li>
+<li>Robot system architecture design and controller integration</li>
+<li>Timer-based PWM motor drive</li>
+<li>Encoder-based speed measurement and PID testing</li>
+<li>Relay-based isolation control for AC 220V loads</li>
+<li>DC 24V → 12V/5V power distribution design</li>
+<li>Load review and power distribution reconfiguration</li>
+</ul>
+</div>
+<div class="kv">
+<h3 data-lang="kr">성과</h3>
+<h3 data-lang="en" hidden="">Achievements</h3>
+<ul data-lang="kr">
+<li>[교내] 창업지적재산권 페스티벌 장려상</li>
+<li>특허 출원</li>
+<li>[교외] 한국정보기술학회 추계종합학술대회 동상</li>
+<li>[교내] 캡스톤디자인 경진대회 특별상</li>
+</ul>
+<ul data-lang="en" hidden="">
+<li>[Campus] Entrepreneurship/IP Festival — Encouragement Award</li>
+<li>Patent application filed</li>
+<li>[External] KIIT Fall Conference — Bronze Award</li>
+<li>[Campus] Capstone Design Competition — Special Award</li>
+</ul>
+</div>
+</div>
+<div class="problem">
+<h4 data-lang="kr">문제 해결 01 · DC 모터 전원 분리</h4>
+<h4 data-lang="en" hidden="">Power case — Dedicated DC motor supply paths</h4>
+<div class="rows">
+<div class="row">
+<b data-lang="kr">상황</b><b data-lang="en" hidden="">Situation</b>
+<span data-lang="kr">12V 5A 컨버터 하나에 DC 모터와 다른 12V 장치를 함께 연결했습니다. 구동 중 컨버터의 주요 칩이 파손되고 연기가 발생했습니다.</span>
+<span data-lang="en" hidden="">A converter failed in a configuration where a DC motor shared its 12V supply with other loads.</span>
+</div>
+<div class="row">
+<b data-lang="kr">판단</b><b data-lang="en" hidden="">Decision</b>
+<span data-lang="kr">가변 DC 파워서플라이에서 12V를 공급해 모터를 시험할 때, 구동 순간 전류가 튀는 현상을 직접 확인했습니다. 전압 강하도 계측해 확인했습니다. 평상시 전류가 2A 미만이라는 정보만으로는 5A 컨버터에 다른 장치까지 함께 연결할 여유를 판단하기 어렵다고 봤습니다.</span>
+<span data-lang="en" hidden="">Reviewed transient motor load demands and possible effects on other devices sharing the supply.</span>
+</div>
+<div class="row">
+<b data-lang="kr">해결</b><b data-lang="en" hidden="">Solution</b>
+<span data-lang="kr">DC 모터마다 전용 12V DC-DC 컨버터를 배정했습니다. 모터와 함께 연결돼 있던 다른 12V 장치도 별도 경로로 옮겨 부하가 한 컨버터에 몰리지 않도록 구성했습니다.</span>
+<span data-lang="en" hidden="">Assigned dedicated 12V DC-DC converters to the DC motors and redistributed other 12V loads.</span>
+</div>
+<div class="row">
+<b data-lang="kr">결과</b><b data-lang="en" hidden="">Result</b>
+<span data-lang="kr">전원 분배 구조를 변경한 뒤 장비를 다시 시험해 정상 구동을 확인했습니다. 별도 모터 시험에서 전류 증가와 전압 강하를 계측했지만, 컨버터 파손 순간의 정확한 파형이나 수치 기록은 남아 있지 않아 파손 원인을 하나로 단정하지는 않습니다.</span>
+<span data-lang="en" hidden="">Retested the system after the power distribution changes and confirmed normal operation.</span>
+</div>
+</div>
+</div><div class="design-reasoning">
+<div class="design-tag">ENGINEERING DECISION · 원인 분석과 설계 판단</div>
+<h4 data-lang="kr">왜 컨버터를 따로 나눴을까?</h4><h4 data-lang="en" hidden="">Why separate the converters?</h4>
+<div class="reasoning-grid">
+<div><div class="reason-label">01 · 확인한 사실</div><p data-lang="kr">DC 모터와 다른 장치가 12V 5A 컨버터를 함께 사용하던 중 컨버터가 파손됐습니다. 평상시 모터 전류는 2A 미만이었지만, 가변 DC 파워서플라이 시험에서는 구동 시 전류 증가와 전압 강하를 확인했습니다.</p><p data-lang="en" hidden="">A DC motor shared a 12V/5A converter with other loads. The converter failed during operation; the motor's normal current was below 2A.</p></div>
+<div><div class="reason-label">02 · 계측 결과와 원인 분석</div><p data-lang="kr">모터는 처음 돌기 시작할 때나 부하가 걸릴 때 평소보다 큰 전류를 요구할 수 있습니다. 다른 장치까지 같은 컨버터를 쓰면 순간적인 전류 요구와 부하 집중에 대응할 여유가 줄어듭니다.</p><p data-lang="en" hidden="">Startup and changing mechanical loads can increase motor current. Sharing a converter with other loads reduces available headroom.</p></div>
+<div><div class="reason-label">03 · 설계 변경</div><p data-lang="kr">모터마다 12V 컨버터를 따로 배정하고, 나머지 12V 장치도 다른 경로로 옮겼습니다. 한 장치의 부하 변화가 다른 장치의 전원에 영향을 줄 가능성을 줄이려는 설계였습니다.</p><p data-lang="en" hidden="">Dedicated 12V converters were assigned to DC motors, with other 12V loads moved to separate paths to reduce shared-load interactions.</p></div>
+</div>
+<div class="reason-caution" data-lang="kr"><strong>원인 판단의 범위</strong> · 가변 DC 파워서플라이를 이용한 모터 시험에서 순간적인 전류 증가와 전압 강하를 직접 확인했습니다. 다만 당시 수치 기록과 컨버터 파손 순간의 파형이 없어, 파손의 유일한 원인을 특정했다고 주장하지는 않습니다.</div>
+<div class="reason-caution" data-lang="en" hidden=""><strong>Evidence limit:</strong> Startup current and voltage sag were not directly recorded, so overcurrent is not presented as the proven sole failure mechanism.</div>
+</div><div class="engineering-review">
+<div class="review-head"><span class="review-eyebrow">ENGINEERING REVIEW / 01</span>
+<h4 data-lang="kr">그때는 이렇게 해결했고, 지금이라면 이렇게 확인하겠습니다</h4>
+<h4 data-lang="en" hidden="">Original engineering decisions and what I would improve</h4>
+<p data-lang="kr">실제로 했던 작업과, 지금 다시 한다면 추가하고 싶은 검증을 나눠 적었습니다.</p>
+<p data-lang="en" hidden="">Implemented work and proposed improvements are separated. The improvements below were not performed during the original project.</p></div>
+<div class="review-grid">
+<section class="review-col"><div class="review-label">IMPLEMENTED · 당시 수행</div>
+<h5 data-lang="kr">DC 모터 전원을 따로 분리</h5><h5 data-lang="en" hidden="">Reallocated power paths</h5>
+<p data-lang="kr">가변 DC 파워서플라이로 모터를 시험해 구동 순간 전류 증가와 전압 강하를 확인했습니다. 이 결과를 바탕으로 DC 모터에 전용 컨버터를 배정하고, 다른 12V 장치의 전원 연결을 재배치한 뒤 재시험했습니다.</p>
+<p data-lang="en" hidden="">After a converter failed in a shared 12V load configuration, I assigned dedicated DC-DC paths to DC motors, redistributed other loads, and retested the system.</p></section>
+<section class="review-col review-future"><div class="review-label">NEXT DESIGN · 추가한다면</div>
+<h5 data-lang="kr">전류·전압 변화 기록과 용량 검증 강화</h5><h5 data-lang="en" hidden="">Measured sizing and protection verification</h5>
+<p data-lang="kr">모터 기동 순간의 전류와 12V 출력 전압을 오실로스코프·전류 측정 장비로 확인하겠습니다. 모든 부하를 동시에 켠 조건에서도 컨버터 정격과 온도 여유를 점검하고, 과전류 보호가 제대로 동작하는지 시험하겠습니다.</p>
+<p data-lang="en" hidden="">I would measure startup/steady-state current and voltage sag, verify peak-load and thermal margins and protection behavior, and document load budgets and repeatable test conditions.</p></section>
+</div>
+<div class="review-foot" data-lang="kr">※ 당시 가변 DC 파워서플라이로 전류 증가와 전압 강하를 확인했지만 정확한 수치는 현재 확인되지 않아 기재하지 않았습니다. KiCad 도면은 최종 구성을 사후 정리한 자료이며, 스텝모터 구동부 선정·설정은 팀원 담당입니다.</div>
+<div class="review-foot" data-lang="en" hidden=""><strong>Evidence limits</strong> · KiCad shows the retrospectively documented final configuration. The 3.8A peak label is not claimed as a direct measurement. Stepper driver selection/configuration was handled by a teammate.</div>
+</div>
+<div class="problem">
+<h4 data-lang="kr">문제 해결 02 · 컨베이어 모터 센서 불량</h4>
+<h4 data-lang="en" hidden="">Issue 2 — Encoder Sensor Failure in the Conveyor Motor</h4>
+<div class="rows">
+<div class="row">
+<b data-lang="kr">상황</b><b data-lang="en" hidden="">Situation</b>
+<span data-lang="kr">PID 제어는 별도 엔코더 모터에서 검증했지만, 실제 컨베이어 모터의 엔코더 센서가 불량이었음</span>
+<span data-lang="en" hidden="">PID control was verified with a separate encoder motor, but the encoder sensor of the actual conveyor motor was faulty.</span>
+</div>
+<div class="row">
+<b data-lang="kr">판단</b><b data-lang="en" hidden="">Decision</b>
+<span data-lang="kr">문제 원인은 제어 알고리즘이 아니라 하드웨어 센서 불량이라고 판단</span>
+<span data-lang="en" hidden="">Determined that the root cause was not the control algorithm but the faulty encoder sensor.</span>
+</div>
+<div class="row">
+<b data-lang="kr">해결</b><b data-lang="en" hidden="">Solution</b>
+<span data-lang="kr">PID 구현 결과는 증빙으로 남기고, 실제 컨베이어는 안정성을 위해 PWM 제어로 전환</span>
+<span data-lang="en" hidden="">Documented the PID test result as evidence and switched the actual conveyor to PWM control for stable operation.</span>
+</div>
+<div class="row">
+<b data-lang="kr">결과</b><b data-lang="en" hidden="">Result</b>
+<span data-lang="kr">PID 제어 구현 능력과 실제 장비에 맞춘 판단 과정을 함께 제시</span>
+<span data-lang="en" hidden="">Demonstrated both PID implementation capability and practical decision-making for real hardware.</span>
+</div>
+</div>
+</div>
+<div class="evidence-title">
+<h4 data-lang="kr">Evidence</h4>
+<h4 data-lang="en" hidden="">Evidence</h4>
+<div class="hint">
+<span data-lang="kr">회로도 2 · PID 코드 1 · 사진 1 · 영상 3</span>
+<span data-lang="en" hidden="">2 circuit diagrams · 1 PID code link · 1 photo · 3 videos</span>
+</div>
+</div>
+<!-- 회로도 이미지를 바로 표시 / 클릭 시 원본 PDF 열기 -->
+<div aria-label="power architecture evidence" class="circuit-showcase">
+</div>
+<div class="btns" style="margin-bottom:12px;">
+<a class="btn secondary" href="https://github.com/badasae/STM32_MotorControll_PID/tree/main" rel="noopener" target="_blank">
+<span data-lang="kr">PID 제어 코드 GitHub</span>
+<span data-lang="en" hidden="">PID Control Code on GitHub</span>
+</a>
+</div>
+<div class="evidence featured-media">
+</div>
+<h4 class="v7-media-heading">실제 제작·계측·세척 시험 자료</h4><div class="v7-gallery"><figure class="v7-figure"><img alt="Fusion 360 전체 장비 배치 모델" loading="lazy" src="assets/images/recycling_model.png"/><figcaption>Fusion 360 전체 장비 배치 모델</figcaption></figure><figure class="v7-figure"><img alt="DC-DC 모듈을 만능기판에 배치한 전원 분배 구성" loading="lazy" src="assets/images/power_board.jpg"/><figcaption>DC-DC 모듈을 만능기판에 배치한 전원 분배 구성</figcaption></figure><figure class="v7-figure"><img alt="전원 박스 제작·조립" loading="lazy" src="assets/images/power_box.jpg"/><figcaption>전원 박스 제작·조립</figcaption></figure><figure class="v7-figure"><img alt="장비 내부 전원·신호 배선 통합" loading="lazy" src="assets/images/power_wiring.jpeg"/><figcaption>장비 내부 전원·신호 배선 통합</figcaption></figure><figure class="v7-figure"><img alt="초음파 발생기·드라이버 및 냉각 박스" loading="lazy" src="assets/images/ultra_box.jpg"/><figcaption>초음파 발생기·드라이버 및 냉각 박스</figcaption></figure></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/motor.mov" type="video/quicktime"/></video><p>DC 모터 전원·구동 시험 기록</p></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/cleaning.mov" type="video/quicktime"/></video><p>초음파 세척 전후 육안 비교 시험(약 1분)</p></div><section class="legacy-evidence"><h4 class="v7-media-heading">전원 구성도 및 기존 제작 기록</h4><p>아래 구성도는 프로젝트 전원 계통을 정리한 자료입니다. 구매한 DC-DC 모듈을 활용한 전원 분배 및 릴레이 연동을 설명하며, DC-DC 변환 회로 자체를 설계했다는 의미는 아닙니다.</p><div class="v7-gallery"><figure class="v7-figure"><img alt="DC 전원 분배 구성도" loading="lazy" src="assets/images/power_arch_dc.png"/><figcaption>DC 24V 입력과 12V·5V 전원 분배 구성도</figcaption></figure><figure class="v7-figure"><img alt="AC 전원 및 릴레이 연동 구성도" loading="lazy" src="assets/images/power_arch_ac.png"/><figcaption>AC 전원·릴레이 연동 구성도</figcaption></figure><figure class="v7-figure"><img alt="릴레이 모듈 제작 구성" loading="lazy" src="assets/images/relay_modules.jpg"/><figcaption>릴레이 모듈 구성 및 배선 제작 기록</figcaption></figure><figure class="v7-figure"><img alt="장비 내부 전원 공급 장치 설치 및 배선" loading="lazy" src="assets/images/legacy_power_wiring.jpeg"/><figcaption>기존 사이트의 전원 공급 장치 설치·배선 사진</figcaption></figure></div><h4 class="v7-media-heading">장비 작동 및 별도 모터 제어 실험</h4><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/classification.mp4" type="video/mp4"/></video><p>분류 장치의 실제 작동 시연 — 전체 팀 프로젝트 결과</p></div><details class="v8-extra"><summary>별도 STM32 모터 PID 실험 영상 2개 보기</summary><p>이 영상은 모터 제어 실습 자료로, 본 프로젝트 컨베이어에 엔코더 피드백 PID 제어가 최종 적용됐다는 증거가 아닙니다. 컨베이어는 엔코더 문제로 PWM·시간 기반 구동 방식으로 전환했습니다.</p><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/pid_bench_100rpm.mp4" type="video/mp4"/></video><p>별도 모터 PID 제어 실험 기록 (100 rpm 파일명 기준)</p></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/pid_bench_real.mp4" type="video/mp4"/></video><p>별도 모터 제어 실험 장면</p></div></details></section></article>
+<!-- PROJECT 02 -->
+<article class="card">
+<div class="proj-head">
+<div>
+<h3 class="proj-title"><span data-lang="kr">PROJECT 02 · 고장 로봇 견인형 AMR 제작</span><span data-lang="en" hidden="">PROJECT 02 · Towing AMR Prototype</span></h3>
+<p class="proj-sub" data-lang="kr">개요: 고장 로봇 견인을 목표로 한 AMR 시제품의 기구 설계·제작 및 리프트 시험</p>
+<p class="proj-sub" data-lang="en" hidden="">Overview: Implemented a towing-capable AMR hardware platform and control system.</p>
+</div>
+<div class="small" data-lang="kr">본인 담당: Fusion 360 전체 기구 설계 · 2020 프로파일 주문·조립 · 외장/구조물 3D 프린팅 · 리프트·초기 견인 구조 제작·시험</div>
+<div class="small" data-lang="en" hidden="">Role: Full hardware/mechanical design and fabrication, electrical integration, motor and linear actuator control implementation.</div>
+</div><div class="amr-context">
+<div class="design-tag">PROJECT CONTEXT / 프로젝트 소개</div>
+<h4 data-lang="kr">고장 난 이동 로봇을 들어 올려 견인하는 로봇</h4><h4 data-lang="en" hidden="">A mobile robot designed to lift and tow a disabled robot</h4>
+<p data-lang="kr">고장 로봇의 견인을 목표로 제작한 AMR 시제품입니다. 직접 Fusion 360으로 외장 케이스와 내부 부품 배치를 설계하고, 2020 알루미늄 프로파일을 설계 치수에 맞춰 주문·조립했습니다. X자형 리프트는 약 1kg 하중에서 상승·하강을 시험했으며, 후방 견인부는 초기 구동까지 구현했습니다. 실제 견인 기능 완성은 인수인계 후 후임자의 작업입니다.</p>
+<p data-lang="en" hidden="">Built a prototype with a lift and rear towing structure to move a disabled mobile robot. The challenge was mechanical stability, packaging, and interference-free motion under load.</p>
+<div class="amr-roles">
+<div><strong data-lang="kr">내가 담당한 작업</strong><strong data-lang="en" hidden="">My contribution</strong><p data-lang="kr">Fusion 360 전체 기구·외장 설계, 2020 프로파일 프레임 제작, 3D 프린팅·조립, X자형 리프트와 초기 후방 견인부 구현, 구동 시험</p><p data-lang="en" hidden="">Mechanical architecture, lift and rear towing structure, internal component/wiring space, 3D printing, assembly and repeated tests</p></div>
+<div><strong data-lang="kr">주요 설계 조건</strong><strong data-lang="en" hidden="">Key constraints</strong><p data-lang="kr">견인 시 무게중심, 리프트의 움직임, 3D 프린팅 체결부의 변형, 내부 부품 간 간섭</p><p data-lang="en" hidden="">Center of gravity during towing, lift movement, printed fastener deformation, and internal clearance</p></div>
+</div>
+</div>
+<div class="grid2">
+<div class="kv">
+<h3 data-lang="kr">기술 요소</h3>
+<h3 data-lang="en" hidden="">Technical Elements</h3>
+<ul data-lang="kr">
+<li>STM32, C, Fusion 360</li>
+<li>견인 로봇 전체 하드웨어 구조 설계</li>
+<li>프레임, 리프트, 견인부 기구 설계 및 제작</li>
+<li>PWM 기반 모터 제어</li>
+<li>리니어 액추에이터 기반 리프트 제어</li>
+<li>3D 프린팅 부품 제작 및 반복 부하 테스트</li>
+</ul>
+<ul data-lang="en" hidden="">
+<li>STM32, C, Fusion 360</li>
+<li>Overall hardware architecture design for the towing robot</li>
+<li>Frame, lift, and towing mechanism design and fabrication</li>
+<li>Integration of drive units, controller, and sensor mounting structures</li>
+<li>PWM-based motor control</li>
+<li>Linear actuator-based lift control</li>
+<li>3D-printed part fabrication and repetitive load testing</li>
+</ul>
+</div>
+<div class="kv">
+<h3 data-lang="kr">핵심 포인트</h3>
+<h3 data-lang="en" hidden="">Key Point</h3>
+<p data-lang="kr">Fusion 360으로 전체 기구와 외장·내부 부품 배치를 직접 설계하고 2020 프로파일 및 3D 프린팅 부품으로 시제품을 제작했습니다. 약 1kg 리프트 상승·하강 시험과 초기 견인부 구동을 확인했으며, 완성된 견인 기능은 후임자 작업으로 구분합니다.</p>
+<p data-lang="en" hidden="">
                 Designed and fabricated the towing robot frame, lift mechanism, towing structure, and controller layout, then integrated them into a working robot hardware system.
               </p>
-            </div>
-          </div>
-
-          <div class="problem">
-            <h4 data-lang="kr">문제 — 견인 구조 강성 및 내구성 확보</h4>
-            <h4 data-lang="en" hidden>Issue — Securing Structural Stiffness and Durability</h4>
-
-            <div class="rows">
-              <div class="row">
-                <b data-lang="kr">상황</b><b data-lang="en" hidden>Situation</b>
-                <span data-lang="kr">3D 프린팅 기반 견인 구조에서 반복 부하 시 변형이 발생</span>
-                <span data-lang="en" hidden>Deformation occurred in the 3D-printed towing structure under repeated load.</span>
-              </div>
-
-              <div class="row">
-                <b data-lang="kr">판단</b><b data-lang="en" hidden>Decision</b>
-                <span data-lang="kr">견인부 형상, 체결 위치, 하중 방향을 기준으로 구조 보강이 필요하다고 판단</span>
-                <span data-lang="en" hidden>Structural reinforcement was required based on the towing geometry, fastening points, and load direction.</span>
-              </div>
-
-              <div class="row">
-                <b data-lang="kr">해결</b><b data-lang="en" hidden>Solution</b>
-                <span data-lang="kr">프레임과 견인부를 재설계하고, 제작 후 반복 부하 테스트로 구조를 개선</span>
-                <span data-lang="en" hidden>Redesigned the frame and towing structure, then improved it through fabrication and repeated load testing.</span>
-              </div>
-
-              <div class="row">
-                <b data-lang="kr">결과</b><b data-lang="en" hidden>Result</b>
-                <span data-lang="kr">리프트와 견인 동작이 가능한 하드웨어 구조를 확보</span>
-                <span data-lang="en" hidden>Secured a hardware structure capable of lift and towing operation.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="evidence-title">
-            <h4 data-lang="kr">Evidence</h4>
-            <h4 data-lang="en" hidden>Evidence</h4>
-
-            <div class="hint">
-              <span data-lang="kr">사진 2 · 영상 2</span>
-              <span data-lang="en" hidden>2 photos · 2 videos</span>
-            </div>
-          </div>
-
-          <div class="evidence">
-            <figure class="ev">
-              <img src="assets/img/project 2/AMR_3dfile.png" alt="AMR 3D design model" loading="lazy">
-              <figcaption>
-                <span data-lang="kr">AMR 3D 설계 모델</span>
-                <span data-lang="en" hidden>AMR 3D design model</span>
-              </figcaption>
-            </figure>
-
-            <!-- 임시 숨김: 다시 표시하려면 아래 figure의 hidden 속성을 삭제 -->
-            <figure class="ev" hidden>
-              <img src="assets/img/project 2/Towing system image.PNG" alt="Towing system operation diagram" loading="lazy">
-              <figcaption>
-                <span data-lang="kr">견인 로봇 예상 운영도</span>
-                <span data-lang="en" hidden>Towing robot operation diagram</span>
-              </figcaption>
-            </figure>
-
-            <figure class="ev">
-              <img src="assets/img/project 2/Towing system image.jpeg" alt="Prototype without exterior cover" loading="lazy">
-              <figcaption>
-                <span data-lang="kr">외장재 제외 프로토타입</span>
-                <span data-lang="en" hidden>Prototype without exterior cover</span>
-              </figcaption>
-            </figure>
-          </div>
-
-          <div class="ev-video">
-            <video controls preload="metadata">
-              <source src="assets/video/project 2/Towing system lift drive.MP4" type="video/mp4">
-            </video>
-
-            <p class="cap">
-              <span data-lang="kr">리프트 구동 동작 영상</span>
-              <span data-lang="en" hidden>Lift drive motion demonstration</span>
-            </p>
-          </div>
-
-          <!-- 임시 숨김: 다시 표시하려면 아래 div의 hidden 속성을 삭제 -->
-          <div class="ev-video" hidden>
-            <video controls preload="metadata">
-              <source src="assets/video/project 2/Subsequent improvements in towing.MP4" type="video/mp4">
-            </video>
-
-            <p class="cap">
-              <span data-lang="kr">견인 시스템 개선 후 구동 영상</span>
-              <span data-lang="en" hidden>Towing system operation after subsequent improvements</span>
-            </p>
-          </div>
-
-          <div class="btns featured-wrap">
-            <a class="btn featured" href="https://youtu.be/PHcA-O1GWsk" target="_blank" rel="noopener">
-              <span data-lang="kr">견인 시스템 주행 영상 보기</span>
-              <span data-lang="en" hidden>Watch towing system driving video</span>
-            </a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="section-title">
-        <h2 data-lang="kr">Technical Summary</h2>
-        <h2 data-lang="en" hidden>Technical Summary</h2>
-        <div class="hint"></div>
-      </div>
-
-      <div class="skills">
-        <div class="card">
-          <h2>Control / Firmware</h2>
-
-          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="kr">
-            <li>STM32 기반 제어 로직 구현</li>
-            <li>Timer, PWM, Interrupt 기반 구동 제어 구조</li>
-            <li>Encoder 속도 측정 및 모터 상태 확인</li>
-            <li>PID 제어 구현 및 실제 모터 테스트 경험</li>
-          </ul>
-
-          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en" hidden>
-            <li>STM32-based control logic implementation</li>
-            <li>Timer/PWM/Interrupt-driven drive control architecture</li>
-            <li>Encoder-based speed measurement and motor state checking</li>
-            <li>PID control implementation and real motor testing experience</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h2>Electrical / Hardware</h2>
-
-          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="kr">
-            <li>AC/DC 전력 분리 및 전장 구성 경험</li>
-            <li>부하 전류·전원 용량 분석 및 재설계 경험</li>
-            <li>KiCad 기반 AC/DC 회로 설계 문서화</li>
-            <li>배선, 전원, 센서, 구동부 기반 하드웨어 디버깅 경험</li>
-          </ul>
-
-          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en" hidden>
-            <li>AC/DC power separation and electrical integration experience</li>
-            <li>Load current and power capacity analysis with redesign experience</li>
-            <li>AC/DC circuit documentation using KiCad</li>
-            <li>Hardware debugging based on wiring, power, sensors, and drive units</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h2>Mechanical / Prototyping</h2>
-
-          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="kr">
-            <li>Fusion 360 기반 로봇 기구 설계</li>
-            <li>프레임, 리프트, 견인부 구조 설계</li>
-            <li>3D 프린팅 부품 제작 및 시스템 조립</li>
-            <li>반복 부하 테스트 기반 구조 보강 및 개선</li>
-          </ul>
-
-          <ul class="muted" style="margin:0; padding-left:18px; font-size:14px;" data-lang="en" hidden>
-            <li>Robot mechanical design using Fusion 360</li>
-            <li>Frame, lift, and towing mechanism design</li>
-            <li>3D-printed part fabrication and system assembly</li>
-            <li>Structural reinforcement and improvement through repeated load testing</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="certificates">
-      <div class="section-title">
-        <h2 data-lang="kr">Certificates</h2>
-        <h2 data-lang="en" hidden>Certificates</h2>
-
-        <div class="hint">
-          <span data-lang="kr">상장 3 · 특허 1 (클릭하면 원본)</span>
-          <span data-lang="en" hidden>3 awards · 1 patent (click to open original)</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <p class="muted" style="margin:0;">
-          <span data-lang="kr">증빙 자료는 클릭 시 원본 이미지로 열립니다.</span>
-          <span data-lang="en" hidden>Click each item to open the original image.</span>
-        </p>
-
-        <div class="cert-grid">
-          <a class="cert" href="assets/certificate-of-award/240131 Capstone Design Encouragement Award Listed.jpg" target="_blank" rel="noopener">
-            <img src="assets/certificate-of-award/240131 Capstone Design Encouragement Award Listed.jpg" alt="Capstone Design Encouragement Award" loading="lazy">
-
-            <div class="meta">
-              <p class="title" data-lang="kr">2024.01.31 · 캡스톤 디자인 장려상</p>
-              <p class="title" data-lang="en" hidden>2024.01.31 · Capstone Design — Encouragement Award</p>
-              <p class="sub" data-lang="kr">증빙 이미지</p>
-              <p class="sub" data-lang="en" hidden>Evidence image</p>
-            </div>
-          </a>
-
-          <a class="cert" href="assets/certificate-of-award/20241122 Listed at the thesis contest.png" target="_blank" rel="noopener">
-            <img src="assets/certificate-of-award/20241122 Listed at the thesis contest.png" alt="Thesis contest listed" loading="lazy">
-
-            <div class="meta">
-              <p class="title" data-lang="kr">2024.11.22 · 논문 대회 등재( Listed )</p>
-              <p class="title" data-lang="en" hidden>2024.11.22 · Thesis Contest — Listed</p>
-              <p class="sub" data-lang="kr">증빙 이미지</p>
-              <p class="sub" data-lang="en" hidden>Evidence image</p>
-            </div>
-          </a>
-
-          <a class="cert" href="assets/certificate-of-award/241203 Special Award for Capstone Design.jpg" target="_blank" rel="noopener">
-            <img src="assets/certificate-of-award/241203 Special Award for Capstone Design.jpg" alt="Capstone Design Special Award" loading="lazy">
-
-            <div class="meta">
-              <p class="title" data-lang="kr">2024.12.03 · 캡스톤 디자인 특별상</p>
-              <p class="title" data-lang="en" hidden>2024.12.03 · Capstone Design — Special Award</p>
-              <p class="sub" data-lang="kr">증빙 이미지</p>
-              <p class="sub" data-lang="en" hidden>Evidence image</p>
-            </div>
-          </a>
-
-          <a class="cert" href="assets/certificate-of-award/24 INTERFACE_WP245058_.jpg" target="_blank" rel="noopener">
-            <img src="assets/certificate-of-award/24 INTERFACE_WP245058_.jpg" alt="Patent evidence" loading="lazy">
-
-            <div class="meta">
-              <p class="title" data-lang="kr">특허 · 24 INTERFACE_WP245058_</p>
-              <p class="title" data-lang="en" hidden>Patent · 24 INTERFACE_WP245058_</p>
-              <p class="sub" data-lang="kr">증빙 이미지</p>
-              <p class="sub" data-lang="en" hidden>Evidence image</p>
-            </div>
-          </a>
-        </div>
-
-        <p class="small" style="margin-top:10px;">
-          <span data-lang="kr"></span>
-          <span data-lang="en" hidden>※ If filenames change, update the link and image paths accordingly.</span>
-        </p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-title">
-        <h2 data-lang="kr">Contact</h2>
-        <h2 data-lang="en" hidden>Contact</h2>
-        <div class="hint"></div>
-      </div>
-
-      <div class="card">
-        <p style="margin:0 0 6px;">
-          <b data-lang="kr">Email</b><b data-lang="en" hidden>Email</b>
-          <span class="muted">: ansdudals61@naver.com</span>
-        </p>
-      </div>
-    </section>
-
-    <footer>
-      <div>
+</div>
+</div>
+<div class="problem">
+<h4 data-lang="kr">문제 해결 · 리프트 걸림과 견인 구조 보강</h4>
+<h4 data-lang="en" hidden="">Issue — Securing Structural Stiffness and Durability</h4>
+<div class="rows">
+<div class="row">
+<b data-lang="kr">상황</b><b data-lang="en" hidden="">Situation</b>
+<span data-lang="kr">리프트를 움직일 때 가이드가 삐걱거리며 걸렸고, 좌우가 다르게 움직이면서 끼이는 문제가 있었습니다. 견인 구조에서는 무게중심 편중과 3D 프린팅 체결부 변형도 확인했습니다.</span>
+<span data-lang="en" hidden="">Deformation occurred in the 3D-printed towing structure under repeated load.</span>
+</div>
+<div class="row">
+<b data-lang="kr">판단</b><b data-lang="en" hidden="">Decision</b>
+<span data-lang="kr">리프트 가이드가 PLA 부품끼리 맞닿는 구조였기 때문에 접촉면과 출력 방향에 따른 차이를 검토했습니다. 견인 구조는 무게중심과 체결부 강성을 다시 살펴봤습니다.</span>
+<span data-lang="en" hidden="">Structural reinforcement was required based on the towing geometry, fastening points, and load direction.</span>
+</div>
+<div class="row">
+<b data-lang="kr">해결</b><b data-lang="en" hidden="">Solution</b>
+<span data-lang="kr">레일 형상 변경을 시도한 뒤 최종적으로 3D 프린팅 출력 방향을 변경해 재제작·시험했습니다. 하중에 취약한 PLA 부품은 출력 밀도를 보강했고, 모터 마운트 위치와 구조를 수정해 구동 바퀴 접촉을 개선했습니다.</span>
+<span data-lang="en" hidden="">Redesigned the frame and towing structure, then improved it through fabrication and repeated load testing.</span>
+</div>
+<div class="row">
+<b data-lang="kr">결과</b><b data-lang="en" hidden="">Result</b>
+<span data-lang="kr">출력 방향을 변경한 PLA 레일·가이드에서 걸림과 좌우 동작 불균형이 개선됐습니다. 모터 마운트 처짐으로 발생한 바퀴·바닥 접촉 불균형도 위치·구조 보강 후 개선을 확인했습니다. 약 1kg 리프트 상승·하강을 시험했지만 최대 하중·내구성은 검증하지 않았습니다.</span>
+<span data-lang="en" hidden="">Secured a hardware structure capable of lift and towing operation.</span>
+</div>
+</div>
+</div>
+<div class="evidence-title">
+<h4 data-lang="kr">Evidence</h4>
+<h4 data-lang="en" hidden="">Evidence</h4>
+<div class="hint">신규 설계·제작 사진 및 실제 시험 영상 포함</div>
+</div>
+<div class="evidence">
+<!-- 임시 숨김: 다시 표시하려면 아래 figure의 hidden 속성을 삭제 -->
+</div>
+<!-- 임시 숨김: 다시 표시하려면 아래 div의 hidden 속성을 삭제 -->
+<div class="btns featured-wrap">
+</div>
+<div class="amr-review">
+<div class="review-label">ENGINEERING REFLECTION / 02</div>
+<p data-lang="kr"><strong>당시 수행:</strong> 리프트 가이드의 출력 방향을 바꿔 걸림을 개선하고, 견인 구조의 무게중심을 조정하며 체결부를 보강했습니다. 제작과 재시험을 반복해 실제 동작을 확인했습니다.</p>
+<p data-lang="kr"><strong>다시 만든다면:</strong> 리프트 걸림이 출력 방향에 따라 왜 달라지는지 치수·마찰·표면 상태를 비교하고, 견인 하중에 따른 변형과 반복 내구성을 수치로 기록하겠습니다. 당시 수행한 측정으로 주장하지는 않습니다.</p>
+<p data-lang="en" hidden=""><strong>Implemented:</strong> Designed and tested lift/towing structures, addressing balance and fastening deformation.</p>
+<p data-lang="en" hidden=""><strong>Next iteration:</strong> Quantify deflection under towing loads, repeatability, wiring clearance, and service access. These are proposals, not historical test results.</p></div><h4 class="v7-media-heading">Fusion 360 설계·제작·리프트 시험 자료</h4><div class="v7-gallery"><figure class="v7-figure"><img alt="Fusion 360 전체 AMR 외장·기구 설계" loading="lazy" src="assets/images/amr_design.png"/><figcaption>Fusion 360 전체 AMR 외장·기구 설계</figcaption></figure><figure class="v7-figure"><img alt="리프트·구동부 내부 배치 설계" loading="lazy" src="assets/images/amr_internals.png"/><figcaption>리프트·구동부 내부 배치 설계</figcaption></figure><figure class="v7-figure"><img alt="직접 제작한 3D 프린팅 외장 케이스" loading="lazy" src="assets/images/amr_photo.png"/><figcaption>직접 제작한 3D 프린팅 외장 케이스</figcaption></figure><figure class="v7-figure"><img alt="AMR 내부 전장 부품 및 배선 배치" loading="lazy" src="assets/images/amr_wiring.png"/><figcaption>AMR 내부 전장 부품 및 배선 배치</figcaption></figure></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/lift_up.mov" type="video/quicktime"/></video><p>약 1kg 하중 리프트 상승 시험</p></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/lift_down.mov" type="video/quicktime"/></video><p>약 1kg 하중 리프트 하강 시험</p></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/initial_tow.mov" type="video/quicktime"/></video><p>직접 구현한 초기 후방 견인 구조의 구동 시험(실제 견인 완성 전)</p></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/successor.mp4" type="video/mp4"/></video><p>인수인계 이후 후임자가 개선한 견인 구조 — 본인 직접 구현 결과 아님</p></div><p class="v7-disclaimer">역할 및 검증 범위: 초기 후방 견인 구조는 본인이 제작했으며 실제 견인 기능 완성은 후임자 작업입니다. 약 1kg은 리프트 시험 하중으로 최대 적재 하중이나 장기 내구성 검증 결과가 아닙니다.</p><section class="legacy-evidence"><h4 class="v7-media-heading">기존 설계 자료와 추가 시연</h4><div class="v7-gallery"><figure class="v7-figure"><img alt="기존 사이트 AMR 3D 설계 이미지" loading="lazy" src="assets/images/legacy_amr_design.png"/><figcaption>기존 사이트의 AMR 3D 모델</figcaption></figure><figure class="v7-figure"><img alt="초기 견인 구조 제작 사진" loading="lazy" src="assets/images/legacy_towing_setup.jpg"/><figcaption>초기 견인 구조 구성 기록</figcaption></figure></div><details class="v8-extra"><summary>기존 리프트 구동 시연 영상 보기</summary><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/legacy_lift.mp4" type="video/mp4"/></video><p>기존 사이트의 리프트 구동 기록 — 약 1kg 하중 시험 영상과 별도 자료</p></div></details></section></article>
+</div>
+</section>
+<section id="skills">
+<div class="section-title">
+<h2 data-lang="kr">Technical Summary</h2>
+<h2 data-lang="en" hidden="">Technical Summary</h2>
+<div class="hint"></div>
+</div>
+<div class="skills"><div class="card primary-skill">
+<h2>Electrical / Hardware</h2>
+<ul class="muted" data-lang="kr" style="margin:0; padding-left:18px; font-size:14px;">
+<li>AC/DC 전력 분리 및 전장 구성 경험</li>
+<li>부하 전류·전원 용량 분석 및 재설계 경험</li>
+<li>KiCad 기반 AC/DC 회로 설계 문서화</li>
+<li>배선, 전원, 센서, 구동부 기반 하드웨어 디버깅 경험</li>
+</ul>
+<ul class="muted" data-lang="en" hidden="" style="margin:0; padding-left:18px; font-size:14px;">
+<li>AC/DC power separation and electrical integration experience</li>
+<li>Load current and power capacity analysis with redesign experience</li>
+<li>AC/DC circuit documentation using KiCad</li>
+<li>Hardware debugging based on wiring, power, sensors, and drive units</li>
+</ul>
+</div>
+<div class="card">
+<h2>Control / Firmware</h2>
+<ul class="muted" data-lang="kr" style="margin:0; padding-left:18px; font-size:14px;">
+<li>STM32 기반 제어 로직 구현</li>
+<li>Timer, PWM, Interrupt 기반 구동 제어 구조</li>
+<li>Encoder 속도 측정 및 모터 상태 확인</li>
+<li>PID 제어 구현 및 실제 모터 테스트 경험</li>
+</ul>
+<ul class="muted" data-lang="en" hidden="" style="margin:0; padding-left:18px; font-size:14px;">
+<li>STM32-based control logic implementation</li>
+<li>Timer/PWM/Interrupt-driven drive control architecture</li>
+<li>Encoder-based speed measurement and motor state checking</li>
+<li>PID control implementation and real motor testing experience</li>
+</ul>
+</div>
+<div class="card">
+<h2>Mechanical / Prototyping</h2>
+<ul class="muted" data-lang="kr" style="margin:0; padding-left:18px; font-size:14px;">
+<li>Fusion 360 기반 로봇 기구 설계</li>
+<li>프레임, 리프트, 견인부 구조 설계</li>
+<li>3D 프린팅 부품 제작 및 시스템 조립</li>
+<li>반복 부하 테스트 기반 구조 보강 및 개선</li>
+</ul>
+<ul class="muted" data-lang="en" hidden="" style="margin:0; padding-left:18px; font-size:14px;">
+<li>Robot mechanical design using Fusion 360</li>
+<li>Frame, lift, and towing mechanism design</li>
+<li>3D-printed part fabrication and system assembly</li>
+<li>Structural reinforcement and improvement through repeated load testing</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="certificates">
+<div class="section-title">
+<h2 data-lang="kr">Certificates</h2>
+<h2 data-lang="en" hidden="">Certificates</h2>
+<div class="hint">
+<span data-lang="kr">상장 3 · 특허 1 (클릭하면 원본)</span>
+<span data-lang="en" hidden="">3 awards · 1 patent (click to open original)</span>
+</div>
+</div>
+<div class="card">
+<p class="muted" style="margin:0;">
+<span data-lang="kr">증빙 자료는 클릭 시 원본 이미지로 열립니다.</span>
+<span data-lang="en" hidden="">Click each item to open the original image.</span>
+</p>
+<div class="cert-grid">
+</div>
+<p class="small" style="margin-top:10px;">
+<span data-lang="kr"></span>
+<span data-lang="en" hidden="">※ If filenames change, update the link and image paths accordingly.</span>
+</p>
+</div>
+</section>
+<section id="contact">
+<div class="section-title">
+<h2 data-lang="kr">Contact</h2>
+<h2 data-lang="en" hidden="">Contact</h2>
+<div class="hint"></div>
+</div>
+<div class="card">
+<p style="margin:0 0 6px;">
+<b data-lang="kr">Email</b><b data-lang="en" hidden="">Email</b>
+<span class="muted">: ansdudals61@naver.com</span>
+</p>
+</div>
+</section>
+<footer>
+<div>
         © <span id="y"></span>
-        <span data-lang="kr">문영민</span><span data-lang="en" hidden>Youngmin Moon</span>.
+<span data-lang="kr">문영민</span><span data-lang="en" hidden="">Youngmin Moon</span>.
         Hosted on GitHub Pages.
       </div>
-
-      <div class="small" style="margin-top:6px;">Custom domain: youngmin-moon.com</div>
-    </footer>
-  </div>
-
-  <script>
+<div class="small" style="margin-top:6px;">Custom domain: youngmin-moon.com</div>
+</footer>
+</div>
+<script>
     document.getElementById('y').textContent = new Date().getFullYear();
 
     const langBtn = document.getElementById('langBtn');
