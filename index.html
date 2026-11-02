@@ -767,6 +767,11 @@ body{background:#f8faf7!important;color:#23382c!important}
 .compact-facts li strong{display:block;white-space:nowrap}
 .compact-facts li .fact-value{min-width:0;overflow-wrap:break-word}
 @media(max-width:520px){.compact-facts li{grid-template-columns:62px minmax(0,1fr);column-gap:8px}}
+</style><style>
+/* Focused power case: one result-led narrative and one validation note. */
+.power-case-rows{margin-top:20px}.power-case .row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:12px;align-items:start;background:#fff;border-color:#dce7df;line-height:1.8;font-size:13px}.power-case .row>b{color:#286c4b}
+.power-path-comparison{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}.power-path-panel{margin:0;padding:18px;border:1px solid #dce5df;border-radius:12px;background:#fbfcfa}.power-path-panel h5{font-size:14px;margin:0 0 16px;color:#304b3a}.power-path-after{background:#edf5ef;border-color:#bcd4c4}.power-path-source,.power-path-node{text-align:center;padding:12px 10px;border:1px solid #d8e4dc;background:white;border-radius:9px;font-size:12px;line-height:1.7;color:#314d3d}.power-path-source{font-weight:800}.power-path-arrow{text-align:center;color:#52826a;padding:4px}.power-path-branches{display:grid;grid-template-columns:1fr 1fr;gap:9px}.power-validation-note{margin:18px 0 24px;padding:18px 21px;background:#f7f9f7;border:1px solid #dde7df;border-radius:12px}.power-validation-note h4{margin:0 0 12px;font-size:15px;color:#2e5c43}.power-validation-note p{font-size:12px;line-height:1.85;color:#52675a;margin:9px 0}.power-validation-note strong{color:#365944}
+@media(max-width:680px){.power-path-comparison{grid-template-columns:1fr}.power-case .row{grid-template-columns:1fr;gap:3px}.power-validation-note{padding:16px}.power-path-panel{padding:15px}}
 </style></head>
 <body>
 <div class="wrap">
@@ -831,60 +836,43 @@ body{background:#f8faf7!important;color:#23382c!important}
 </div>
 <div class="context-boundary" data-lang="kr"><strong>역할 구분</strong> · 영상 인식과 스텝모터 드라이버 설정은 다른 팀원 담당. 각 장치의 전원 요구사항에 맞춰 배선을 구성함.</div>
 <div class="context-boundary" data-lang="en" hidden=""><strong>Responsibility boundary</strong> · Teammates handled computer vision and stepper drive/driver settings. I integrated supply paths based on their power requirements.</div>
-</div><div class="featured-intro"><div class="featured-kicker">FEATURED ENGINEERING CASE</div><div data-lang="kr"><h4>DC-DC 컨버터 파손 후 전원 분배 방식 변경</h4><p>처음에는 컨베이어 DC 모터와 다른 12V 장치에 같은 컨버터를 사용함. 구동 중 컨버터가 파손돼 가변 전원공급장치와 멀티미터로 부하 상태를 확인하고 전원 연결 방식을 재검토. 이후 모터별로 컨버터를 분리하고 다른 장치의 전원 연결도 조정.</p></div><div data-lang="en" hidden=""><h4>Dedicated power paths for DC motor loads</h4><p>Initially, DC motors shared a 12V DC-DC converter with other loads. After converter failure, I reviewed load allocation, assigned dedicated 12V conversion paths to the motors, and redistributed other loads.</p></div><div class="spec-row"><span>24V / 14.6A <small>SMPS</small></span><span>12V <small>DC MOTOR PATHS</small></span><span>5V <small>CONTROL RAIL</small></span></div><p class="evidence-note" data-lang="kr">사전 시험: 데이터시트가 없는 연구실 보유 컨베이어 모터를 가변 DC 파워서플라이로 구동해 전류·전압 확인. 컨버터 파손 후 기동·부하 변화에 따른 순간 전류와 전원 공유 조건을 재검토.</p><p class="evidence-note" data-lang="en" hidden="">The conveyor motor was reused from the lab without a verified datasheet. Bench testing with an adjustable DC supply informed initial load estimates, but transient demand during abrupt starts or load changes was not sufficiently accounted for. The converter later failed while supplying shared loads; dedicated motor supply paths were introduced.</p></div>
-<div class="problem">
-<h4 data-lang="kr">문제 해결 01 · DC 모터 전원 분리</h4>
-<h4 data-lang="en" hidden="">Power case — Dedicated DC motor supply paths</h4>
-<div class="rows">
-<div class="row">
-<b data-lang="kr">상황</b><b data-lang="en" hidden="">Situation</b>
-<span data-lang="kr">연구실 보유 컨베이어 모터의 데이터시트 확인 불가. 사전 단독 구동 시험을 거쳐 전원을 구성했으나, 다른 12V 부하와 전원을 공유하던 컨버터가 구동 중 파손.</span>
-<span data-lang="en" hidden="">The lab-owned conveyor motor lacked a verified datasheet. Initial load estimates were based on adjustable DC power supply tests; a shared-load converter subsequently failed.</span>
+</div><div class="featured-intro power-case" id="power-case">
+<div class="featured-kicker">FEATURED ENGINEERING CASE</div>
+<h4 data-lang="kr">DC 모터 전원 경로 분리와 장비 재검증</h4>
+<h4 data-lang="en" hidden="">Dedicated motor power paths and system retesting</h4>
+<div class="spec-row"><span>24V / 14.6A <small>SMPS</small></span><span>12V <small>DC MOTOR PATHS</small></span><span>5V <small>CONTROL RAIL</small></span></div>
+<div class="rows power-case-rows">
+<div class="row"><b data-lang="kr">상황</b><b data-lang="en" hidden="">Situation</b>
+<span data-lang="kr">데이터시트가 없는 연구실 보유 모터를 가변 DC 파워서플라이로 사전 구동해 전류·전압을 확인했으나, 다른 12V 부하와 전원을 공유하던 DC-DC 컨버터가 장비 구동 중 파손.</span>
+<span data-lang="en" hidden="">A lab motor without a verified datasheet was bench-tested with an adjustable DC supply. During system operation, the DC-DC converter shared by the motor and other 12V loads failed.</span></div>
+<div class="row"><b data-lang="kr">판단</b><b data-lang="en" hidden="">Decision</b>
+<span data-lang="kr">단독 구동 시험만으로 기동·부하 변화 조건을 충분히 검토하지 못했다고 판단. 모터와 기타 부하가 공유하던 전원 경로를 분리하는 방향으로 구성 변경.</span>
+<span data-lang="en" hidden="">Individual-load tests did not adequately cover startup and changing-load conditions. I revised the configuration to separate motor supply paths from other loads.</span></div>
+<div class="row"><b data-lang="kr">변경</b><b data-lang="en" hidden="">Revision</b>
+<span data-lang="kr">컨베이어 등 DC 모터별 DC-DC 컨버터를 분리하고, 다른 12V 장치의 전원 경로를 재배치.</span>
+<span data-lang="en" hidden="">Assigned separate DC-DC converters to DC motors and redistributed the supply paths of other 12V devices.</span></div>
+<div class="row"><b data-lang="kr">결과</b><b data-lang="en" hidden="">Result</b>
+<span data-lang="kr">변경된 전원 구성으로 전체 장비를 재시험하고 구동 동작을 확인.</span>
+<span data-lang="en" hidden="">Retested the assembled equipment with the revised power distribution and confirmed operation.</span></div>
 </div>
-<div class="row">
-<b data-lang="kr">판단</b><b data-lang="en" hidden="">Decision</b>
-<span data-lang="kr">가변 DC 파워서플라이로 사전 전류·전압을 확인했지만, 갑작스러운 기동·부하 변화에서 발생할 수 있는 순간 전류 상승을 충분히 반영하지 못한 점을 재검토. 파손의 단일 원인은 미확정.</span>
-<span data-lang="en" hidden="">Pre-build tests did not adequately account for abrupt start/load-change transients. The exact converter failure mechanism was not established.</span>
+<div class="power-path-comparison" aria-label="전원 경로 변경 전후 비교 / Power paths before and after">
+<section class="power-path-panel"><h5><span data-lang="kr">변경 전 · 전원 경로 공유</span><span data-lang="en" hidden="">Before · Shared supply path</span></h5>
+<div class="power-path-source">24V SMPS</div><div class="power-path-arrow" aria-hidden="true">↓</div>
+<div class="power-path-node"><span data-lang="kr">공유 DC-DC 컨버터 · 12V</span><span data-lang="en" hidden="">Shared 12V DC-DC converter</span></div><div class="power-path-arrow" aria-hidden="true">↓</div>
+<div class="power-path-node"><span data-lang="kr">컨베이어 DC 모터 + 기타 12V 부하</span><span data-lang="en" hidden="">Conveyor DC motor + other 12V loads</span></div></section>
+<section class="power-path-panel power-path-after"><h5><span data-lang="kr">변경 후 · 모터별 전원 경로 분리</span><span data-lang="en" hidden="">After · Separate motor supply paths</span></h5>
+<div class="power-path-source">24V SMPS</div><div class="power-path-arrow" aria-hidden="true">↓</div>
+<div class="power-path-branches"><div class="power-path-node"><span data-lang="kr">모터별 DC-DC<br/>↓<br/>각 DC 모터</span><span data-lang="en" hidden="">Dedicated DC-DC paths<br/>↓<br/>Individual DC motors</span></div><div class="power-path-node"><span data-lang="kr">별도 12V 경로<br/>↓<br/>기타 12V 부하</span><span data-lang="en" hidden="">Separate 12V paths<br/>↓<br/>Other 12V loads</span></div></div></section>
 </div>
-<div class="row">
-<b data-lang="kr">해결</b><b data-lang="en" hidden="">Solution</b>
-<span data-lang="kr">컨베이어 등 DC 모터별 DC-DC 컨버터 분리, 다른 12V 부하 전원 경로 재배치.</span>
-<span data-lang="en" hidden="">Separated DC-DC supply paths for motors and redistributed other 12 V loads.</span>
+<p class="evidence-note" data-lang="kr">변경한 12V 전원 경로를 요약한 개념도. 전체 배선·연결 구성은 아래 KiCad 도면 참고.</p>
+<p class="evidence-note" data-lang="en" hidden="">Conceptual summary of the revised 12V paths. See the KiCad drawings below for the documented wiring configuration.</p>
 </div>
-<div class="row">
-<b data-lang="kr">결과</b><b data-lang="en" hidden="">Result</b>
-<span data-lang="kr">전원 구성 변경 후 전체 장비 재시험 및 동작 확인. 당시 순간 전류·파손 파형은 미기록.</span>
-<span data-lang="en" hidden="">Retested the assembled system after changing power distribution; no transient waveform was recorded.</span>
-</div>
-</div>
-</div><div class="design-reasoning">
-<div class="design-tag">ENGINEERING DECISION · 원인 분석과 설계 판단</div>
-<h4 data-lang="kr">왜 컨버터를 따로 나눴을까?</h4><h4 data-lang="en" hidden="">Why separate the converters?</h4>
-<div class="reasoning-grid">
-<div><div class="reason-label">01 · 확인한 사실</div><p data-lang="kr">연구실 보유 모터의 데이터시트 부재 → 가변 DC 파워서플라이로 사전 구동 시험 및 전류·전압 확인.</p><p data-lang="en" hidden="">The lab motor lacked a verified datasheet; its load was estimated through adjustable DC supply tests before integration.</p></div>
-<div><div class="reason-label">02 · 계측 결과와 원인 분석</div><p data-lang="kr">사전 시험으로 일반 구동 조건을 파악했지만 갑작스러운 기동·부하 변화의 순간 전류를 충분히 반영하지 못함.</p><p data-lang="en" hidden="">Those tests did not adequately cover abrupt start and load-change transients.</p></div>
-<div><div class="reason-label">03 · 설계 변경</div><p data-lang="kr">컨버터 파손 이후 모터별 전원 경로 분리 및 다른 12V 부하 재배치.</p><p data-lang="en" hidden="">Dedicated 12V converters were assigned to DC motors, with other 12V loads moved to separate paths to reduce shared-load interactions.</p></div>
-</div>
-<div class="reason-caution" data-lang="kr">사전 시험은 진행했으나 순간 부하 조건까지 검증하지 못함. 파손 원인은 단정하지 않음.</div>
-<div class="reason-caution" data-lang="en" hidden=""><strong>Evidence limit:</strong> Startup current and voltage sag were not directly recorded, so overcurrent is not presented as the proven sole failure mechanism.</div>
-</div><div class="engineering-review">
-<div class="review-head"><span class="review-eyebrow">ENGINEERING REVIEW / 01</span>
-<h4 data-lang="kr">당시 조치와 추가로 확인할 항목</h4>
-<h4 data-lang="en" hidden="">Original engineering decisions and what I would improve</h4>
-<p data-lang="kr">실제로 수정한 내용과, 다시 시험한다면 확인할 항목을 나누어 정리.</p>
-<p data-lang="en" hidden="">Implemented work and proposed improvements are separated. The improvements below were not performed during the original project.</p></div>
-<div class="review-grid">
-<section class="review-col"><div class="review-label">IMPLEMENTED · 당시 수행</div>
-<h5 data-lang="kr">DC 모터 전원을 따로 분리</h5><h5 data-lang="en" hidden="">Reallocated power paths</h5>
-<p data-lang="kr">데이터시트 없는 컨베이어 모터의 사전 구동 시험 → 전원 구성 → 컨버터 파손 후 모터별 전원 분리·재시험.</p>
-<p data-lang="en" hidden="">After a converter failed in a shared 12V load configuration, I assigned dedicated DC-DC paths to DC motors, redistributed other loads, and retested the system.</p></section>
-<section class="review-col review-future"><div class="review-label">NEXT DESIGN · 추가한다면</div>
-<h5 data-lang="kr">전류·전압 변화 기록과 용량 검증 강화</h5><h5 data-lang="en" hidden="">Measured sizing and protection verification</h5>
-<p data-lang="kr">다시 시험한다면 모터 기동 전류와 12V 출력 전압의 변화를 파형으로 기록 필요. 모든 장치를 동시에 구동했을 때 컨버터의 전류·발열 여유와 보호 기능도 확인 예정.</p>
-<p data-lang="en" hidden="">I would measure startup/steady-state current and voltage sag, verify peak-load and thermal margins and protection behavior, and document load budgets and repeatable test conditions.</p></section>
-</div>
-<div class="review-foot" data-lang="kr">※ 모터 시험의 세부 계측값 미보존. KiCad 도면은 제작 후 전원 구성 문서화 자료.</div>
-<div class="review-foot" data-lang="en" hidden=""><strong>Evidence limits</strong> · KiCad shows the retrospectively documented final configuration. Any peak-current figure in the retrospective drawing is not presented as a measured result. Stepper driver selection/configuration was handled by a teammate.</div>
+<div class="power-validation-note">
+<h4 data-lang="kr">검증 범위와 다음 설계에서 확인할 항목</h4><h4 data-lang="en" hidden="">Validation scope and next design checks</h4>
+<p data-lang="kr"><strong>검증 범위</strong> · 당시 시험의 세부 계측값과 기동 전류·출력 전압 파형은 남아 있지 않아 파손 원인을 단일 요인으로 확정하지 않음. 아래 KiCad 도면은 제작 후 실제 전원·배선 구성을 정리한 자료로, PCB 설계나 도면상 피크 전류의 실측 증빙이 아님.</p>
+<p data-lang="en" hidden=""><strong>Validation scope</strong> · Detailed readings and startup-current/output-voltage waveforms were not retained; the failure is not attributed to a proven single cause. The KiCad drawings document the final wiring retrospectively, rather than PCB design or measured peak-current results.</p>
+<p data-lang="kr"><strong>추가 검증 계획</strong> · 기동·정상 구동 전류와 12V 출력 전압 변화를 기록하고, 동시 부하에서 컨버터 용량·발열 여유 및 보호 동작 확인. 당시 수행 결과와 구분한 향후 검증 항목.</p>
+<p data-lang="en" hidden=""><strong>Proposed next checks</strong> · Record startup/steady-state current and 12V output-voltage changes; verify converter capacity, thermal margin and protection under simultaneous loads. These checks are proposed work, not historical results.</p>
 </div>
 <div class="problem">
 <h4 data-lang="kr">문제 해결 02 · 엔코더 신호 이상과 PID 적용 제한</h4>
@@ -916,8 +904,8 @@ body{background:#f8faf7!important;color:#23382c!important}
 <h4 data-lang="kr">Evidence</h4>
 <h4 data-lang="en" hidden="">Evidence</h4>
 <div class="hint">
-<span data-lang="kr">회로도 2 · PID 코드 1 · 사진 1 · 영상 3</span>
-<span data-lang="en" hidden="">2 circuit diagrams · 1 PID code link · 1 photo · 3 videos</span>
+<span data-lang="kr">전원 구성도 · 제작 사진 · 시험 영상 · PID 코드</span>
+<span data-lang="en" hidden="">Power diagrams · Build photos · Test videos · PID code</span>
 </div>
 </div>
 <!-- 회로도 이미지를 바로 표시 / 클릭 시 원본 PDF 열기 -->
@@ -931,13 +919,13 @@ body{background:#f8faf7!important;color:#23382c!important}
 </div>
 <div class="evidence featured-media">
 </div>
-<h4 class="v7-media-heading">실제 제작·계측·세척 시험 자료</h4><p class="image-zoom-hint">사진과 도면은 클릭하면 크게 볼 수 있음.</p><div class="v7-gallery"><figure class="v7-figure"><img alt="Fusion 360 전체 장비 배치 모델" loading="lazy" src="assets/images/recycling_model.png"/><figcaption>Fusion 360 전체 장비 배치 모델</figcaption></figure><figure class="v7-figure"><img alt="DC-DC 모듈을 만능기판에 배치한 전원 분배 구성" loading="lazy" src="assets/images/power_board.jpg"/><figcaption>DC-DC 모듈을 만능기판에 배치한 전원 분배 구성</figcaption></figure><figure class="v7-figure"><img alt="전원 박스 제작·조립" loading="lazy" src="assets/images/power_box.jpg"/><figcaption>전원 박스 제작·조립</figcaption></figure><figure class="v7-figure"><img alt="장비 내부 전원·신호 배선 통합" loading="lazy" src="assets/images/power_wiring.jpeg"/><figcaption>장비 내부 전원·신호 배선 통합</figcaption></figure><figure class="v7-figure"><img alt="초음파 발생기·드라이버 및 냉각 박스" loading="lazy" src="assets/images/ultra_box.jpg"/><figcaption>초음파 발생기·드라이버 및 냉각 박스</figcaption></figure></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/motor.mp4" type="video/mp4"/></video><p>실제 컨베이어 모터의 전원·구동 시험 기록</p></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/cleaning.mp4" type="video/mp4"/></video><p>초음파 세척 구동 및 세척 결과 (실제 가동 약 2분 · 영상 약 5배속)</p><p class="media-test-note">실제 세척 약 2분, 영상 약 5배속 편집.</p></div><section class="legacy-evidence"><h4 class="v7-media-heading">전원 분배·릴레이 구성도</h4><p>프로젝트 종료 후 실제 배선과 시판 DC-DC 모듈·릴레이 연결을 정리한 KiCad 도면. PCB 설계 자료 아님.</p><div class="v7-gallery"><figure class="v7-figure"><img alt="DC 전원 분배 구성도" loading="lazy" src="assets/images/power_arch_dc.png"/><figcaption>제작 후 문서화한 24V→12V/5V 전원 분배 구성도</figcaption></figure><figure class="v7-figure"><img alt="AC 전원 및 릴레이 연동 구성도" loading="lazy" src="assets/images/power_arch_ac.png"/><figcaption>제작 후 문서화한 AC 전원·릴레이 연동 구성도</figcaption></figure><figure class="v7-figure"><img alt="릴레이 모듈 제작 구성" loading="lazy" src="assets/images/relay_modules.jpg"/><figcaption>릴레이 모듈 구성 및 배선 제작 기록</figcaption></figure></div><h4 class="v7-media-heading">장비 작동 및 별도 모터 제어 실험</h4><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/classification.mp4" type="video/mp4"/></video><p>스마트 분리수거 장치 분류 동작 시연 (팀 프로젝트)</p></div><details class="v8-extra"><summary>별도 STM32 모터 PID 실험 영상 2개 보기</summary><p>STM32와 별도 엔코더 모터를 활용한 PID 제어 실험. 실제 컨베이어는 엔코더 신호 이상으로 PID 피드백 제어를 적용하지 못하고 PWM·시간 기반으로 운용.</p><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/pid_bench_100rpm.mp4" type="video/mp4"/></video><p>STM32 모터 PID 제어 실험 (목표 100 rpm)</p></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/pid_bench_real.mp4" type="video/mp4"/></video><p>STM32 엔코더 모터 제어 실험</p></div></details></section>
+<h4 class="v7-media-heading">실제 제작·계측·세척 시험 자료</h4><p class="image-zoom-hint">사진과 도면은 클릭하면 크게 볼 수 있음.</p><div class="v7-gallery"><figure class="v7-figure"><img alt="Fusion 360 전체 장비 배치 모델" loading="lazy" src="assets/images/recycling_model.png"/><figcaption>Fusion 360 전체 장비 배치 모델</figcaption></figure><figure class="v7-figure"><img alt="DC-DC 모듈을 만능기판에 배치한 전원 분배 구성" loading="lazy" src="assets/images/power_board.jpg"/><figcaption>DC-DC 모듈을 만능기판에 배치한 전원 분배 구성</figcaption></figure><figure class="v7-figure"><img alt="전원 박스 제작·조립" loading="lazy" src="assets/images/power_box.jpg"/><figcaption>전원 박스 제작·조립</figcaption></figure><figure class="v7-figure"><img alt="장비 내부 전원·신호 배선 통합" loading="lazy" src="assets/images/power_wiring.jpeg"/><figcaption>장비 내부 전원·신호 배선 통합</figcaption></figure><figure class="v7-figure"><img alt="초음파 발생기·드라이버 및 냉각 박스" loading="lazy" src="assets/images/ultra_box.jpg"/><figcaption>초음파 발생기·드라이버 및 냉각 박스</figcaption></figure></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/motor.mp4" type="video/mp4"/></video><p>실제 컨베이어 모터의 전원·구동 시험 기록</p></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/cleaning.mp4" type="video/mp4"/></video><p>초음파 세척 구동 및 세척 결과 (실제 가동 약 2분 · 영상 약 5배속)</p><p class="media-test-note">실제 세척 약 2분, 영상 약 5배속 편집.</p></div><section class="legacy-evidence"><h4 class="v7-media-heading">전원 분배·릴레이 구성도</h4><p>시판 DC-DC 모듈·릴레이와 장치 간 실제 연결을 정리한 전원·배선 구성도.</p><div class="v7-gallery"><figure class="v7-figure"><img alt="DC 전원 분배 구성도" loading="lazy" src="assets/images/power_arch_dc.png"/><figcaption>제작 후 문서화한 24V→12V/5V 전원 분배 구성도</figcaption></figure><figure class="v7-figure"><img alt="AC 전원 및 릴레이 연동 구성도" loading="lazy" src="assets/images/power_arch_ac.png"/><figcaption>제작 후 문서화한 AC 전원·릴레이 연동 구성도</figcaption></figure><figure class="v7-figure"><img alt="릴레이 모듈 제작 구성" loading="lazy" src="assets/images/relay_modules.jpg"/><figcaption>릴레이 모듈 구성 및 배선 제작 기록</figcaption></figure></div><h4 class="v7-media-heading">장비 작동 및 별도 모터 제어 실험</h4><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/classification.mp4" type="video/mp4"/></video><p>스마트 분리수거 장치 분류 동작 시연 (팀 프로젝트)</p></div><details class="v8-extra"><summary>별도 STM32 모터 PID 실험 영상 2개 보기</summary><p>STM32와 별도 엔코더 모터를 활용한 PID 제어 실험. 실제 컨베이어는 엔코더 신호 이상으로 PID 피드백 제어를 적용하지 못하고 PWM·시간 기반으로 운용.</p><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/pid_bench_100rpm.mp4" type="video/mp4"/></video><p>STM32 모터 PID 제어 실험 (목표 100 rpm)</p></div><div class="v7-video"><video controls="" playsinline="" preload="metadata"><source src="assets/videos/pid_bench_real.mp4" type="video/mp4"/></video><p>STM32 엔코더 모터 제어 실험</p></div></details></section>
 <div aria-label="전장 설계 및 시스템 통합 추가 사례" class="v9-additional">
 <h4 class="v7-media-heading">직접 수행한 전장·시스템 통합 작업</h4>
 <div class="grid2">
 <div class="kv"><h3>초음파 세척 장치 구성·시험</h3><ul class="compact-facts"><li><strong>구성  </strong><span class="fact-value">진동자 50W 표기(플라스틱 2개, 캔 1개, 유리 1개)<br/>드라이버 120W 표기</span></li><li><strong>담당  </strong><span class="fact-value">부품 선정, 세척조·배선, 릴레이 구동 코드, 세척 시험</span></li><li><strong>확인  </strong><span class="fact-value">커피 찌꺼기 제거 관찰 · 소음 및 고착 기름때 세척 한계</span></li></ul></div>
 <div class="kv"><h3>프레임·전장 박스 설계</h3><ul class="compact-facts"><li><strong>프레임  </strong><span class="fact-value">컨베이어·쓰레기통 실측 기준 4040 프로파일 설계·조립</span></li><li><strong>전장 박스  </strong><span class="fact-value">배선 점검용 서랍 구조, 냉각팬 포함 드라이버·릴레이 박스</span></li><li><strong>현장 수정  </strong><span class="fact-value">직교좌표 로봇 실물 치수에 맞춰 설치 브라켓 추가</span></li></ul></div>
-</div><p class="small">담당 구분 · 영상 인식, 직교좌표 로봇 제어, STM32–Raspberry Pi 통신: 팀원 / KiCad: 제작 후 배선 구성 문서화</p>
+</div><p class="small">담당 구분 · 영상 인식, 직교좌표 로봇 제어, STM32–Raspberry Pi 통신: 팀원</p>
 </div><section aria-label="사용자 UI 및 장비 모니터링" class="ui-evidence">
 <h4 class="v7-media-heading" data-lang="kr">사용자 UI 및 장비 모니터링</h4>
 <h4 class="v7-media-heading" data-lang="en" hidden="">Touch UI and Equipment Monitoring</h4>
@@ -999,14 +987,14 @@ body{background:#f8faf7!important;color:#23382c!important}
 <p class="proj-sub" data-lang="en" hidden="">Mechanical design, fabrication and limited functional tests of a towing AMR prototype; drive firmware was handled by a teammate.</p>
 </div>
 <div class="small" data-lang="kr">담당 업무 · Fusion 360 기구 설계, 프로파일 프레임 조립, 3D 프린팅, 리프트 및 초기 견인부 제작·시험</div>
-<div class="small" data-lang="en" hidden="">Role: Full hardware/mechanical design and fabrication, electrical integration, motor and linear actuator control implementation.</div>
+<div class="small" data-lang="en" hidden="">Role: Fusion 360 mechanical design, profile-frame assembly, 3D-printed fabrication, and individual lift/rear-mechanism tests. Drive control code was implemented by a teammate.</div>
 </div><div class="amr-context">
 <div class="design-tag">PROJECT CONTEXT / 프로젝트 소개</div>
 <h4 data-lang="kr">고장 난 로봇을 옮기기 위한 견인형 AMR</h4><h4 data-lang="en" hidden="">A mobile robot designed to lift and tow a disabled robot</h4>
 <p data-lang="kr">고장 로봇 견인용 AMR 시제품. Fusion 360 기반 프레임·외장·부품 배치 설계, 2020 프로파일·3D 프린팅 부품 제작. 리프트 약 1kg 하중 상승·하강 시험, 초기 후방 견인부 개별 구동 확인. 이후 구조 개선은 후임자 담당.</p>
-<p data-lang="en" hidden="">Built a prototype with a lift and rear towing structure to move a disabled mobile robot. The challenge was mechanical stability, packaging, and interference-free motion under load.</p>
+<p data-lang="en" hidden="">Built a towing AMR prototype with a profile frame and 3D-printed parts. Tested the lift with an approximately 1 kg load and checked the initial rear mechanism separately. Subsequent structural improvements were handled by a successor.</p>
 <div class="amr-roles">
-<div><strong data-lang="kr">내가 담당한 작업</strong><strong data-lang="en" hidden="">My contribution</strong><p data-lang="kr">Fusion 360 전체 기구·외장·부품 배치 설계, 프로파일 프레임 및 3D 프린팅 제작·조립, 리프트와 초기 후방 견인부 제작·개별 동작 시험 (주행 제어 코드는 팀원 담당)</p><p data-lang="en" hidden="">Mechanical architecture, lift and rear towing structure, internal component/wiring space, 3D printing, assembly and repeated tests</p></div>
+<div><strong data-lang="kr">내가 담당한 작업</strong><strong data-lang="en" hidden="">My contribution</strong><p data-lang="kr">Fusion 360 전체 기구·외장·부품 배치 설계, 프로파일 프레임 및 3D 프린팅 제작·조립, 리프트와 초기 후방 견인부 제작·개별 동작 시험 (주행 제어 코드는 팀원 담당)</p><p data-lang="en" hidden="">Fusion 360 mechanical and enclosure design, component layout, profile-frame assembly, 3D printing, and individual lift/rear-mechanism tests. Drive control code was handled by a teammate.</p></div>
 <div><strong data-lang="kr">주요 설계 조건</strong><strong data-lang="en" hidden="">Key constraints</strong><p data-lang="kr">무게중심과 바퀴 접지, 리프트 걸림, PLA 부품 변형, 내부 부품 간 간섭</p><p data-lang="en" hidden="">Center of gravity during towing, lift movement, printed fastener deformation, and internal clearance</p></div>
 </div>
 </div>
@@ -1097,8 +1085,8 @@ body{background:#f8faf7!important;color:#23382c!important}
 </ul>
 <ul class="muted" data-lang="en" hidden="" style="margin:0; padding-left:18px; font-size:14px;">
 <li>AC/DC power separation and electrical integration experience</li>
-<li>Load current and power capacity analysis with redesign experience</li>
-<li>AC/DC circuit documentation using KiCad</li>
+<li>Load-current checks and power-distribution reconfiguration</li>
+<li>Power and wiring configuration documentation using KiCad</li>
 <li>Hardware debugging based on wiring, power, sensors, and drive units</li>
 </ul>
 </div>
@@ -1114,7 +1102,7 @@ body{background:#f8faf7!important;color:#23382c!important}
 <li>STM32-based control logic implementation</li>
 <li>Timer/PWM/Interrupt-driven drive control architecture</li>
 <li>Encoder-based speed measurement and motor state checking</li>
-<li>PID control implementation and real motor testing experience</li>
+<li>PID experiments on a separate encoder motor</li>
 </ul>
 </div>
 <div class="card">
@@ -1129,7 +1117,7 @@ body{background:#f8faf7!important;color:#23382c!important}
 <li>Robot mechanical design using Fusion 360</li>
 <li>Frame, lift, and towing mechanism design</li>
 <li>3D-printed part fabrication and system assembly</li>
-<li>Structural reinforcement and improvement through repeated load testing</li>
+<li>Lift testing and structural reinforcement</li>
 </ul>
 </div>
 </div>
@@ -1188,7 +1176,7 @@ body{background:#f8faf7!important;color:#23382c!important}
 </div>
 <p class="small" style="margin-top:10px;">
 <span data-lang="kr"></span>
-<span data-lang="en" hidden="">※ If filenames change, update the link and image paths accordingly.</span>
+<span data-lang="en" hidden=""></span>
 </p>
 </div>
 </section>
